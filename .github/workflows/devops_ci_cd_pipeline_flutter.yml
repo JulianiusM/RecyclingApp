@@ -1,0 +1,84 @@
+name: Build Flutter apps
+
+on:
+  push:
+    branches:
+      - main
+    tags:
+      - v*
+
+
+jobs:
+  build:
+    runs-on: macos-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: subosito/flutter-action@v1.5.3
+        with:
+          channel: 'stable'
+
+      - name: Install Dependencies
+        run: flutter packages get
+
+      - name: Analyze
+        run: flutter analyze lib test
+
+      - name: Run tests
+        run: flutter test --no-pub --coverage --test-randomize-ordering-seed random packages test
+
+      - name: Build Android App
+        if: startsWith(github.ref, 'refs/tags/v')
+        run: flutter build apk
+
+      - name: Build iOS App
+        if: startsWith(github.ref, 'refs/tags/v')
+        run: |
+            flutter build ios --no-codesign
+            cd build/ios/iphoneos
+            mkdir Payload
+            cd Payload
+            ln -s ../Runner.app
+            cd ..
+            zip -r app.ipa Payload
+
+      - name: Build web
+        if: startsWith(github.ref, 'refs/tags/v')
+        run: |
+          flutter build web
+          cd build/web
+          zip -r web-app.zip .
+
+      - name: Archive Production Artifact
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: actions/upload-artifact@master
+        with:
+          name: web
+          path: build/web
+
+#      - name: Release Apps
+#        if: startsWith(github.ref, 'refs/tags/v')
+#        uses: ncipollo/release-action@v1
+#        with:
+#          token: ${{ secrets.GITHUB_TOKEN }}
+#          artifacts: 'build/app/outputs/**/*.apk,build/ios/iphoneos/app.ipa,build/web/web-app.zip'
+
+  deploy:
+    if: startsWith(github.ref, 'refs/tags/v')
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Download Artifact
+        uses: actions/download-artifact@master
+        with:
+          name: web
+          path: build/web
+
+#      - name: Deploy to Firebase hosting
+#        uses: w9jds/firebase-action@master
+#        with:
+#          args: deploy --message \"${{ github.event.head_commit.message }}\" --only hosting
+#        env:
+#          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}  
