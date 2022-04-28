@@ -1,3 +1,6 @@
+#Author: Kai Oswald
+#Source: https://dev.to/kaos/complete-cicd-for-flutter-apps-42dc
+
 name: Build Flutter apps
 
 on:
