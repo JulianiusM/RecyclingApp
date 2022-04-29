@@ -85,9 +85,9 @@ jobs:
       - name: Archive Production Artifact
         if: startsWith(github.ref, 'refs/tags/v')
         uses: actions/upload-artifact@master
-          with:
-            name: web
-            path: build/web
+        with:
+          name: web
+          path: build/web
 
   #      - name: Release Apps
   #        if: startsWith(github.ref, 'refs/tags/v')
