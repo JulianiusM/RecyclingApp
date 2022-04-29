@@ -42,7 +42,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - uses: subosito/flutter-action@v1.5.3
+      - name: Get Flutter
+        uses: subosito/flutter-action@v1.5.3
         with:
           channel: 'stable'
 
@@ -54,7 +55,7 @@ jobs:
         if: success()
         with:
           name: android
-          path: build/app/outputs/**/
+          path: build/app/outputs/**/*.apk
 
   build_ios:
     if: startsWith(github.ref, 'refs/tags/v')
@@ -65,7 +66,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - uses: subosito/flutter-action@v1.5.3
+      - name: Get Flutter
+        uses: subosito/flutter-action@v1.5.3
         with:
           channel: 'stable'
 
@@ -84,7 +86,7 @@ jobs:
         if: success()
         with:
           name: ios
-          path: build/ios/iphoneos
+          path: build/ios/iphoneos/app.ipa
 
   build_web:
     if: startsWith(github.ref, 'refs/tags/v')
@@ -95,7 +97,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - uses: subosito/flutter-action@v1.5.3
+      - name: Get Flutter
+        uses: subosito/flutter-action@v1.5.3
         with:
           channel: 'stable'
 
@@ -110,7 +113,7 @@ jobs:
         if: success()
         with:
           name: web
-          path: build/web
+          path: build/web/web-app.zip
 
   release:
     if: startsWith(github.ref, 'refs/tags/v')
@@ -124,10 +127,6 @@ jobs:
         uses: actions/download-artifact@master
         with:
           path: build/
-
-      - name: Display structure of downloaded files
-        run: ls -R
-        working-directory: build
 
       - name: Release Apps
         uses: ncipollo/release-action@v1
