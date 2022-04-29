@@ -28,7 +28,7 @@ jobs:
         run: flutter analyze lib test
 
       - name: Run tests
-        run: flutter test -v --no-pub --coverage --test-randomize-ordering-seed random packages test
+        run: flutter test --no-pub --coverage --test-randomize-ordering-seed random test
 
   build_android:
     runs-on: ubuntu-latest
