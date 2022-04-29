@@ -16,8 +16,11 @@ jobs:
     runs-on: macos-latest
 
     steps:
-      - uses: actions/checkout@v2
-      - uses: subosito/flutter-action@v1.5.3
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Get Flutter
+        uses: subosito/flutter-action@v1.5.3
         with:
           channel: 'stable'
 
@@ -36,7 +39,9 @@ jobs:
     needs: test
 
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v2
+
       - uses: subosito/flutter-action@v1.5.3
         with:
           channel: 'stable'
@@ -44,11 +49,12 @@ jobs:
       - name: Build Android App
         run: flutter build apk
 
-      - name: Release Android App
-        uses: ncipollo/release-action@v1
+      - name: Archive Production Artifact
+        uses: actions/upload-artifact@master
+        if: success()
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          artifacts: 'build/app/outputs/**/*.apk'
+          name: android
+          path: build/app/outputs/**/
 
   build_ios:
     if: startsWith(github.ref, 'refs/tags/v')
@@ -56,7 +62,9 @@ jobs:
     needs: test
 
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v2
+
       - uses: subosito/flutter-action@v1.5.3
         with:
           channel: 'stable'
@@ -71,11 +79,12 @@ jobs:
           cd ..
           zip -r app.ipa Payload
 
-      - name: Release iOS App
-        uses: ncipollo/release-action@v1
+      - name: Archive Production Artifact
+        uses: actions/upload-artifact@master
+        if: success()
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          artifacts: 'build/ios/iphoneos/app.ipa'
+          name: ios
+          path: build/ios/iphoneos
 
   build_web:
     if: startsWith(github.ref, 'refs/tags/v')
@@ -83,7 +92,9 @@ jobs:
     needs: test
 
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v2
+
       - uses: subosito/flutter-action@v1.5.3
         with:
           channel: 'stable'
@@ -96,22 +107,41 @@ jobs:
 
       - name: Archive Production Artifact
         uses: actions/upload-artifact@master
+        if: success()
         with:
           name: web
           path: build/web
 
-      - name: Release Web App
-        uses: ncipollo/release-action@v1
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          artifacts: 'build/web/web-app.zip'
-
-  deploy:
+  release:
     if: startsWith(github.ref, 'refs/tags/v')
     needs: [ build_android, build_ios, build_web ]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Download Artifact
+        uses: actions/download-artifact@master
+        with:
+          path: build/
+
+      - name: Display structure of downloaded files
+        run: ls -R
+        working-directory: build
+
+      - name: Release Apps
+        uses: ncipollo/release-action@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          artifacts: 'build/**/*.apk,build/**/app.ipa,build/**/web-app.zip'
+
+  deploy:
+    if: startsWith(github.ref, 'refs/tags/v') && never() # Disable deployment since no production environment is currently set up.
+    needs: [ build_android, build_ios, build_web ]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
 
       - name: Download Artifact
         uses: actions/download-artifact@master
