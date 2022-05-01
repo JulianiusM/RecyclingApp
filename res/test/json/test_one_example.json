@@ -1,0 +1,10 @@
+[
+  {
+    "generalInformation": "SingleTest",
+    "imageUrl": "res/test/img/singleTest.png",
+    "exampleData": [
+      "EX1",
+      "EX2"
+    ]
+  }
+]

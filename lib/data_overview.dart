@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:recycling/data_integration.dart';
 import 'package:recycling/recycling_data.dart';
 
 class DataOverview extends StatefulWidget {
@@ -20,26 +21,6 @@ class DataOverview extends StatefulWidget {
 }
 
 class _DataOverviewState extends State<DataOverview> {
-  Map<String, RecyclingData> dataMap = {}; //TODO: Fill Data (RAW JSON?)
-  int count = 0;
-
-  void _addData() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      dataMap.putIfAbsent(
-          "Item $count",
-          () => RecyclingData(
-              generalInformation: "Item $count",
-              imageUrl: "imageUrl",
-              exampleData: []));
-      count++;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -57,18 +38,27 @@ class _DataOverviewState extends State<DataOverview> {
       body: Center(
         // Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.
-        child: ListView.separated(
-            padding: const EdgeInsets.all(8),
-            itemBuilder: (BuildContext context, int index) {
-              return SizedBox(
-                height: 50,
-                child: Center(
-                    child: Text(dataMap["Item $index"]!.generalInformation)),
-              );
-            },
-            separatorBuilder: (BuildContext context, int index) =>
-                const Divider(),
-            itemCount: dataMap.length),
+        child: FutureBuilder(
+            future: DataIntegration.generateRecyclingData("res/json/data.json",
+                context: context),
+            builder: (BuildContext context,
+                AsyncSnapshot<List<RecyclingData>> data) {
+              if (data.hasData) {
+                return ListView.separated(
+                    padding: const EdgeInsets.all(8),
+                    itemBuilder: (BuildContext context, int index) {
+                      return SizedBox(
+                        height: 50,
+                        child: Center(
+                            child: Text(data.data![index].generalInformation)),
+                      );
+                    },
+                    separatorBuilder: (BuildContext context, int index) =>
+                        const Divider(),
+                    itemCount: data.data!.length);
+              }
+              return const Text("No Data!");
+            }),
         /*Column(
           // Column is also a layout widget. It takes a list of children and
           // arranges them vertically. By default, it sizes itself to fit its
@@ -96,11 +86,6 @@ class _DataOverviewState extends State<DataOverview> {
           ],
         ),*/
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _addData,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }

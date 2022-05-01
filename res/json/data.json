@@ -1,0 +1,18 @@
+[
+  {
+    "generalInformation": "First Item",
+    "imageUrl": "res/test/img/firstItem.png",
+    "exampleData": [
+      "Example 1",
+      "Example 2"
+    ]
+  },
+  {
+    "generalInformation": "Second Item",
+    "imageUrl": "res/test/img/doubleTest.png",
+    "exampleData": [
+      "Example 1",
+      "Example 2"
+    ]
+  }
+]

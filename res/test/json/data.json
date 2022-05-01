@@ -1,0 +1,18 @@
+[
+  {
+    "generalInformation": "SingleTest",
+    "imageUrl": "res/test/img/singleTest.png",
+    "exampleData": [
+      "EX1",
+      "EX2"
+    ]
+  },
+  {
+    "generalInformation": "DoubleTest",
+    "imageUrl": "res/test/img/doubleTest.png",
+    "exampleData": [
+      "EX1",
+      "EX2"
+    ]
+  }
+]

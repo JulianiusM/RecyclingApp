@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'data_overview.dart';
 
 class App extends StatelessWidget {
-  const App({Key? key}) : super(key: key);
+  const App({Key? key, this.home}) : super(key: key);
+
+  final DefaultAssetBundle? home;
 
   // This widget is the root of your application.
   @override
@@ -22,7 +24,7 @@ class App extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const DataOverview(title: 'Recycling App - All Data'),
+      home: home ?? const DataOverview(title: 'Recycling App - All Data'),
     );
   }
 }
