@@ -23,12 +23,99 @@
     ]
   },
   {
-    "title": "",
-    "goesTo": "",
-    "generalInformation": "",
+    "title": "Tetra Pak",
+    "goesTo": "yellow bag",
+    "generalInformation": "single-use beverage container made up of mixed materials",
     "imageUrl": "res/img/",
     "exampleData": [
-      ""
+      "milk carton",
+      "water carton"
     ]
-  }
+  },
+  {
+    "title": "polystyrene",
+    "goesTo": "yellow bag",
+    "generalInformation": "light, white plastic used especially for putting around delicate objects inside containers to protect them from damage",
+    "imageUrl": "res/img/",
+    "exampleData": [
+      "small pieces of polystyrene"
+    ]
+  },
+  {
+    "title": "unpackaged food",
+    "goesTo": "bio waste container",
+    "generalInformation": "any unpackaged food type and food remnants",
+    "imageUrl": "res/img/",
+    "exampleData": [
+      "eggshells",
+      "banana peel",
+      "broccoli stalk",
+      "bad apple"
+    ]
+  },
+  {
+    "title": "paper and cardboard",
+    "goesTo": "paper bin",
+    "generalInformation": "products of paper made up of cellulose or wooden material",
+    "imageUrl": "res/img/",
+    "exampleData": [
+      "newspaper",
+      "sheet of paper",
+      "carton box"
+    ]
+  },
+  {
+    "title": "clothes",
+    "goesTo": "old clothes container",
+    "generalInformation": "items worn to cover, protect, decorate the body",
+    "imageUrl": "res/img/",
+    "exampleData": [
+      "t-shirt",
+      "shoes"
+    ]
+  },
+  {
+    "title": "plants and garden waste",
+    "goesTo": "green waste (composting in your own garden or next green waste collection point",
+    "generalInformation": "natural plants that produce flowers, grain, fruit, and vegetables",
+    "imageUrl": "res/img/",
+    "exampleData": [
+      "basil plant",
+      "orchid"
+    ]
+  },
+  {
+    "title": "electrical or electronic devices",
+    "goesTo": "recycling centre",
+    "generalInformation": "electrical or electronic devices: anything with plugs, cords and electronic components",
+    "imageUrl": "res/img/",
+    "exampleData": [
+      "CD-Rom",
+      "headphones",
+      "microwave"
+    ]
+  },
+  {
+    "title": "furniture",
+    "goesTo": "recycling centre",
+    "generalInformation": "household equipment, usually made of wood, metal, plastics, marble, glass, fabrics, or related materials",
+    "imageUrl": "res/img/",
+    "exampleData": [
+      "mattress",
+      "wardrobe",
+      "chair"
+    ]
+  },
+  {
+    "title": "residual waste",
+    "goesTo": "residual waste bin",
+    "generalInformation": "non-recyclable waste",
+    "imageUrl": "res/img/",
+    "exampleData": [
+      "cigarette end",
+      "cotton buds",
+      "medical tablet strips"
+      "cooled ash"
+    ]
+    },
 ]
