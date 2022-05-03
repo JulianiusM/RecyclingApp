@@ -1,18 +1,34 @@
 [
   {
-    "generalInformation": "First Item",
-    "imageUrl": "res/test/img/firstItem.png",
+    "title": "drink can",
+    "goesTo": "yellow bag",
+    "generalInformation": "aluminium or iron composite can",
+    "imageUrl": "res/img/drink_can",
     "exampleData": [
-      "Example 1",
-      "Example 2"
+      "soda",
+      "cola",
+      "sprite",
+      "tuna"
     ]
   },
   {
-    "generalInformation": "Second Item",
-    "imageUrl": "res/test/img/doubleTest.png",
+    "title": "cork",
+    "goesTo": "yellow bag",
+    "generalInformation": "soft material of the bark of the cork oak",
+    "imageUrl": "res/img/cork.png",
     "exampleData": [
-      "Example 1",
-      "Example 2"
+      "wine",
+      "stopper",
+      "pinboard"
+    ]
+  },
+  {
+    "title": "",
+    "goesTo": "",
+    "generalInformation": "",
+    "imageUrl": "res/img/",
+    "exampleData": [
+      ""
     ]
   }
 ]
