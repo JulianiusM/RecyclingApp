@@ -7,10 +7,14 @@ part 'recycling_data.g.dart';
 @JsonSerializable(explicitToJson: true)
 class RecyclingData {
   RecyclingData(
-      {required this.generalInformation,
+      {required this.title,
+      required this.goesTo,
+      required this.generalInformation,
       required this.imageUrl,
       required this.exampleData});
 
+  final String title;
+  final String goesTo;
   final String generalInformation;
   final String imageUrl;
   final List<String> exampleData;
