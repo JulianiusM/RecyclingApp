@@ -8,6 +8,8 @@ part of 'recycling_data.dart';
 
 RecyclingData _$RecyclingDataFromJson(Map<String, dynamic> json) =>
     RecyclingData(
+      title: json['title'] as String,
+      goesTo: json['goesTo'] as String,
       generalInformation: json['generalInformation'] as String,
       imageUrl: json['imageUrl'] as String,
       exampleData: (json['exampleData'] as List<dynamic>)
@@ -17,6 +19,8 @@ RecyclingData _$RecyclingDataFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$RecyclingDataToJson(RecyclingData instance) =>
     <String, dynamic>{
+      'title': instance.title,
+      'goesTo': instance.goesTo,
       'generalInformation': instance.generalInformation,
       'imageUrl': instance.imageUrl,
       'exampleData': instance.exampleData,

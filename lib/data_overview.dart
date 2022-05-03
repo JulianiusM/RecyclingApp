@@ -21,6 +21,12 @@ class DataOverview extends StatefulWidget {
 }
 
 class _DataOverviewState extends State<DataOverview> {
+  late Map<String, RecyclingData> dataMap;
+
+  void setDataState(Map<String, RecyclingData> data) {
+    dataMap = data;
+  }
+
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -42,49 +48,67 @@ class _DataOverviewState extends State<DataOverview> {
             future: DataIntegration.generateRecyclingData("res/json/data.json",
                 context: context),
             builder: (BuildContext context,
-                AsyncSnapshot<List<RecyclingData>> data) {
-              if (data.hasData) {
+                AsyncSnapshot<Map<String, RecyclingData>> data) {
+              if (data.hasError) {
+                return Text(
+                    "An error occurred while reading the data: ${data.error}");
+              } else if (data.hasData) {
+                setDataState(data.data!);
+                List<RecyclingData> dataList = data.data!.values.toList();
+
+                double height = MediaQuery.of(context).size.height * 0.1;
+                if (height < 50) {
+                  height = 50;
+                } else if (height > 100) {
+                  height = 100;
+                }
+
                 return ListView.separated(
                     padding: const EdgeInsets.all(8),
                     itemBuilder: (BuildContext context, int index) {
                       return SizedBox(
-                        height: 50,
-                        child: Center(
-                            child: Text(data.data![index].generalInformation)),
+                        height: height,
+                        child: Row(
+                          children: <Widget>[
+                            Expanded(
+                              flex: 1,
+                              child: Image.asset(
+                                dataList[index].imageUrl,
+                              ),
+                            ),
+                            Expanded(
+                              flex: 4,
+                              child: Padding(
+                                padding: const EdgeInsets.only(left: 10),
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: <Widget>[
+                                    Text(
+                                      dataList[index].title,
+                                      style: const TextStyle(
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                    Text(
+                                      dataList[index].goesTo,
+                                      style: const TextStyle(fontSize: 12),
+                                      overflow: TextOverflow.fade,
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
                       );
                     },
                     separatorBuilder: (BuildContext context, int index) =>
-                        const Divider(),
+                    const Divider(),
                     itemCount: data.data!.length);
               }
               return const Text("No Data!");
             }),
-        /*Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Invoke "debug painting" (press "p" in the console, choose the
-          // "Toggle Debug Paint" action from the Flutter Inspector in Android
-          // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
-          // to see the wireframe for each widget.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          mainAxisAlignment: MainAxisAlignment.,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ],
-        ),*/
       ),
     );
   }

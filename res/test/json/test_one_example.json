@@ -1,7 +1,9 @@
 [
   {
-    "generalInformation": "SingleTest",
-    "imageUrl": "res/test/img/singleTest.png",
+    "title": "SingleTest",
+    "goesTo": "STB",
+    "generalInformation": "SingleTestData",
+    "imageUrl": "res/test/img/singleTest.jpg",
     "exampleData": [
       "EX1",
       "EX2"
