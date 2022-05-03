@@ -3,19 +3,19 @@
     "title": "drink can",
     "goesTo": "yellow bag",
     "generalInformation": "aluminium or iron composite can",
-    "imageUrl": "res/img/drink_can",
+    "imageUrl": "res/img/drinkcan.jpg",
     "exampleData": [
       "soda",
       "cola",
       "sprite",
-      "tuna"
+      "tuna can"
     ]
   },
   {
     "title": "cork",
     "goesTo": "yellow bag",
     "generalInformation": "soft material of the bark of the cork oak",
-    "imageUrl": "res/img/cork.png",
+    "imageUrl": "res/img/cork.jpg",
     "exampleData": [
       "wine",
       "stopper",
@@ -23,12 +23,100 @@
     ]
   },
   {
-    "title": "",
-    "goesTo": "",
-    "generalInformation": "",
-    "imageUrl": "res/img/",
+    "title": "Tetra Pak",
+    "goesTo": "yellow bag",
+    "generalInformation": "single-use beverage container made up of mixed materials",
+    "imageUrl": "res/img/tetrapakmilk.jpg",
     "exampleData": [
-      ""
+      "milk carton",
+      "water carton"
     ]
-  }
+  },
+  {
+    "title": "polystyrene",
+    "goesTo": "yellow bag",
+    "generalInformation": "light, white plastic used especially for putting around delicate objects inside containers to protect them from damage",
+    "imageUrl": "res/img/polystyrene.jpg",
+    "exampleData": [
+      "small pieces of polystyrene",
+      "takeaway box"
+    ]
+  },
+  {
+    "title": "unpackaged food",
+    "goesTo": "bio waste container",
+    "generalInformation": "unpackaged food remnants",
+    "imageUrl": "res/img/foodwaste.jpg",
+    "exampleData": [
+      "eggshells",
+      "banana peel",
+      "broccoli stalk",
+      "bad apple"
+    ]
+  },
+  {
+    "title": "paper and cardboard",
+    "goesTo": "paper bin",
+    "generalInformation": "products of paper made up of cellulose or wooden material",
+    "imageUrl": "res/img/paper.jpg",
+    "exampleData": [
+      "newspaper",
+      "sheet of paper",
+      "carton box"
+    ]
+  },
+  {
+    "title": "clothes",
+    "goesTo": "old clothes container",
+    "generalInformation": "items worn to cover, protect, decorate the body",
+    "imageUrl": "res/img/clothes.jpg",
+    "exampleData": [
+      "t-shirt",
+      "shoes"
+    ]
+  },
+  {
+    "title": "plants and garden waste",
+    "goesTo": "green waste (composting in your own garden or next green waste collection point",
+    "generalInformation": "natural plants that produce flowers, grain, fruit, and vegetables",
+    "imageUrl": "res/img/gardenwaste.jpg",
+    "exampleData": [
+      "basil plant",
+      "orchid"
+    ]
+  },
+  {
+    "title": "electrical or electronic devices",
+    "goesTo": "recycling centre",
+    "generalInformation": "electrical or electronic devices: anything with plugs, cords and electronic components",
+    "imageUrl": "res/img/ewaste.jpg",
+    "exampleData": [
+      "CD-Rom",
+      "headphones",
+      "microwave"
+    ]
+  },
+  {
+    "title": "furniture",
+    "goesTo": "recycling centre",
+    "generalInformation": "household equipment, usually made of wood, metal, plastics, marble, glass, fabrics, or related materials",
+    "imageUrl": "res/img/mattress.jpg",
+    "exampleData": [
+      "mattress",
+      "wardrobe",
+      "chair"
+    ]
+  },
+  {
+    "title": "residual waste",
+    "goesTo": "residual waste bin",
+    "generalInformation": "non-recyclable waste",
+    "imageUrl": "res/img/cigarette.jpg",
+    "exampleData": [
+      "cigarette end",
+      "cotton buds",
+      "medical tablet strips"
+      "cooled ash"
+    ]
+    },
 ]
