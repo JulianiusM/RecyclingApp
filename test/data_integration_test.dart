@@ -31,7 +31,7 @@ void main() {
     expect(oneData[0].title, "SingleTest");
     expect(oneData[0].goesTo, "STB");
     expect(oneData[0].generalInformation, "SingleTestData");
-    expect(oneData[0].imageUrl, "res/test/img/singleTest.png");
+    expect(oneData[0].imageUrl, "res/test/img/singleTest.jpg");
     expect(oneData[0].exampleData.isEmpty, true);
   });
 
@@ -47,7 +47,7 @@ void main() {
     expect(oneData[0].title, "SingleTest");
     expect(oneData[0].goesTo, "STB");
     expect(oneData[0].generalInformation, "SingleTestData");
-    expect(oneData[0].imageUrl, "res/test/img/singleTest.png");
+    expect(oneData[0].imageUrl, "res/test/img/singleTest.jpg");
     expect(oneData[0].exampleData.length, 2);
     expect(oneData[0].exampleData[0], "EX1");
     expect(oneData[0].exampleData[1], "EX2");
@@ -66,7 +66,7 @@ void main() {
     expect(oneData[0].title, "SingleTest");
     expect(oneData[0].goesTo, "STB");
     expect(oneData[0].generalInformation, "SingleTestData");
-    expect(oneData[0].imageUrl, "res/test/img/singleTest.png");
+    expect(oneData[0].imageUrl, "res/test/img/singleTest.jpg");
     expect(oneData[0].exampleData.length, 2);
     expect(oneData[0].exampleData[0], "EX1");
     expect(oneData[0].exampleData[1], "EX2");
@@ -75,7 +75,7 @@ void main() {
     expect(oneData[1].title, "DoubleTest");
     expect(oneData[1].goesTo, "DTB");
     expect(oneData[1].generalInformation, "DoubleTestData");
-    expect(oneData[1].imageUrl, "res/test/img/doubleTest.png");
+    expect(oneData[1].imageUrl, "res/test/img/doubleTest.jpg");
     expect(oneData[1].exampleData.length, 2);
     expect(oneData[1].exampleData[0], "EX1");
     expect(oneData[1].exampleData[1], "EX3");
