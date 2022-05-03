@@ -6,7 +6,7 @@ name: Build Flutter apps
 on:
   push:
     branches:
-      - master
+      - '*'
     tags:
       - v*
 
