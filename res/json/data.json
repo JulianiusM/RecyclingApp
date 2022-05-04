@@ -77,7 +77,7 @@
   },
   {
     "title": "plants and garden waste",
-    "goesTo": "green waste (composting in your own garden or next green waste collection point",
+    "goesTo": "green waste (own garden or green waste collection point)",
     "generalInformation": "natural plants that produce flowers, grain, fruit, and vegetables",
     "imageUrl": "res/img/gardenwaste.jpg",
     "exampleData": [
