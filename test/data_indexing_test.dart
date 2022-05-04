@@ -116,4 +116,129 @@ void main() {
     expect(ex3.length, 1);
     expect(ex3[0].title, "DoubleTest");
   });
+
+  test("Test indexing of two data points w/ examples and splitting", () async {
+    Map<String, RecyclingData> oneDataMap =
+        await DataIntegration.generateRecyclingData(
+            normalisePath("res/test/json/test_splitting.json"),
+            injectedBundle: testBundle);
+
+    Map<String, List<RecyclingData>> dataIndex =
+        DataIntegration.generateRuntimeIndex(oneDataMap.values.toList());
+
+    expect(dataIndex.length, 16);
+
+    // Test if all titles are included in index
+    expect(dataIndex.containsKey("Single Test"), true);
+    expect(dataIndex.containsKey("Single"), true);
+    expect(dataIndex.containsKey("Test"), true);
+    expect(dataIndex.containsKey("Double Test Test"), true);
+    expect(dataIndex.containsKey("Double Test"), true);
+    expect(dataIndex.containsKey("Test Test"), true);
+    expect(dataIndex.containsKey("Double"), true);
+
+    // Test if all examples are included in index
+    expect(dataIndex.containsKey("EX1"), true);
+    expect(dataIndex.containsKey("EX2"), true);
+    expect(dataIndex.containsKey("EX3"), true);
+    expect(dataIndex.containsKey("EX4"), true);
+    expect(dataIndex.containsKey("EX5"), true);
+    expect(dataIndex.containsKey("EX2 EX3"), true);
+    expect(dataIndex.containsKey("EX3 EX4 EX5"), true);
+    expect(dataIndex.containsKey("EX3 EX4"), true);
+    expect(dataIndex.containsKey("EX4 EX5"), true);
+
+    // Test if titles have correct data references
+    {
+      List<RecyclingData> singleData = dataIndex["Single Test"]!;
+      expect(singleData.length, 1);
+      expect(singleData[0].title, "Single Test");
+    }
+    {
+      List<RecyclingData> singleData = dataIndex["Single"]!;
+      expect(singleData.length, 1);
+      expect(singleData[0].title, "Single Test");
+    }
+    {
+      List<RecyclingData> singleData = dataIndex["Double Test Test"]!;
+      expect(singleData.length, 1);
+      expect(singleData[0].title, "Double Test Test");
+    }
+    {
+      List<RecyclingData> singleData = dataIndex["Double Test"]!;
+      expect(singleData.length, 1);
+      expect(singleData[0].title, "Double Test Test");
+    }
+    {
+      List<RecyclingData> singleData = dataIndex["Test Test"]!;
+      expect(singleData.length, 1);
+      expect(singleData[0].title, "Double Test Test");
+    }
+    {
+      List<RecyclingData> singleData = dataIndex["Double"]!;
+      expect(singleData.length, 1);
+      expect(singleData[0].title, "Double Test Test");
+    }
+    {
+      List<RecyclingData> singleData = dataIndex["Test"]!;
+      expect(singleData.length, 2);
+
+      List<String> titleData = singleData.map((e) => e.title).toList();
+      expect(titleData.contains("Single Test"), true);
+      expect(titleData.contains("Double Test Test"), true);
+    }
+
+    // Test if examples have correct data references
+    {
+      List<RecyclingData> singleData = dataIndex["EX1"]!;
+      expect(singleData.length, 2);
+
+      List<String> titleData = singleData.map((e) => e.title).toList();
+      expect(titleData.contains("Single Test"), true);
+      expect(titleData.contains("Double Test Test"), true);
+    }
+    {
+      List<RecyclingData> singleData = dataIndex["EX3"]!;
+      expect(singleData.length, 2);
+
+      List<String> titleData = singleData.map((e) => e.title).toList();
+      expect(titleData.contains("Single Test"), true);
+      expect(titleData.contains("Double Test Test"), true);
+    }
+    {
+      List<RecyclingData> singleData = dataIndex["EX2"]!;
+      expect(singleData.length, 1);
+      expect(singleData[0].title, "Single Test");
+    }
+    {
+      List<RecyclingData> singleData = dataIndex["EX4"]!;
+      expect(singleData.length, 1);
+      expect(singleData[0].title, "Double Test Test");
+    }
+    {
+      List<RecyclingData> singleData = dataIndex["EX5"]!;
+      expect(singleData.length, 1);
+      expect(singleData[0].title, "Double Test Test");
+    }
+    {
+      List<RecyclingData> singleData = dataIndex["EX2 EX3"]!;
+      expect(singleData.length, 1);
+      expect(singleData[0].title, "Single Test");
+    }
+    {
+      List<RecyclingData> singleData = dataIndex["EX3 EX4"]!;
+      expect(singleData.length, 1);
+      expect(singleData[0].title, "Double Test Test");
+    }
+    {
+      List<RecyclingData> singleData = dataIndex["EX4 EX5"]!;
+      expect(singleData.length, 1);
+      expect(singleData[0].title, "Double Test Test");
+    }
+    {
+      List<RecyclingData> singleData = dataIndex["EX3 EX4 EX5"]!;
+      expect(singleData.length, 1);
+      expect(singleData[0].title, "Double Test Test");
+    }
+  });
 }

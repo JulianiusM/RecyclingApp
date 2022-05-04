@@ -30,33 +30,41 @@ class DataIntegration {
     Map<String, List<RecyclingData>> indexMap = {};
     for (RecyclingData recData in data) {
       for (String example in recData.exampleData) {
-        List<RecyclingData> indexList;
-        if (indexMap.containsKey(example)) {
-          indexList = indexMap[example]!;
-        } else {
-          indexList = [];
-        }
-
-        if (!indexList.contains(recData)) {
-          indexList.add(recData);
-        }
-
-        indexMap.putIfAbsent(example, () => indexList);
+        _indexPerformSplit(indexMap, example, recData);
       }
-
-      List<RecyclingData> indexList;
-      if (indexMap.containsKey(recData.title)) {
-        indexList = indexMap[recData.title]!;
-      } else {
-        indexList = [];
-      }
-
-      if (!indexList.contains(recData)) {
-        indexList.add(recData);
-      }
-
-      indexMap.putIfAbsent(recData.title, () => indexList);
+      _indexPerformSplit(indexMap, recData.title, recData);
     }
     return indexMap;
+  }
+
+  static void _indexAddToMap(Map<String, List<RecyclingData>> indexMap,
+      String key, RecyclingData recData) {
+    List<RecyclingData> indexList;
+    if (indexMap.containsKey(key)) {
+      indexList = indexMap[key]!;
+    } else {
+      indexList = [];
+    }
+
+    if (!indexList.contains(recData)) {
+      indexList.add(recData);
+    }
+
+    indexMap.putIfAbsent(key, () => indexList);
+  }
+
+  static void _indexPerformSplit(Map<String, List<RecyclingData>> indexMap,
+      String key, RecyclingData recData) {
+    List<String> keyParts = key.split(" ");
+    for (int i = 0; i < keyParts.length; i++) {
+      for (int j = 0; j < keyParts.length - i; j++) {
+        String currentKey = "";
+        for (int k = j; k <= j + i; k++) {
+          currentKey += " ${keyParts[k]}";
+        }
+        currentKey = currentKey.trim();
+        _indexAddToMap(indexMap, currentKey, recData);
+      }
+    }
   }
 }

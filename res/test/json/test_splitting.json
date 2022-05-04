@@ -1,0 +1,22 @@
+[
+  {
+    "title": "Single Test",
+    "goesTo": "STB",
+    "generalInformation": "SingleTestData",
+    "imageUrl": "res/test/img/singleTest.jpg",
+    "exampleData": [
+      "EX1",
+      "EX2 EX3"
+    ]
+  },
+  {
+    "title": "Double Test Test",
+    "goesTo": "DTB",
+    "generalInformation": "DoubleTestData",
+    "imageUrl": "res/test/img/doubleTest.jpg",
+    "exampleData": [
+      "EX1",
+      "EX3 EX4 EX5"
+    ]
+  }
+]
