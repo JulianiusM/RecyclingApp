@@ -10,25 +10,23 @@ void main() {
   AssetBundle testBundle = TestAssetBundle();
 
   test("Test indexing of empty data", () async {
-    Map<String, RecyclingData> oneDataMap =
-        await DataIntegration.generateRecyclingData(
-            normalisePath("res/test/json/test_empty.json"),
-            injectedBundle: testBundle);
+    List<RecyclingData> oneData = await DataIntegration.generateRecyclingData(
+        normalisePath("res/test/json/test_empty.json"),
+        injectedBundle: testBundle);
 
     Map<String, List<RecyclingData>> dataIndex =
-        DataIntegration.generateRuntimeIndex(oneDataMap.values.toList());
+        DataIntegration.generateRuntimeIndex(oneData);
 
     expect(dataIndex.isEmpty, true);
   });
 
   test("Test indexing of one data point w/o examples", () async {
-    Map<String, RecyclingData> oneDataMap =
-        await DataIntegration.generateRecyclingData(
-            normalisePath("res/test/json/test_one.json"),
-            injectedBundle: testBundle);
+    List<RecyclingData> oneData = await DataIntegration.generateRecyclingData(
+        normalisePath("res/test/json/test_one.json"),
+        injectedBundle: testBundle);
 
     Map<String, List<RecyclingData>> dataIndex =
-        DataIntegration.generateRuntimeIndex(oneDataMap.values.toList());
+        DataIntegration.generateRuntimeIndex(oneData);
 
     expect(dataIndex.length, 1);
 
@@ -39,13 +37,12 @@ void main() {
   });
 
   test("Test indexing of one data point w/ examples", () async {
-    Map<String, RecyclingData> oneDataMap =
-        await DataIntegration.generateRecyclingData(
-            normalisePath("res/test/json/test_one_example.json"),
-            injectedBundle: testBundle);
+    List<RecyclingData> oneData = await DataIntegration.generateRecyclingData(
+        normalisePath("res/test/json/test_one_example.json"),
+        injectedBundle: testBundle);
 
     Map<String, List<RecyclingData>> dataIndex =
-        DataIntegration.generateRuntimeIndex(oneDataMap.values.toList());
+        DataIntegration.generateRuntimeIndex(oneData);
 
     expect(dataIndex.length, 3);
 
@@ -72,13 +69,12 @@ void main() {
   });
 
   test("Test indexing of two data points w/ examples", () async {
-    Map<String, RecyclingData> oneDataMap =
-        await DataIntegration.generateRecyclingData(
-            normalisePath("res/test/json/test_two_example.json"),
-            injectedBundle: testBundle);
+    List<RecyclingData> oneData = await DataIntegration.generateRecyclingData(
+        normalisePath("res/test/json/test_two_example.json"),
+        injectedBundle: testBundle);
 
     Map<String, List<RecyclingData>> dataIndex =
-        DataIntegration.generateRuntimeIndex(oneDataMap.values.toList());
+        DataIntegration.generateRuntimeIndex(oneData);
 
     expect(dataIndex.length, 5);
 
@@ -118,13 +114,12 @@ void main() {
   });
 
   test("Test indexing of two data points w/ examples and splitting", () async {
-    Map<String, RecyclingData> oneDataMap =
-        await DataIntegration.generateRecyclingData(
-            normalisePath("res/test/json/test_splitting.json"),
-            injectedBundle: testBundle);
+    List<RecyclingData> oneData = await DataIntegration.generateRecyclingData(
+        normalisePath("res/test/json/test_splitting.json"),
+        injectedBundle: testBundle);
 
     Map<String, List<RecyclingData>> dataIndex =
-        DataIntegration.generateRuntimeIndex(oneDataMap.values.toList());
+        DataIntegration.generateRuntimeIndex(oneData);
 
     expect(dataIndex.length, 16);
 
@@ -139,14 +134,14 @@ void main() {
 
     // Test if all examples are included in index
     expect(dataIndex.containsKey("EX1"), true);
-    expect(dataIndex.containsKey("EX2"), true);
-    expect(dataIndex.containsKey("EX3"), true);
-    expect(dataIndex.containsKey("EX4"), true);
-    expect(dataIndex.containsKey("EX5"), true);
-    expect(dataIndex.containsKey("EX2 EX3"), true);
-    expect(dataIndex.containsKey("EX3 EX4 EX5"), true);
-    expect(dataIndex.containsKey("EX3 EX4"), true);
-    expect(dataIndex.containsKey("EX4 EX5"), true);
+    expect(dataIndex.containsKey("Example2"), true);
+    expect(dataIndex.containsKey("Wine"), true);
+    expect(dataIndex.containsKey("Beer"), true);
+    expect(dataIndex.containsKey("Canned"), true);
+    expect(dataIndex.containsKey("Example2 Wine"), true);
+    expect(dataIndex.containsKey("Wine Beer Canned"), true);
+    expect(dataIndex.containsKey("Wine Beer"), true);
+    expect(dataIndex.containsKey("Beer Canned"), true);
 
     // Test if titles have correct data references
     {
@@ -198,7 +193,7 @@ void main() {
       expect(titleData.contains("Double Test Test"), true);
     }
     {
-      List<RecyclingData> singleData = dataIndex["EX3"]!;
+      List<RecyclingData> singleData = dataIndex["Wine"]!;
       expect(singleData.length, 2);
 
       List<String> titleData = singleData.map((e) => e.title).toList();
@@ -206,37 +201,37 @@ void main() {
       expect(titleData.contains("Double Test Test"), true);
     }
     {
-      List<RecyclingData> singleData = dataIndex["EX2"]!;
+      List<RecyclingData> singleData = dataIndex["Example2"]!;
       expect(singleData.length, 1);
       expect(singleData[0].title, "Single Test");
     }
     {
-      List<RecyclingData> singleData = dataIndex["EX4"]!;
+      List<RecyclingData> singleData = dataIndex["Beer"]!;
       expect(singleData.length, 1);
       expect(singleData[0].title, "Double Test Test");
     }
     {
-      List<RecyclingData> singleData = dataIndex["EX5"]!;
+      List<RecyclingData> singleData = dataIndex["Canned"]!;
       expect(singleData.length, 1);
       expect(singleData[0].title, "Double Test Test");
     }
     {
-      List<RecyclingData> singleData = dataIndex["EX2 EX3"]!;
+      List<RecyclingData> singleData = dataIndex["Example2 Wine"]!;
       expect(singleData.length, 1);
       expect(singleData[0].title, "Single Test");
     }
     {
-      List<RecyclingData> singleData = dataIndex["EX3 EX4"]!;
+      List<RecyclingData> singleData = dataIndex["Wine Beer"]!;
       expect(singleData.length, 1);
       expect(singleData[0].title, "Double Test Test");
     }
     {
-      List<RecyclingData> singleData = dataIndex["EX4 EX5"]!;
+      List<RecyclingData> singleData = dataIndex["Beer Canned"]!;
       expect(singleData.length, 1);
       expect(singleData[0].title, "Double Test Test");
     }
     {
-      List<RecyclingData> singleData = dataIndex["EX3 EX4 EX5"]!;
+      List<RecyclingData> singleData = dataIndex["Wine Beer Canned"]!;
       expect(singleData.length, 1);
       expect(singleData[0].title, "Double Test Test");
     }

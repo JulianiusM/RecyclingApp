@@ -2,10 +2,11 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:fuzzy/fuzzy.dart';
 import 'package:recycling/recycling_data.dart';
 
 class DataIntegration {
-  static Future<Map<String, RecyclingData>> generateRecyclingData(String path,
+  static Future<List<RecyclingData>> generateRecyclingData(String path,
       {BuildContext? context, AssetBundle? injectedBundle}) async {
     AssetBundle bundle;
     if (injectedBundle != null) {
@@ -16,12 +17,12 @@ class DataIntegration {
       bundle = rootBundle;
     }
 
-    Map<String, RecyclingData> data = {
-      for (RecyclingData recData
-          in (json.decode(await bundle.loadString(path)) as List)
-              .map((i) => RecyclingData.fromJson(i)))
-        recData.title: recData
-    };
+    List<RecyclingData> data = [];
+    for (RecyclingData recData
+        in (json.decode(await bundle.loadString(path)) as List)
+            .map((i) => RecyclingData.fromJson(i))) {
+      data.add(recData);
+    }
     return data;
   }
 
@@ -66,5 +67,28 @@ class DataIntegration {
         _indexAddToMap(indexMap, currentKey, recData);
       }
     }
+  }
+
+  static List<RecyclingData> performSearchOnIndex(
+      Map<String, List<RecyclingData>> index, String pattern) {
+    final fuzzy = Fuzzy(
+      index.keys.toList(),
+      options: FuzzyOptions(
+        threshold: 0.3,
+      ),
+    );
+
+    final results = fuzzy.search(pattern);
+
+    List<RecyclingData> returnList = [];
+    for (String key in results.map((e) => e.item)) {
+      for (RecyclingData recData in index[key]!) {
+        if (!returnList.contains(recData)) {
+          returnList.add(recData);
+        }
+      }
+    }
+
+    return returnList;
   }
 }
