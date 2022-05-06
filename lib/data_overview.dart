@@ -22,14 +22,26 @@ class DataOverview extends StatefulWidget {
 }
 
 class _DataOverviewState extends State<DataOverview> {
-  Map<String, RecyclingData>? dataMap;
+  List<RecyclingData>? dataList;
+  Map<String, List<RecyclingData>>? dataIndex;
 
-  void setDataState(Map<String, RecyclingData> data) {
-    dataMap = data;
+  List<RecyclingData>? searchData;
+  bool isSearching = false;
+
+  void setDataState(List<RecyclingData> data) {
+    dataList = data;
+    dataIndex = DataIntegration.generateRuntimeIndex(data);
   }
 
   void _performSearch(String input) {
-    //TODO: implement search
+    setState(() {
+      isSearching = input.isNotEmpty;
+
+      if (!isSearching || dataList == null || dataList!.isEmpty) return;
+
+      dataIndex ??= DataIntegration.generateRuntimeIndex(dataList!);
+      searchData = DataIntegration.performSearchOnIndex(dataIndex!, input);
+    });
   }
 
   @override
@@ -67,7 +79,7 @@ class _DataOverviewState extends State<DataOverview> {
   Widget _buildBody(BuildContext context) {
     Widget currentChild;
 
-    if (dataMap == null) {
+    if (dataList == null) {
       currentChild = _buildFutureBody(context);
     } else {
       currentChild = _buildListBody(context);
@@ -82,8 +94,7 @@ class _DataOverviewState extends State<DataOverview> {
     return FutureBuilder(
       future: DataIntegration.generateRecyclingData("res/json/data.json",
           context: context),
-      builder: (BuildContext context,
-          AsyncSnapshot<Map<String, RecyclingData>> data) {
+      builder: (BuildContext context, AsyncSnapshot<List<RecyclingData>> data) {
         if (data.hasError) {
           return Text(
               "An error occurred while reading the data: ${data.error}");
@@ -97,9 +108,23 @@ class _DataOverviewState extends State<DataOverview> {
   }
 
   Widget _buildListBody(BuildContext context) {
-    List<RecyclingData> dataList = dataMap!.values.toList();
+    List<RecyclingData> currentData;
+    if (isSearching) {
+      if (searchData != null && searchData!.isNotEmpty) {
+        currentData = searchData!;
+      } else {
+        return const Text("No Results!");
+      }
+    } else {
+      if (dataList == null || dataList!.isEmpty) {
+        return const Text("No Data!");
+      } else {
+        currentData = dataList!;
+      }
+    }
 
     double height = MediaQuery.of(context).size.height * 0.1;
+
     if (height < 50) {
       height = 50;
     } else if (height > 100) {
@@ -116,7 +141,7 @@ class _DataOverviewState extends State<DataOverview> {
                 context,
                 MaterialPageRoute(
                   builder: (context) =>
-                      DataDetailView(recData: dataList[index]),
+                      DataDetailView(recData: currentData[index]),
                 ),
               ),
               child: Row(
@@ -124,7 +149,7 @@ class _DataOverviewState extends State<DataOverview> {
                   Expanded(
                     flex: 1,
                     child: Image.asset(
-                      dataList[index].imageUrl,
+                      currentData[index].imageUrl,
                     ),
                   ),
                   Expanded(
@@ -136,12 +161,12 @@ class _DataOverviewState extends State<DataOverview> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
                           Text(
-                            dataList[index].title,
+                            currentData[index].title,
                             style: const TextStyle(
                                 fontSize: 14, fontWeight: FontWeight.bold),
                           ),
                           Text(
-                            dataList[index].goesTo,
+                            currentData[index].goesTo,
                             style: const TextStyle(fontSize: 12),
                             overflow: TextOverflow.fade,
                           ),
@@ -155,6 +180,6 @@ class _DataOverviewState extends State<DataOverview> {
           );
         },
         separatorBuilder: (BuildContext context, int index) => const Divider(),
-        itemCount: dataMap!.length);
+        itemCount: currentData.length);
   }
 }

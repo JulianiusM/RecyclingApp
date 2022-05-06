@@ -10,24 +10,20 @@ void main() {
   AssetBundle testBundle = TestAssetBundle();
 
   test("Test empty JSON", () async {
-    //Test handling empty data
-    Map<String, RecyclingData> emptyDataMap =
-        await DataIntegration.generateRecyclingData(
-            normalisePath("res/test/json/test_empty.json"),
-            injectedBundle: testBundle);
+    List<RecyclingData> emptyData = await DataIntegration.generateRecyclingData(
+        normalisePath("res/test/json/test_empty.json"),
+        injectedBundle: testBundle);
 
-    expect(emptyDataMap.isEmpty, true);
+    expect(emptyData.isEmpty, true);
   });
 
   test("Test JSON w/ 1 data point", () async {
-    Map<String, RecyclingData> oneDataMap =
-        await DataIntegration.generateRecyclingData(
-            normalisePath("res/test/json/test_one.json"),
-            injectedBundle: testBundle);
+    List<RecyclingData> oneData = await DataIntegration.generateRecyclingData(
+        normalisePath("res/test/json/test_one.json"),
+        injectedBundle: testBundle);
 
-    expect(oneDataMap.length, 1);
+    expect(oneData.length, 1);
 
-    List<RecyclingData> oneData = oneDataMap.values.toList();
     expect(oneData[0].title, "SingleTest");
     expect(oneData[0].goesTo, "STB");
     expect(oneData[0].generalInformation, "SingleTestData");
@@ -36,14 +32,12 @@ void main() {
   });
 
   test("Test JSON w/ 1 data point and examples", () async {
-    Map<String, RecyclingData> oneDataMap =
-        await DataIntegration.generateRecyclingData(
-            normalisePath("res/test/json/test_one_example.json"),
-            injectedBundle: testBundle);
+    List<RecyclingData> oneData = await DataIntegration.generateRecyclingData(
+        normalisePath("res/test/json/test_one_example.json"),
+        injectedBundle: testBundle);
 
-    expect(oneDataMap.length, 1);
+    expect(oneData.length, 1);
 
-    List<RecyclingData> oneData = oneDataMap.values.toList();
     expect(oneData[0].title, "SingleTest");
     expect(oneData[0].goesTo, "STB");
     expect(oneData[0].generalInformation, "SingleTestData");
@@ -54,13 +48,11 @@ void main() {
   });
 
   test("Test JSON w/ 2 data point and examples", () async {
-    Map<String, RecyclingData> oneDataMap =
-        await DataIntegration.generateRecyclingData(
-            normalisePath("res/test/json/test_two_example.json"),
-            injectedBundle: testBundle);
+    List<RecyclingData> oneData = await DataIntegration.generateRecyclingData(
+        normalisePath("res/test/json/test_two_example.json"),
+        injectedBundle: testBundle);
 
-    expect(oneDataMap.length, 2);
-    List<RecyclingData> oneData = oneDataMap.values.toList();
+    expect(oneData.length, 2);
 
     //First data point
     expect(oneData[0].title, "SingleTest");

@@ -6,7 +6,7 @@
     "imageUrl": "res/test/img/singleTest.jpg",
     "exampleData": [
       "EX1",
-      "EX2 EX3"
+      "Example2 Wine"
     ]
   },
   {
@@ -16,7 +16,7 @@
     "imageUrl": "res/test/img/doubleTest.jpg",
     "exampleData": [
       "EX1",
-      "EX3 EX4 EX5"
+      "Wine Beer Canned"
     ]
   }
 ]
