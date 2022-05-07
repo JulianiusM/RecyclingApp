@@ -147,11 +147,8 @@ jobs:
           name: web
           path: build/web
 
-      - name: <debug> list
-        run: ls -lha build/web
-
       - name: Extract Artifact
-        run: 7z x build/web/web-app.zip -o build/web/web-app
+        run: 7z x build/web/web-app.zip -obuild/web/web-app -r
 
       - name: <debug> list
         run: ls -lha build/web/web-app
