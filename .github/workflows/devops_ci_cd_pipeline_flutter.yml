@@ -151,15 +151,12 @@ jobs:
         run: 7z x build/web/web-app.zip -obuild/web/web-app -r
 
       - name: Deploy with rsync
-        uses: burnett01/rsync-deployments@5.2
-        with:
-          switches: -avzr --delete
-          path: build/web/web-app/
-          remote_path: /var/www/html/recycling_dev
-          remote_host: ${{ secrets.SSH_HOST }}
-          remote_port: ${{ secrets.SSH_PORT }}
-          remote_user: ${{ secrets.SSH_USER }}
-          remote_key: ${{ secrets.SSH_PRIVATE_KEY }}
+        run: |
+          mkdir ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/github-actions
+          chmod 600 ~/.ssh/github-actions
+          rsync -avzr --delete -e "ssh -4 -p ${{ secrets.SSH_PORT }} -i ~/.ssh/github-actions -o StrictHostKeyChecking=no" build/web/web-app/ ${{ secrets.SSH_USER }}@${{ secrets.ssh_host }}:/var/www/html/recycling_dev/
+          rm ~/.ssh/github-actions
 
   deploy_web_prod:
     if: startsWith(github.ref, 'refs/tags/v')
@@ -178,15 +175,16 @@ jobs:
       - name: Extract Artifact
         run: 7z x build/web/web-app.zip -obuild/web/web-app -r
 
-      - name: Deploy with rsync
-        uses: burnett01/rsync-deployments@5.2
+      - name: Install SSH Key
+        uses: shimataro/ssh-key-action@v2
         with:
-          switches: -avzr --delete
-          path: build/web/web-app/
-          remote_path: /var/www/html/recycling_dev
-          remote_host: ${{ secrets.SSH_HOST }}
-          remote_port: ${{ secrets.SSH_PORT }}
-          remote_user: ${{ secrets.SSH_USER }}
-          remote_key: ${{ secrets.SSH_PRIVATE_KEY }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          known_hosts: 'placeholder'
+
+      - name: Add Known Hosts
+        run: ssh-keyscan -p ${{ secrets.SSH_PORT }} -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
+
+      - name: Deploy with rsync
+        run: rsync -avz -e "ssh -p ${{ secrets.SSH_PORT }}" build/web/web-app/ ${{ secrets.SSH_USER }}@${{ secrets.ssh_host }}:/var/www/html/recycling_prod/
 
 # TODO: Add deployment to Google Play Store
