@@ -53,7 +53,7 @@ jobs:
 
       - name: Archive Production Artifact
         uses: actions/upload-artifact@master
-        if: startsWith(github.ref, 'refs/tags/v')
+        if: startsWith(github.ref, 'refs/tags/v') || startsWith(github.ref, 'refs/tags/dev')
         with:
           name: android
           path: build/app/outputs/**/*.apk
@@ -83,7 +83,7 @@ jobs:
 
       - name: Archive Production Artifact
         uses: actions/upload-artifact@master
-        if: startsWith(github.ref, 'refs/tags/v')
+        if: startsWith(github.ref, 'refs/tags/v') || startsWith(github.ref, 'refs/tags/dev')
         with:
           name: ios
           path: build/ios/iphoneos/app.ipa
@@ -108,7 +108,7 @@ jobs:
           zip -r web-app.zip .
 
       - name: Archive Production Artifact
-        if: startsWith(github.ref, 'refs/tags/v')
+        if: startsWith(github.ref, 'refs/tags/v') || startsWith(github.ref, 'refs/tags/dev')
         uses: actions/upload-artifact@master
         with:
           name: web
