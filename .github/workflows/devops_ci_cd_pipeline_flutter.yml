@@ -9,6 +9,7 @@ on:
       - '*'
     tags:
       - v*
+      - dev*
   pull_request:
 
 
@@ -132,9 +133,9 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           artifacts: 'build/**/*.apk,build/**/app.ipa,build/**/web-app.zip'
 
-  deploy:
-    if: startsWith(github.ref, 'refs/tags/v') && false # Disable deployment since no production environment is currently set up.
-    needs: [ build_android, build_ios, build_web ]
+  deploy_web_dev:
+    if: startsWith(github.ref, 'refs/tags/dev') || startsWith(github.ref, 'refs/tags/v')
+    needs: build_web
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -146,9 +147,60 @@ jobs:
           name: web
           path: build/web
 
-#      - name: Deploy to Firebase hosting
-#        uses: w9jds/firebase-action@master
-#        with:
-#          args: deploy --message \"${{ github.event.head_commit.message }}\" --only hosting
-#        env:
-#          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}  
+      - name: <debug> list
+        run: ls -lha build/web
+
+      - name: Extract Artifact
+        run: 7z x build/web/web-app.zip
+
+      - name: <debug> list
+        run: ls -lha build/web/web-app
+
+      - name: Install SSH Key
+        uses: shimataro/ssh-key-action@v2
+        with:
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          known_hosts: 'placeholder'
+
+      - name: Add Known Hosts
+        run: ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
+
+      - name: Deploy with rsync
+        run: rsync -avz build/web/web-app/ ${{ secrets.SSH_USER }}@${{ secrets.ssh_host }}:/var/www/html/recycling_dev/
+
+  deploy_web_prod:
+    if: startsWith(github.ref, 'refs/tags/v')
+    needs: [ build_android, build_ios, deploy_web_dev ]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Download Artifact
+        uses: actions/download-artifact@master
+        with:
+          name: web
+          path: build/web
+
+      - name: <debug> list
+        run: ls -lha build/web
+
+      - name: Extract Artifact
+        run: 7z x build/web/web-app.zip
+
+      - name: <debug> list
+        run: ls -lha build/web/web-app
+
+      - name: Install SSH Key
+        uses: shimataro/ssh-key-action@v2
+        with:
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          known_hosts: 'placeholder'
+
+      - name: Add Known Hosts
+        run: ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
+
+      - name: Deploy with rsync
+        run: rsync -avz build/web/web-app/ ${{ secrets.SSH_USER }}@${{ secrets.ssh_host }}:/var/www/html/recycling_prod/
+
+# TODO: Add deployment to Google Play Store
