@@ -151,7 +151,7 @@ jobs:
         run: ls -lha build/web
 
       - name: Extract Artifact
-        run: 7z x build/web/web-app.zip
+        run: 7z x build/web/web-app.zip -o build/web/web-app
 
       - name: <debug> list
         run: ls -lha build/web/web-app
@@ -182,14 +182,8 @@ jobs:
           name: web
           path: build/web
 
-      - name: <debug> list
-        run: ls -lha build/web
-
       - name: Extract Artifact
-        run: 7z x build/web/web-app.zip
-
-      - name: <debug> list
-        run: ls -lha build/web/web-app
+        run: 7z x build/web/web-app.zip -o build/web/web-app
 
       - name: Install SSH Key
         uses: shimataro/ssh-key-action@v2
