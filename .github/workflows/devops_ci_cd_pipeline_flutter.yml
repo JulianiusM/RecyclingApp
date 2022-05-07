@@ -170,7 +170,7 @@ jobs:
 
   deploy_web_prod:
     if: startsWith(github.ref, 'refs/tags/v')
-    needs: [ build_android, build_ios, deploy_web_dev ]
+    needs: [ release, deploy_web_dev ]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
