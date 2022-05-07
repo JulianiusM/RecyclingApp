@@ -150,17 +150,13 @@ jobs:
       - name: Extract Artifact
         run: 7z x build/web/web-app.zip -obuild/web/web-app -r
 
-      - name: Install SSH Key
-        uses: shimataro/ssh-key-action@v2
-        with:
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          known_hosts: 'placeholder'
-
-      - name: Add Known Hosts
-        run: ssh-keyscan -v -p ${{ secrets.SSH_PORT }} -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
-
       - name: Deploy with rsync
-        run: rsync -avz -e "ssh -p ${{ secrets.SSH_PORT }}" build/web/web-app/ ${{ secrets.SSH_USER }}@${{ secrets.ssh_host }}:/var/www/html/recycling_dev/
+        run: |
+          mkdir ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/github-actions
+          chmod 600 ~/.ssh/id_github
+          rsync -avzr --delete -e "ssh -p ${{ secrets.SSH_PORT }} -i ~/.ssh/github-actions -o StrictHostKeyChecking=no" build/web/web-app/ ${{ secrets.SSH_USER }}@${{ secrets.ssh_host }}:/var/www/html/recycling_dev/
+          rm ~/.ssh/github-actions
 
   deploy_web_prod:
     if: startsWith(github.ref, 'refs/tags/v')
