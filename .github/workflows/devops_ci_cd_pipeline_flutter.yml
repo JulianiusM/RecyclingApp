@@ -181,8 +181,8 @@ jobs:
           mkdir ~/.ssh
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/github-actions
           chmod 600 ~/.ssh/github-actions
-          rsync -avzr --delete -e "ssh -4 -p ${{ secrets.SSH_PORT }} -i ~/.ssh/github-actions -o StrictHostKeyChecking=no" build/web/web-app/ ${{ secrets.SSH_USER }}@${{ secrets.ssh_host }}:/var/www/html/recycling_dev/
-          ssh -4 -p ${{ secrets.SSH_PORT }} -i ~/.ssh/github-actions -o StrictHostKeyChecking=no ${{ secrets.SSH_USER }}@${{ secrets.ssh_host }} 'chmod -R 755 /var/www/html/recycling_dev/'
+          rsync -avzr --delete -e "ssh -4 -p ${{ secrets.SSH_PORT }} -i ~/.ssh/github-actions -o StrictHostKeyChecking=no" build/web/web-app/ ${{ secrets.SSH_USER }}@${{ secrets.ssh_host }}:/var/www/html/recycling_prod/
+          ssh -4 -p ${{ secrets.SSH_PORT }} -i ~/.ssh/github-actions -o StrictHostKeyChecking=no ${{ secrets.SSH_USER }}@${{ secrets.ssh_host }} 'chmod -R 755 /var/www/html/recycling_prod/'
           rm ~/.ssh/github-actions
 
 # TODO: Add deployment to Google Play Store
