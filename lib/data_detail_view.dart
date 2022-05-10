@@ -29,6 +29,10 @@ class DataDetailView extends StatelessWidget {
 
   Widget _buildBody(BuildContext context) {
     return const Card(
+        image: Image(recData.imageUrl),
+        description: Text(recData.generalInformation),
+        bin: Bin(recData.goesTo),
+        examples: String(recData.examples),
         //TODO: Add declarative UI building here
         // see for further reference: https://docs.flutter.dev/development/ui/layout
         );
