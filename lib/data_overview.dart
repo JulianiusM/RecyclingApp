@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:recycling/data_detail_view.dart';
 import 'package:recycling/data_integration.dart';
+import 'package:recycling/extensions/string_format_extension.dart';
 import 'package:recycling/recycling_data.dart';
 
 class DataOverview extends StatefulWidget {
@@ -64,8 +66,9 @@ class _DataOverviewState extends State<DataOverview> {
             color: Colors.white,
             child: Center(
               child: TextField(
-                decoration: const InputDecoration(
-                    hintText: 'Search waste', prefixIcon: Icon(Icons.search)),
+                decoration: InputDecoration(
+                    hintText: AppLocalizations.of(context)!.searchWasteBarHint,
+                    prefixIcon: const Icon(Icons.search)),
                 onChanged: (input) => _performSearch(input),
               ),
             ),
@@ -92,17 +95,19 @@ class _DataOverviewState extends State<DataOverview> {
 
   Widget _buildFutureBody(BuildContext context) {
     return FutureBuilder(
-      future: DataIntegration.generateRecyclingData("res/json/data.json",
+      future: DataIntegration.generateRecyclingData(
+          AppLocalizations.of(context)!.dataPath,
           context: context),
       builder: (BuildContext context, AsyncSnapshot<List<RecyclingData>> data) {
         if (data.hasError) {
-          return Text(
-              "An error occurred while reading the data: ${data.error}");
+          return Text(AppLocalizations.of(context)!
+              .errorWhileReadingDataPlaceholder
+              .format([data.error.toString()]));
         } else if (data.hasData) {
           setDataState(data.data!);
           return _buildListBody(context);
         }
-        return const Text("No Data!");
+        return Text(AppLocalizations.of(context)!.noDataInfo);
       },
     );
   }
@@ -113,11 +118,11 @@ class _DataOverviewState extends State<DataOverview> {
       if (searchData != null && searchData!.isNotEmpty) {
         currentData = searchData!;
       } else {
-        return const Text("No Results!");
+        return Text(AppLocalizations.of(context)!.noResultsInfo);
       }
     } else {
       if (dataList == null || dataList!.isEmpty) {
-        return const Text("No Data!");
+        return Text(AppLocalizations.of(context)!.noDataInfo);
       } else {
         currentData = dataList!;
       }

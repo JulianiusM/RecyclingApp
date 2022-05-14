@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:recycling/extensions/string_format_extension.dart';
 import 'package:recycling/recycling_data.dart';
 
 class DataDetailView extends StatelessWidget {
@@ -30,29 +32,43 @@ class DataDetailView extends StatelessWidget {
   Widget _buildBody(BuildContext context) {
     return Card(
       child: Row(
-        children: [Expanded( child: Image.asset(recData.imageUrl),flex:3),
-          Expanded(child:Column(mainAxisAlignment:MainAxisAlignment.center,
-          children: [Text(recData.title
-          ,style:Theme.of(context).textTheme.headline3!.copyWith(color:Colors.black87)),
-          Padding(
-            padding: const EdgeInsets.all(15),
-          child: Text("Goes into: ${recData.goesTo}",style:Theme.of(context).textTheme.headline6!.copyWith(color:Colors.black87))
+        children: [
+          Expanded(
+            child: Image.asset(recData.imageUrl),
+            flex: 3,
           ),
-          Padding(
-          padding: const EdgeInsets.all(30),
-          child: Text(recData.generalInformation,style:Theme.of(context).textTheme.bodyLarge!.copyWith(color:Colors.black87))
-          )
-      ]
-        ),flex:6)
-        ]
-
-      )
-        //image: Image(recData.imageUrl),
-        //description: Text(recData.generalInformation),
-        //bin: Bin(recData.goesTo),
-        //examples: String(recData.examples),
-        //TODO: Add declarative UI building here
-        // see for further reference: https://docs.flutter.dev/development/ui/layout
-        );
+          Expanded(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(recData.title,
+                    style: Theme.of(context)
+                        .textTheme
+                        .headline3!
+                        .copyWith(color: Colors.black87)),
+                Padding(
+                    padding: const EdgeInsets.all(15),
+                    child: Text(
+                        AppLocalizations.of(context)!
+                            .goesToBinDetailPlaceholder
+                            .format([recData.goesTo]),
+                        style: Theme.of(context)
+                            .textTheme
+                            .headline6!
+                            .copyWith(color: Colors.black87))),
+                Padding(
+                    padding: const EdgeInsets.all(30),
+                    child: Text(recData.generalInformation,
+                        style: Theme.of(context)
+                            .textTheme
+                            .bodyLarge!
+                            .copyWith(color: Colors.black87)))
+              ],
+            ),
+            flex: 6,
+          ),
+        ],
+      ),
+    );
   }
 }

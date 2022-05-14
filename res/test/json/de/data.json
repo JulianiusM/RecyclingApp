@@ -1,0 +1,22 @@
+[
+  {
+    "title": "SingleTestDE",
+    "goesTo": "STB",
+    "generalInformation": "SingleTestDataDE",
+    "imageUrl": "res/test/img/singleTest.jpg",
+    "exampleData": [
+      "EX1ALM",
+      "EX2"
+    ]
+  },
+  {
+    "title": "DoubleTestLANG",
+    "goesTo": "DTB",
+    "generalInformation": "DoubleTestDataDE",
+    "imageUrl": "res/test/img/doubleTest.jpg",
+    "exampleData": [
+      "BeerDE",
+      "WineGER"
+    ]
+  }
+]
