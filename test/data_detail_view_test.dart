@@ -4,7 +4,7 @@ import 'package:recycling/app.dart';
 import 'package:recycling/data_detail_view.dart';
 import 'package:recycling/recycling_data.dart';
 
-import 'lib/test_asset_bundle.dart';
+import 'util/test_asset_bundle.dart';
 
 void main() {
   testWidgets("Data detail view unit test", (WidgetTester tester) async {

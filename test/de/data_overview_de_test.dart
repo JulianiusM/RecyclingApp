@@ -4,7 +4,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:recycling/app.dart';
 import 'package:recycling/data_overview.dart';
 
-import '../lib/test_asset_bundle.dart';
+import '../util/test_asset_bundle.dart';
 
 void main() {
   testWidgets('Overview data test (DE)', (WidgetTester tester) async {
