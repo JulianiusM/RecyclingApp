@@ -30,7 +30,6 @@ dependencies:
   flutter:
     sdk: flutter
 
-
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
@@ -38,6 +37,15 @@ dependencies:
   # JSON generation
   json_annotation: ^4.5.0
 
+  # Fuzzy search
+  fuzzy: 0.4.0-nullsafety.0
+
+  # Localization
+  flutter_localizations:
+    sdk: flutter
+  intl: ^0.17.0
+
+  sprintf: ^6.0.0
 
 dev_dependencies:
   flutter_test:
@@ -54,9 +62,6 @@ dev_dependencies:
   build_runner: ^2.1.10
   json_serializable: ^6.2.0
 
-  # Fuzzy search
-  fuzzy: 0.4.0-nullsafety.0
-
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
@@ -71,7 +76,9 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - res/img/
-    - res/json/
+    - res/json/en/
+    - res/json/de/
+    - res/test/img/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
@@ -98,3 +105,5 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+
+  generate: true

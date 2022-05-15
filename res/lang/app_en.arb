@@ -1,0 +1,30 @@
+{
+  "noDataInfo": "No Data!",
+  "@noDataInfo": {
+    "description": "No data text appearing when app has no data to load"
+  },
+  "noResultsInfo": "No Results!",
+  "@noResultsInfo": {
+    "description": "No results text appearing when search result is empty"
+  },
+  "searchWasteBarHint": "Search waste",
+  "@searchWasteBarHint": {
+    "description": "Hint text of waste search bar"
+  },
+  "errorWhileReadingDataPlaceholder": "An error occurred while reading data: %1$s",
+  "@errorWhileReadingDataPlaceholder": {
+    "description": "Generic error occurred text with placeholder for error message"
+  },
+  "appTitle": "Recycling App",
+  "@appTitle": {
+    "description": "The title of the app"
+  },
+  "dataPath": "res/json/en/data.json",
+  "@dataPath": {
+    "description": "Path to localized data.json file"
+  },
+  "goesToBinDetailPlaceholder": "Goes into: %1$s",
+  "@goesToBinDetailPlaceholder": {
+    "description": "Goes into text for detail view with placeholder"
+  }
+}

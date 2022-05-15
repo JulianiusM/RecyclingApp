@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import 'data_overview.dart';
 
@@ -24,7 +25,11 @@ class App extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: home ?? const DataOverview(title: 'Recycling App - All Data'),
+      home: home ??
+          DataOverview(
+              title: AppLocalizations.of(context)?.appTitle ?? 'Recycling App'),
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
     );
   }
 }

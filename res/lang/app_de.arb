@@ -1,0 +1,9 @@
+{
+  "noDataInfo": "Keine Daten!",
+  "noResultsInfo": "Keine Ergebnisse!",
+  "searchWasteBarHint": "Suche nach Abfall",
+  "errorWhileReadingDataPlaceholder": "Ein Fehler ist während des Lesens der Daten aufgetreten: %1$s",
+  "appTitle": "Recycling App",
+  "dataPath": "res/json/de/data.json",
+  "goesToBinDetailPlaceholder": "Entsorgung über: %1$s"
+}

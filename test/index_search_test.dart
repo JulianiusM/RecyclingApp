@@ -3,8 +3,8 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:recycling/data_integration.dart';
 import 'package:recycling/recycling_data.dart';
 
-import 'lib/test_asset_bundle.dart';
-import 'lib/test_utils.dart';
+import 'util/test_asset_bundle.dart';
+import 'util/test_utils.dart';
 
 void main() async {
   // Setup index
