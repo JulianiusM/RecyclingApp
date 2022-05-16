@@ -1,123 +1,123 @@
 [
   {
-    "title": "drink can",
-    "goesTo": "yellow bag",
-    "generalInformation": "aluminium or iron composite can",
+    "title": "Getränkedose",
+    "goesTo": "gelber Sack",
+    "generalInformation": "Dose aus Aluminium",
     "imageUrl": "res/img/drinkcan.jpg",
     "exampleData": [
-      "soda",
-      "cola",
-      "sprite",
-      "tuna can"
+      "Soda",
+      "Cola",
+      "Sprite",
+      "Thunfischdose"
     ]
   },
   {
-    "title": "cork",
-    "goesTo": "yellow bag",
-    "generalInformation": "soft material of the bark of the cork oak",
+    "title": "Kork",
+    "goesTo": "gelber Sack",
+    "generalInformation": "weiches Material aus der Rinde der Korkeiche",
     "imageUrl": "res/img/cork.jpg",
     "exampleData": [
-      "wine",
-      "stopper",
-      "pinboard"
+      "Weinkork",
+      "Stöpsel",
+      "Pinnwand"
     ]
   },
   {
     "title": "Tetra Pak",
-    "goesTo": "yellow bag",
-    "generalInformation": "single-use beverage container made up of mixed materials",
+    "goesTo": "gelber Sack",
+    "generalInformation": "Einweg-Getränkebehälter aus gemischten Materialien",
     "imageUrl": "res/img/tetrapakmilk.jpg",
     "exampleData": [
-      "milk carton",
-      "water carton"
+      "Milchtüte",
+      "Wasser- oder Saftkarton"
     ]
   },
   {
-    "title": "polystyrene",
-    "goesTo": "yellow bag",
-    "generalInformation": "light, white plastic used especially for putting around delicate objects inside containers to protect them from damage",
+    "title": "Styropor",
+    "goesTo": "gelber Sack",
+    "generalInformation": "leichter, weißer Kunststoff, der insbesondere dazu verwendet wird, empfindliche Gegenstände in Behältern zu umschließen, um sie vor Beschädigungen zu schützen",
     "imageUrl": "res/img/polystyrene.jpg",
     "exampleData": [
-      "small pieces of polystyrene",
-      "takeaway box"
+      "kleine Stücke Styropor",
+      "Take-away-Box"
     ]
   },
   {
-    "title": "unpackaged food",
-    "goesTo": "bio waste container",
-    "generalInformation": "unpackaged food remnants",
+    "title": "unverpackte Lebensmittel",
+    "goesTo": "Biotonne",
+    "generalInformation": "unverpackte Lebensmittelreste",
     "imageUrl": "res/img/foodwaste.jpg",
     "exampleData": [
-      "eggshells",
-      "banana peel",
-      "broccoli stalk",
-      "bad apple"
+      "Eierschalen",
+      "Bananenschalen",
+      "Brokkolistiel",
+      "fauler Apfel"
     ]
   },
   {
-    "title": "paper and cardboard",
-    "goesTo": "paper bin",
-    "generalInformation": "products of paper made up of cellulose or wooden material",
+    "title": "Papier, Pappe, Karton",
+    "goesTo": "Papiertonne",
+    "generalInformation": "Produkte aus Papier, die aus Cellulose- und Ligninfasern des Rohstoffes Holz bestehen",
     "imageUrl": "res/img/paper.jpg",
     "exampleData": [
-      "newspaper",
-      "sheet of paper",
-      "carton box"
+      "Zeitung",
+      "Blatt Papier",
+      "Kartonschachtel"
     ]
   },
   {
-    "title": "clothes",
-    "goesTo": "old clothes container",
-    "generalInformation": "items worn to cover, protect, decorate the body",
+    "title": "Kleidung",
+    "goesTo": "Altkleider-Container",
+    "generalInformation": "Gegenstände, die getragen werden, um den Körper zu bedecken, zu schützen, zu schmücken",
     "imageUrl": "res/img/clothes.jpg",
     "exampleData": [
-      "t-shirt",
-      "shoes",
-      "Pullover"
+      "T-shirt",
+      "Schuhe",
+      "Pulli"
     ]
   },
   {
-    "title": "plants and garden waste",
-    "goesTo": "green waste (own garden or green waste collection point)",
-    "generalInformation": "natural plants that produce flowers, grain, fruit, and vegetables",
+    "title": "Pflanzen und Gartenabfälle",
+    "goesTo": "Grünabfälle (eigener Garten oder Grünabfallsammelstelle)",
+    "generalInformation": "natürliche Pflanzen, die Blumen, Getreide, Früchte und Gemüse produzieren",
     "imageUrl": "res/img/gardenwaste.jpg",
     "exampleData": [
-      "basil plant",
-      "orchid"
+      "Basilikumpflanze",
+      "Orchidee"
     ]
   },
   {
-    "title": "electrical or electronic devices",
-    "goesTo": "recycling centre",
-    "generalInformation": "electrical or electronic devices: anything with plugs, cords and electronic components",
+    "title": "elektrische oder elektronische Geräte",
+    "goesTo": "Wertstoffhof",
+    "generalInformation": "elektrische oder elektronische Geräte: alles mit Steckern, Kabeln und elektronischen Bauteilen",
     "imageUrl": "res/img/ewaste.jpg",
     "exampleData": [
       "CD-Rom",
-      "headphones",
-      "microwave"
+      "Kopfhörer",
+      "Mikrowelle"
     ]
   },
   {
-    "title": "furniture",
-    "goesTo": "recycling centre",
-    "generalInformation": "household equipment, usually made of wood, metal, plastics, marble, glass, fabrics, or related materials",
+    "title": "Möbel",
+    "goesTo": "Wertstoffhof",
+    "generalInformation": "Haushaltsgeräte, in der Regel aus Holz, Metall, Kunststoff, Marmor, Glas, Stoffen oder ähnlichen Materialien",
     "imageUrl": "res/img/mattress.jpg",
     "exampleData": [
-      "mattress",
-      "wardrobe",
-      "chair"
+      "Matratze",
+      "Kleiderschrank",
+      "Sitzstuhl"
     ]
   },
   {
-    "title": "residual waste",
-    "goesTo": "residual waste bin",
-    "generalInformation": "non-recyclable waste",
+    "title": "Restmüll",
+    "goesTo": "Restmülltonne",
+    "generalInformation": "nicht wiederverwertbarer Abfall",
     "imageUrl": "res/img/cigarette.jpg",
     "exampleData": [
-      "cigarette end",
-      "cotton buds",
-      "medical tablet strips",
-      "cooled ash"
+      "Zigarettenkippen",
+      "Wattestäbchen",
+      "Medikamente",
+      "gekühlte Asche"
     ]
   }
 ]
