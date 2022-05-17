@@ -3,14 +3,14 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:recycling/data_integration.dart';
 import 'package:recycling/recycling_data.dart';
 
-import 'util/test_asset_bundle.dart';
-import 'util/test_utils.dart';
+import '../util/test_asset_bundle.dart';
+import '../util/test_utils.dart';
 
 void main() async {
   // Setup index
   AssetBundle testBundle = TestAssetBundle();
   List<RecyclingData> oneData = await DataIntegration.generateRecyclingData(
-      normalisePath("res/test/json/test_splitting.json"),
+      normalisePath("res/test/json/recyclingData/test_splitting.json"),
       injectedBundle: testBundle);
   Map<String, List<RecyclingData>> dataIndex =
       DataIntegration.generateRuntimeIndex(oneData);

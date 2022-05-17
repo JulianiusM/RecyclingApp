@@ -30,6 +30,16 @@ class App extends StatelessWidget {
               title: AppLocalizations.of(context)?.appTitle ?? 'Recycling App'),
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
+      localeListResolutionCallback: (deviceLocales, supportedLocales) {
+        if (deviceLocales != null) {
+          for (final locale in deviceLocales) {
+            if (supportedLocales.contains(locale)) {
+              return locale;
+            }
+          }
+        }
+        return const Locale("en");
+      },
     );
   }
 }

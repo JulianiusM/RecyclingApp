@@ -1,0 +1,42 @@
+[
+  {
+    "name": "ST",
+    "description": "ST DESC",
+    "entryList": [
+      {
+        "goesTo": "STB",
+        "generalInformation": "SingleTestData",
+        "dataTitles": [
+          "SingleTest"
+        ]
+      },
+      {
+        "goesTo": "DTB",
+        "generalInformation": "DoubleTestData",
+        "dataTitles": [
+          "DoubleTest"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "DT",
+    "description": "DT DESC",
+    "entryList": [
+      {
+        "goesTo": "DSTB",
+        "generalInformation": "DualSingleTestData",
+        "dataTitles": [
+          "SingleTest"
+        ]
+      },
+      {
+        "goesTo": "DDTB",
+        "generalInformation": "DualDoubleTestData",
+        "dataTitles": [
+          "DoubleTest"
+        ]
+      }
+    ]
+  }
+]

@@ -5,5 +5,9 @@
   "errorWhileReadingDataPlaceholder": "Ein Fehler ist während des Lesens der Daten aufgetreten: %1$s",
   "appTitle": "Recycling App",
   "dataPath": "res/json/de/data.json",
-  "goesToBinDetailPlaceholder": "Entsorgung über: %1$s"
+  "goesToBinDetailPlaceholder": "Entsorgung über: %1$s",
+  "districtDataPath": "res/json/de/districtData.json",
+  "searchNavName": "Suche",
+  "districtNavName": "Bezirk",
+  "selectDistrict": "Bezirk wählen"
 }
