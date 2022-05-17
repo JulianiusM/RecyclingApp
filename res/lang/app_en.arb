@@ -26,5 +26,21 @@
   "goesToBinDetailPlaceholder": "Goes into: %1$s",
   "@goesToBinDetailPlaceholder": {
     "description": "Goes into text for detail view with placeholder"
+  },
+  "districtDataPath": "res/json/en/districtData.json",
+  "@districtDataPath": {
+    "description": "Path to localized districtData.json file"
+  },
+  "searchNavName": "Search",
+  "@searchNavName": {
+    "description": "Name displayed on tab folder navigation for search"
+  },
+  "districtNavName": "District",
+  "@districtNavName": {
+    "description": "Name displayed on tab folder navigation for districts"
+  },
+  "selectDistrict": "Select district",
+  "@selectDistrict": {
+    "description": "Text for select district"
   }
 }

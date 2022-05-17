@@ -5,6 +5,8 @@ import 'package:flutter/services.dart';
 import 'package:fuzzy/fuzzy.dart';
 import 'package:recycling/recycling_data.dart';
 
+import 'district_data.dart';
+
 class DataIntegration {
   static Future<List<RecyclingData>> generateRecyclingData(String path,
       {BuildContext? context, AssetBundle? injectedBundle}) async {
@@ -90,5 +92,25 @@ class DataIntegration {
     }
 
     return returnList;
+  }
+
+  static Future<List<DistrictData>> generateDistrictData(String path,
+      {BuildContext? context, AssetBundle? injectedBundle}) async {
+    AssetBundle bundle;
+    if (injectedBundle != null) {
+      bundle = injectedBundle;
+    } else if (context != null) {
+      bundle = DefaultAssetBundle.of(context);
+    } else {
+      bundle = rootBundle;
+    }
+
+    List<DistrictData> data = [];
+    for (DistrictData recData
+        in (json.decode(await bundle.loadString(path)) as List)
+            .map((i) => DistrictData.fromJson(i))) {
+      data.add(recData);
+    }
+    return data;
   }
 }

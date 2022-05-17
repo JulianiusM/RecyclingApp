@@ -3,15 +3,15 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:recycling/data_integration.dart';
 import 'package:recycling/recycling_data.dart';
 
-import 'util/test_asset_bundle.dart';
-import 'util/test_utils.dart';
+import '../util/test_asset_bundle.dart';
+import '../util/test_utils.dart';
 
 void main() {
   AssetBundle testBundle = TestAssetBundle();
 
   test("Test indexing of empty data", () async {
     List<RecyclingData> oneData = await DataIntegration.generateRecyclingData(
-        normalisePath("res/test/json/test_empty.json"),
+        normalisePath("res/test/json/recyclingData/test_empty.json"),
         injectedBundle: testBundle);
 
     Map<String, List<RecyclingData>> dataIndex =
@@ -22,7 +22,7 @@ void main() {
 
   test("Test indexing of one data point w/o examples", () async {
     List<RecyclingData> oneData = await DataIntegration.generateRecyclingData(
-        normalisePath("res/test/json/test_one.json"),
+        normalisePath("res/test/json/recyclingData/test_one.json"),
         injectedBundle: testBundle);
 
     Map<String, List<RecyclingData>> dataIndex =
@@ -38,7 +38,7 @@ void main() {
 
   test("Test indexing of one data point w/ examples", () async {
     List<RecyclingData> oneData = await DataIntegration.generateRecyclingData(
-        normalisePath("res/test/json/test_one_example.json"),
+        normalisePath("res/test/json/recyclingData/test_one_example.json"),
         injectedBundle: testBundle);
 
     Map<String, List<RecyclingData>> dataIndex =
@@ -70,7 +70,7 @@ void main() {
 
   test("Test indexing of two data points w/ examples", () async {
     List<RecyclingData> oneData = await DataIntegration.generateRecyclingData(
-        normalisePath("res/test/json/test_two_example.json"),
+        normalisePath("res/test/json/recyclingData/test_two_example.json"),
         injectedBundle: testBundle);
 
     Map<String, List<RecyclingData>> dataIndex =
@@ -115,7 +115,7 @@ void main() {
 
   test("Test indexing of two data points w/ examples and splitting", () async {
     List<RecyclingData> oneData = await DataIntegration.generateRecyclingData(
-        normalisePath("res/test/json/test_splitting.json"),
+        normalisePath("res/test/json/recyclingData/test_splitting.json"),
         injectedBundle: testBundle);
 
     Map<String, List<RecyclingData>> dataIndex =

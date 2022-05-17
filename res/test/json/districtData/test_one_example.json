@@ -1,0 +1,16 @@
+[
+  {
+    "name": "ST",
+    "description": "ST DESC",
+    "entryList": [
+      {
+        "goesTo": "STB",
+        "generalInformation": "SingleTestData",
+        "dataTitles": [
+          "SingleTest",
+          "DoubleTest"
+        ]
+      }
+    ]
+  }
+]

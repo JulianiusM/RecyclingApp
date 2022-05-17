@@ -3,15 +3,15 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:recycling/data_integration.dart';
 import 'package:recycling/recycling_data.dart';
 
-import 'util/test_asset_bundle.dart';
-import 'util/test_utils.dart';
+import '../util/test_asset_bundle.dart';
+import '../util/test_utils.dart';
 
 void main() {
   AssetBundle testBundle = TestAssetBundle();
 
   test("Test empty JSON", () async {
     List<RecyclingData> emptyData = await DataIntegration.generateRecyclingData(
-        normalisePath("res/test/json/test_empty.json"),
+        normalisePath("res/test/json/recyclingData/test_empty.json"),
         injectedBundle: testBundle);
 
     expect(emptyData.isEmpty, true);
@@ -19,7 +19,7 @@ void main() {
 
   test("Test JSON w/ 1 data point", () async {
     List<RecyclingData> oneData = await DataIntegration.generateRecyclingData(
-        normalisePath("res/test/json/test_one.json"),
+        normalisePath("res/test/json/recyclingData/test_one.json"),
         injectedBundle: testBundle);
 
     expect(oneData.length, 1);
@@ -33,7 +33,7 @@ void main() {
 
   test("Test JSON w/ 1 data point and examples", () async {
     List<RecyclingData> oneData = await DataIntegration.generateRecyclingData(
-        normalisePath("res/test/json/test_one_example.json"),
+        normalisePath("res/test/json/recyclingData/test_one_example.json"),
         injectedBundle: testBundle);
 
     expect(oneData.length, 1);
@@ -49,7 +49,7 @@ void main() {
 
   test("Test JSON w/ 2 data point and examples", () async {
     List<RecyclingData> oneData = await DataIntegration.generateRecyclingData(
-        normalisePath("res/test/json/test_two_example.json"),
+        normalisePath("res/test/json/recyclingData/test_two_example.json"),
         injectedBundle: testBundle);
 
     expect(oneData.length, 2);
