@@ -7,7 +7,7 @@ class DataDetailView extends StatelessWidget {
   const DataDetailView({Key? key, required this.recData}) : super(key: key);
   final RecyclingData recData;
 
-  static const int _RESPONSIVE_BREAKPOINT_WIDTH = 700;
+  static const int _responsiveBreakpointWidth = 700;
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +37,7 @@ class DataDetailView extends StatelessWidget {
     Axis flexDirection = Axis.horizontal;
     MainAxisAlignment descAlignment = MainAxisAlignment.center;
 
-    if (MediaQuery.of(context).size.width < _RESPONSIVE_BREAKPOINT_WIDTH) {
+    if (MediaQuery.of(context).size.width < _responsiveBreakpointWidth) {
       flexDirection = Axis.vertical;
       descAlignment = MainAxisAlignment.start;
     }
