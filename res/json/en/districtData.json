@@ -2,18 +2,26 @@
   {
     "name": "City of Regensburg",
     "description": "City of Regensburg",
-    "imageUrl": "res/img/img.jpg",
+    "imageUrl": "res/img/stadtrgb.jpg",
     "entryList": [
       {
         "goesTo": "recycling centre",
-        "generalInformation": "A place that recyclable goods can go to [...]",
-        "imageUrl": "res/img/img.jpg",
+        "generalInformation": "A place that recyclable goods can go for the purpose of converting items into a usable products",
+        "imageUrl": "res/img/recyclingcenter.jpg",
         "allowedExamples": [
           "metal",
-          "furniture"
+          "furniture",
+          "CD-Rom",
+          "bulky waste",
+          "scrap metals",
+          "used grease"
+          
         ],
         "disallowedExamples": [
-          "cigarettes"
+          "cigarettes",
+          "used tires",
+          "explosive and radioactive materials",
+          "infectious waste"
         ],
         "dataTitles": [
           "electrical or electronic devices",
@@ -21,17 +29,165 @@
         ]
       },
       {
-        "goesTo": "residual waste bin",
-        "generalInformation": "Everything that cannot be recycled goes here [...]",
-        "imageUrl": "res/img/img.jpg",
+        "goesTo": "residual waste",
+        "generalInformation": "Everything that cannot be recycled goes here",
+        "imageUrl": "res/img/residualwastebin.jpg",
         "allowedExamples": [
-          "cigarettes"
+          "cigarettes",
+          "cotton buds",
+          "medical tablet strips"
+          
         ],
         "disallowedExamples": [
-          "PET"
+          "PET",
+          "batteries"
+          "problem waste (e.g. paints, varnishes)",
+          "construction waste"
         ],
         "dataTitles": [
           "residual waste"
+        ]
+      },
+      {
+        "goesTo": "green waste collection point",
+        "generalInformation": "A place where green waste is collected",
+        "imageUrl": "res/img/greenpoint.jpg",
+        "allowedExamples": [
+           "basil plant",
+           "orchid",
+           "foliage",
+           "grass clippings"
+          
+        ],
+        "disallowedExamples": [
+          "kitchen and food waste",
+          "coal ash",
+          "street sweepings"
+        ],
+        "dataTitles": [
+          "plants and garden waste",
+          
+        ]
+      },
+      {
+        "goesTo": "bio waste container",
+        "generalInformation": "Container for unpackaged food remnants",
+        "imageUrl": "res/img/biobin.jpg",
+        "allowedExamples": [
+           "vegetable kitchen waste (vegetable, fruit and flower waste)",
+           "cooked food scraps",
+           "spoiled or inedible food without packaging"
+          
+        ],
+        "disallowedExamples": [
+          "foliage",
+          "grass clippings",
+          "plastic bag"
+          "ash"
+        ],
+        "dataTitles": [
+          "unpackaged food"
+        ]
+      },
+      {
+        "goesTo": "old clothes container",
+        "generalInformation": "Container for old clothes",
+        "imageUrl": "res/img/oldclothescontainer.jpg",
+        "allowedExamples": [
+          "all kinds of clothes",
+          "shoes",
+          "household linen like bed linen",
+          "dishtowels and towels"
+          
+        ],
+        "disallowedExamples": [
+          "cigarettes"
+          "heavily soiled textiles"
+          "roller or skates"
+          "hard hats"
+        ],
+        "dataTitles": [
+          "clothes"
+        ]
+      },
+      {
+        "goesTo": "paper bin",
+        "generalInformation": "Container for paper and cardboard",
+        "imageUrl": "res/img/paperbin.jpg",
+        "allowedExamples": [
+          "newspapers, magazines"
+          "writing and printer paper",
+          "books",
+          "brochures, catalogs",
+          "cardboard, cartons"
+          
+        ],
+        "disallowedExamples": [
+          "cigarettes",
+          "film-coated packaging",
+          "wallpapers",
+          "soiled papers",
+          "special paper e.g. thermal paper",
+          "residual waste"
+        ],
+        "dataTitles": [
+          "paper and cardboard"
+        ]
+      },
+      {
+        "goesTo": "yellow bag",
+        "generalInformation": "yellowish transparent plastic bag, in which any waste made of plastic, metal or composite materials can be handed in",
+        "imageUrl": "res/img/yellowbag.jpg",
+        "allowedExamples": [
+          "plastic film cups",
+          "plastic bottles",
+          "tinplate cans"
+          "aluminum cans",
+          "tubes",
+          "Tetra Pak",
+          "styrofoam/polystyrene",
+          "cork",
+          "empty aerosol cans (green dot)"
+          
+        ],
+        "disallowedExamples": [
+          "cigarettes",
+          "batteries",
+          "empty felt tip pens",
+          "glass",
+          "organic waste",
+          "spray cans with contents",
+          "music and video cassettes"  
+        ],
+        "dataTitles": [
+          "Tetra Pak",
+          "polystyrene",
+          "cork",
+          "drink can"          
+        ]
+      },
+      {
+        "goesTo": "glass container",
+        "generalInformation": "Container for grallsware, such as bottles, jars, drinkware, and bowls",
+        "imageUrl": "res/img/glasscontainer.jpg",
+        "allowedExamples": [
+          "waste glass (separated by color)",
+          "green, blue and red bottles into the green glass container",
+          "white bottles into the white glass container",
+          "brown bottles into the brown glass container"
+          
+        ],
+        "disallowedExamples": [
+          "cigarettes",
+          "porcelain",
+          "ceramic or earthenware bottles",
+          "light bulbs"
+          "fluorescent tubes"
+          "window glass",
+          "lead crystal",
+          "fireproof glass"
+        ],
+        "dataTitles": [
         ]
       }
     ]
