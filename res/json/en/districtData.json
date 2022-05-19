@@ -5,7 +5,10 @@
     "entryList": [
       {
         "goesTo": "recycling centre",
-        "generalInformation": "Recycling centers are places where you can recycle your stuff [...]",
+        "generalInformation": "Passt:
+        - R
+        - B",
+        "imgUrl": "res/img/img.jpg",
         "dataTitles": [
           "electrical or electronic devices",
           "furniture"
