@@ -1,39 +1,197 @@
 [
   {
-    "name": "City of Regensburg",
-    "description": "City of Regensburg",
-    "imageUrl": "res/img/img.jpg",
+    "name": "Stadt Regensburg",
+    "description": "Stadt Regensburg",
+    "imageUrl": "res/img/stadtrgb.jpg",
     "entryList": [
       {
-        "goesTo": "recycling centre",
-        "generalInformation": "A place that recyclable goods can go to [...]",
-        "imageUrl": "res/img/img.jpg",
+        "goesTo": "Wertstoffhof",
+        "generalInformation": "städtischer, kommunaler Sammelplatz für Wertstoffe",
+        "imageUrl": "res/img/recyclingcenter.jpg",
         "allowedExamples": [
-          "metal",
-          "furniture"
+          "Altmetalle",
+          "Sperrmüll"
+          "Elektrogeräte",
+          "CD's",
+          "Altfett",
+          "Problemmüll, gefährlicher Abfall",
+
         ],
         "disallowedExamples": [
-          "cigarettes"
+          "Altreifen",
+          "Asbesthaltige Abfälle",
+          "Explosive und radioaktive Stoffe",
+          "infektiöse Abfälle"
         ],
         "dataTitles": [
-          "electrical or electronic devices",
-          "furniture"
+          "elektrische oder elektronische Geräte",
+          "Möbel"
         ]
       },
       {
-        "goesTo": "residual waste bin",
-        "generalInformation": "Everything that cannot be recycled goes here [...]",
-        "imageUrl": "res/img/img.jpg",
+        "goesTo": "Restmüll",
+        "generalInformation": "Tonne für nicht wiederverwertbaren Abfall",
+        "imageUrl": "res/img/residualwastebin.jpg",
         "allowedExamples": [
-          "cigarettes"
+          "Hygienepapier (Windeln, Binden, Tampons)",
+          "Staubsauberbeutel",
+          "Straßenkehricht",
+          "rohe tierische Küchenabfälle",
+          "Abgekühlte Asche aller Art"
+          
         ],
         "disallowedExamples": [
-          "PET"
+          "Verpackungen oder Altpapier",
+          "Batterien"
+          "Problemabfall (z.B. Farben, Lacke)",
+          "Bauschutt, Steinmaterial"
         ],
         "dataTitles": [
-          "residual waste"
+          "Restmüll"
+        ]
+      },
+      {
+        "goesTo": "Grünabfallsammelstelle",
+        "generalInformation": "kommunale Abfallentsorgung für Gartenabfälle,
+        "imageUrl": "res/img/greenpoint.jpg",
+        "allowedExamples": [
+           "Grasschnitt",
+           "Laub",
+           "Strauchschnitt",
+           "Blumen"
+          
+        ],
+        "disallowedExamples": [
+          "Küchen- und Speiseabfälle",
+          "Kohlenasche",
+          "Straßenkehrricht"
+        ],
+        "dataTitles": [
+          "Pflanzen und Gartenabfälle",
+          
+        ]
+      },
+      {
+        "goesTo": "Biotonne",
+        "generalInformation": "Tonne für organischen Abfall",
+        "imageUrl": "res/img/biobin.jpg",
+        "allowedExamples": [
+           "pflanzliche Küchenabfälle (Gemüse-, Obst- und Blumenabfall)",
+           "gekochte Essensreste",
+           "verdorbene oder nicht mehr genießbare Lebensmittel ohne Verpackung"
+          
+        ],
+        "disallowedExamples": [
+          "rohe tierische Küchenabfälle",
+          "Laub",
+          "Strauchschnitt",
+          "Plastikbeutel",
+          "Ashe",
+          "Restmüll und Verpackung"
+        ],
+        "dataTitles": [
+          "unverpackte Lebensmittel"
+        ]
+      },
+      {
+        "goesTo": "Altkleidercontainer",
+        "generalInformation": "Container für Altkleider",
+        "imageUrl": "res/img/oldclothescontainer.jpg",
+        "allowedExamples": [
+          "Kleidungsstücke aller Art",
+          "Schuhe",
+          "Haushaltswäsche wie Bettbezüge",
+          "Geschirr- und Handtücher"
+          
+        ],
+        "disallowedExamples": [
+          "stark verschmutzte Textilien",
+          "Roll- oder Schlittschuhe",
+          "Schutzhelme"
+        ],
+        "dataTitles": [
+          "Kleidung"
+        ]
+      },
+      {
+        "goesTo": "Papiertonne",
+        "generalInformation": "Container for paper and cardboard",
+        "imageUrl": "res/img/paperbin.jpg",
+        "allowedExamples": [
+          "Zeitungen, Zeitschriften",
+          "Schreib- und Druckerpapier",
+          "Bücher",
+          "Broschüren, Kataloge",
+          "Pappe, Kartons"
+          
+        ],
+        "disallowedExamples": [
+          "Folienbeschichtete Verpackungen",
+          "Tapeten",
+          "verschmutztes Papier",
+          "Spezialpapier z.B. Thermopapier",
+          "Restmüll",
+        ],
+        "dataTitles": [
+          "Papier, Pappe, Karton"
+        ]
+      },
+      {
+        "goesTo": "Gelber Sack (Wertstoffsack)",
+        "generalInformation": "dünner, gelblich transparenter Kunststoffsack, in dem Müll aus Kunststoff, Metall oder Verbundmaterialien abgegeben werden kann",
+        "imageUrl": "res/img/yellowbag.jpg",
+        "allowedExamples": [
+          "Kunststofffolienbecher",
+          "Kunststoffflaschen",
+          "Weißblechdosen",
+          "Aluminiumdosen/ -schalen",
+          "Tuben",
+          "Tetra Pak",
+          "Styropor",
+          "leere Spraydosen (Grüner Punkt)"
+               
+        ],
+        "disallowedExamples": [
+          "Batterien",
+          "Leere Filzstifte",
+          "Glas",
+          "organische Abfälle",
+          "Papier",
+          "Problemabfall",
+          "Spraydosen mit Inhalt",
+          "Musik- und Videokassetten"
+        ],
+        "dataTitles": [
+          "Tetra Pak",
+          "Styropor",
+          "Kork",
+          "Getränkedose"          
+        ]
+      },
+      {
+        "goesTo": "Glascontainer",
+        "generalInformation": "Container für Altglas bzw. Verpackungsglas, das zum Zweck der Wiederverwertung gesammelt wird",
+        "imageUrl": "res/img/glasscontainer.jpg",
+        "allowedExamples": [
+          "Altglas (nach Farben getrennt)",
+          "Grüne, blaue und rote Flaschen in den Grünglascontainer",
+          "Weiße Flaschen in den Weißglascontainer",
+          "Braune Flaschen in den Braunglascontainer"
+          
+        ],
+        "disallowedExamples": [
+          "Porzellan",
+          "Keramik- oder Steingutflaschen",
+          "Glühbirnen",
+          "Leuchtstoffröhren"
+          "Fensterglas"
+          "Bleikristall",
+          "Feuerfestes Glas"
+        ],
+        "dataTitles": [
         ]
       }
     ]
   }
 ]
+
