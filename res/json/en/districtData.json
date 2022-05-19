@@ -5,7 +5,7 @@
     "imageUrl": "res/img/stadtrgb.jpg",
     "entryList": [
       {
-        "goesTo": "recycling centre",
+        "goesTo": "Recycling centre",
         "generalInformation": "A place that recyclable goods can go for the purpose of converting items into a usable products",
         "imageUrl": "res/img/recyclingcenter.jpg",
         "allowedExamples": [
@@ -18,7 +18,6 @@
           
         ],
         "disallowedExamples": [
-          "cigarettes",
           "used tires",
           "explosive and radioactive materials",
           "infectious waste"
@@ -29,7 +28,7 @@
         ]
       },
       {
-        "goesTo": "residual waste",
+        "goesTo": "Residual waste",
         "generalInformation": "Everything that cannot be recycled goes here",
         "imageUrl": "res/img/residualwastebin.jpg",
         "allowedExamples": [
@@ -40,7 +39,7 @@
         ],
         "disallowedExamples": [
           "PET",
-          "batteries"
+          "batteries",
           "problem waste (e.g. paints, varnishes)",
           "construction waste"
         ],
@@ -49,7 +48,7 @@
         ]
       },
       {
-        "goesTo": "green waste collection point",
+        "goesTo": "Green waste collection point",
         "generalInformation": "A place where green waste is collected",
         "imageUrl": "res/img/greenpoint.jpg",
         "allowedExamples": [
@@ -70,7 +69,7 @@
         ]
       },
       {
-        "goesTo": "bio waste container",
+        "goesTo": "Bio waste container",
         "generalInformation": "Container for unpackaged food remnants",
         "imageUrl": "res/img/biobin.jpg",
         "allowedExamples": [
@@ -82,7 +81,7 @@
         "disallowedExamples": [
           "foliage",
           "grass clippings",
-          "plastic bag"
+          "plastic bag",
           "ash"
         ],
         "dataTitles": [
@@ -90,7 +89,7 @@
         ]
       },
       {
-        "goesTo": "old clothes container",
+        "goesTo": "Old clothes container",
         "generalInformation": "Container for old clothes",
         "imageUrl": "res/img/oldclothescontainer.jpg",
         "allowedExamples": [
@@ -101,9 +100,8 @@
           
         ],
         "disallowedExamples": [
-          "cigarettes"
-          "heavily soiled textiles"
-          "roller or skates"
+          "heavily soiled textiles",
+          "roller or skates",
           "hard hats"
         ],
         "dataTitles": [
@@ -111,7 +109,7 @@
         ]
       },
       {
-        "goesTo": "paper bin",
+        "goesTo": "Paper bin",
         "generalInformation": "Container for paper and cardboard",
         "imageUrl": "res/img/paperbin.jpg",
         "allowedExamples": [
@@ -123,7 +121,6 @@
           
         ],
         "disallowedExamples": [
-          "cigarettes",
           "film-coated packaging",
           "wallpapers",
           "soiled papers",
@@ -135,8 +132,8 @@
         ]
       },
       {
-        "goesTo": "yellow bag",
-        "generalInformation": "yellowish transparent plastic bag, in which any waste made of plastic, metal or composite materials can be handed in",
+        "goesTo": "Yellow bag",
+        "generalInformation": "Yellowish transparent plastic bag, in which any waste made of plastic, metal or composite materials can be handed in",
         "imageUrl": "res/img/yellowbag.jpg",
         "allowedExamples": [
           "plastic film cups",
@@ -151,7 +148,6 @@
           
         ],
         "disallowedExamples": [
-          "cigarettes",
           "batteries",
           "empty felt tip pens",
           "glass",
@@ -167,8 +163,8 @@
         ]
       },
       {
-        "goesTo": "glass container",
-        "generalInformation": "Container for grallsware, such as bottles, jars, drinkware, and bowls",
+        "goesTo": "Glass container",
+        "generalInformation": "Container for glassware, such as bottles, jars, drinkware, and bowls",
         "imageUrl": "res/img/glasscontainer.jpg",
         "allowedExamples": [
           "waste glass (separated by color)",
@@ -178,7 +174,6 @@
           
         ],
         "disallowedExamples": [
-          "cigarettes",
           "porcelain",
           "ceramic or earthenware bottles",
           "light bulbs"
