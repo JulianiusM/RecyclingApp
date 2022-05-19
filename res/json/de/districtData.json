@@ -6,7 +6,7 @@
     "entryList": [
       {
         "goesTo": "Wertstoffhof",
-        "generalInformation": "städtischer, kommunaler Sammelplatz für Wertstoffe",
+        "generalInformation": "Städtischer, kommunaler Sammelplatz für Wertstoffe",
         "imageUrl": "res/img/recyclingcenter.jpg",
         "allowedExamples": [
           "Altmetalle",
@@ -42,7 +42,7 @@
         ],
         "disallowedExamples": [
           "Verpackungen oder Altpapier",
-          "Batterien"
+          "Batterien",
           "Problemabfall (z.B. Farben, Lacke)",
           "Bauschutt, Steinmaterial"
         ],
@@ -52,7 +52,7 @@
       },
       {
         "goesTo": "Grünabfallsammelstelle",
-        "generalInformation": "kommunale Abfallentsorgung für Gartenabfälle,
+        "generalInformation": "Kommunale Abfallentsorgung für Gartenabfälle",
         "imageUrl": "res/img/greenpoint.jpg",
         "allowedExamples": [
            "Grasschnitt",
@@ -130,7 +130,7 @@
           "Tapeten",
           "verschmutztes Papier",
           "Spezialpapier z.B. Thermopapier",
-          "Restmüll",
+          "Restmüll"
         ],
         "dataTitles": [
           "Papier, Pappe, Karton"
@@ -138,7 +138,7 @@
       },
       {
         "goesTo": "Gelber Sack (Wertstoffsack)",
-        "generalInformation": "dünner, gelblich transparenter Kunststoffsack, in dem Müll aus Kunststoff, Metall oder Verbundmaterialien abgegeben werden kann",
+        "generalInformation": "Dünner, gelblich transparenter Kunststoffsack, in dem Müll aus Kunststoff, Metall oder Verbundmaterialien abgegeben werden kann",
         "imageUrl": "res/img/yellowbag.jpg",
         "allowedExamples": [
           "Kunststofffolienbecher",
@@ -183,10 +183,10 @@
           "Porzellan",
           "Keramik- oder Steingutflaschen",
           "Glühbirnen",
-          "Leuchtstoffröhren"
-          "Fensterglas"
+          "Leuchtstoffröhren",
+          "Fensterglas",
           "Bleikristall",
-          "Feuerfestes Glas"
+          "feuerfestes Glas"
         ],
         "dataTitles": [
         ]
