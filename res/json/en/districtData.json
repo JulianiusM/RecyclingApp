@@ -8,7 +8,7 @@
         "generalInformation": "Passt:
         - R
         - B",
-        "imgUrl": "res/img/img.jpg",
+        "imageUrl": "res/img/img.jpg",
         "dataTitles": [
           "electrical or electronic devices",
           "furniture"
@@ -17,6 +17,7 @@
       {
         "goesTo": "residual waste bin",
         "generalInformation": "Everything that cannot be recycled goes here, e.g. cigarette end [...]",
+        "imageUrl": "res/img/img.jpg",
         "dataTitles": [
           "residual waste"
         ]
