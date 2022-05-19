@@ -2,10 +2,18 @@
   {
     "name": "ST",
     "description": "ST DESC",
+    "imageUrl": "res/test/img/singleTest.jpg",
     "entryList": [
       {
         "goesTo": "STB",
         "generalInformation": "SingleTestData",
+        "imageUrl": "res/test/img/singleTest.jpg",
+        "allowedExamples": [
+          "ST_EXMPL_ALLOW"
+        ],
+        "disallowedExamples": [
+          "ST_EXMPL_DISALLOW"
+        ],
         "dataTitles": [
           "SingleTest",
           "DoubleTest"

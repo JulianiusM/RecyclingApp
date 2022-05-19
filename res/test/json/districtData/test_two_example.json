@@ -2,10 +2,18 @@
   {
     "name": "ST",
     "description": "ST DESC",
+    "imageUrl": "res/test/img/singleTest.jpg",
     "entryList": [
       {
         "goesTo": "STB",
         "generalInformation": "SingleTestData",
+        "imageUrl": "res/test/img/singleTest.jpg",
+        "allowedExamples": [
+          "ST_EXMPL_ALLOW"
+        ],
+        "disallowedExamples": [
+          "ST_EXMPL_DISALLOW"
+        ],
         "dataTitles": [
           "SingleTest"
         ]
@@ -13,6 +21,13 @@
       {
         "goesTo": "DTB",
         "generalInformation": "DoubleTestData",
+        "imageUrl": "res/test/img/doubleTest.jpg",
+        "allowedExamples": [
+          "ST_DOUBLE_ALLOW"
+        ],
+        "disallowedExamples": [
+          "ST_DOUBLE_DISALLOW"
+        ],
         "dataTitles": [
           "DoubleTest"
         ]
@@ -22,10 +37,18 @@
   {
     "name": "DT",
     "description": "DT DESC",
+    "imageUrl": "res/test/img/doubleTest.jpg",
     "entryList": [
       {
         "goesTo": "DSTB",
         "generalInformation": "DualSingleTestData",
+        "imageUrl": "res/test/img/singleTest.jpg",
+        "allowedExamples": [
+          "DST_EXMPL_ALLOW"
+        ],
+        "disallowedExamples": [
+          "DST_EXMPL_DISALLOW"
+        ],
         "dataTitles": [
           "SingleTest"
         ]
@@ -33,6 +56,13 @@
       {
         "goesTo": "DDTB",
         "generalInformation": "DualDoubleTestData",
+        "imageUrl": "res/test/img/doubleTest.jpg",
+        "allowedExamples": [
+          "DST_DOUBLE_ALLOW"
+        ],
+        "disallowedExamples": [
+          "DST_DOUBLE_DISALLOW"
+        ],
         "dataTitles": [
           "DoubleTest"
         ]

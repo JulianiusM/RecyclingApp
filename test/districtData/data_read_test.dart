@@ -27,6 +27,7 @@ void main() {
 
     expect(oneData[0].name, "ST");
     expect(oneData[0].description, "ST DESC");
+    expect(oneData[0].imageUrl, "res/test/img/singleTest.jpg");
     expect(oneData[0].entryList.isEmpty, true);
   });
 
@@ -39,11 +40,17 @@ void main() {
 
     expect(oneData[0].name, "ST");
     expect(oneData[0].description, "ST DESC");
+    expect(oneData[0].imageUrl, "res/test/img/singleTest.jpg");
     expect(oneData[0].entryList.length, 1);
 
     DistrictDataEntry oneEntry = oneData[0].entryList[0];
     expect(oneEntry.goesTo, "STB");
     expect(oneEntry.generalInformation, "SingleTestData");
+    expect(oneEntry.imageUrl, "res/test/img/singleTest.jpg");
+    expect(oneEntry.allowedExamples.length, 1);
+    expect(oneEntry.allowedExamples[0], "ST_EXMPL_ALLOW");
+    expect(oneEntry.disallowedExamples.length, 1);
+    expect(oneEntry.disallowedExamples[0], "ST_EXMPL_DISALLOW");
     expect(oneEntry.dataTitles.length, 2);
     expect(oneEntry.dataTitles[0], "SingleTest");
     expect(oneEntry.dataTitles[1], "DoubleTest");
@@ -59,12 +66,18 @@ void main() {
     //First data point
     expect(oneData[0].name, "ST");
     expect(oneData[0].description, "ST DESC");
+    expect(oneData[0].imageUrl, "res/test/img/singleTest.jpg");
     expect(oneData[0].entryList.length, 2);
 
     {
       DistrictDataEntry oneEntry = oneData[0].entryList[0];
       expect(oneEntry.goesTo, "STB");
       expect(oneEntry.generalInformation, "SingleTestData");
+      expect(oneEntry.imageUrl, "res/test/img/singleTest.jpg");
+      expect(oneEntry.allowedExamples.length, 1);
+      expect(oneEntry.allowedExamples[0], "ST_EXMPL_ALLOW");
+      expect(oneEntry.disallowedExamples.length, 1);
+      expect(oneEntry.disallowedExamples[0], "ST_EXMPL_DISALLOW");
       expect(oneEntry.dataTitles.length, 1);
       expect(oneEntry.dataTitles[0], "SingleTest");
     }
@@ -72,6 +85,11 @@ void main() {
       DistrictDataEntry oneEntry = oneData[0].entryList[1];
       expect(oneEntry.goesTo, "DTB");
       expect(oneEntry.generalInformation, "DoubleTestData");
+      expect(oneEntry.imageUrl, "res/test/img/doubleTest.jpg");
+      expect(oneEntry.allowedExamples.length, 1);
+      expect(oneEntry.allowedExamples[0], "ST_DOUBLE_ALLOW");
+      expect(oneEntry.disallowedExamples.length, 1);
+      expect(oneEntry.disallowedExamples[0], "ST_DOUBLE_DISALLOW");
       expect(oneEntry.dataTitles.length, 1);
       expect(oneEntry.dataTitles[0], "DoubleTest");
     }
@@ -79,12 +97,18 @@ void main() {
     //Second data point
     expect(oneData[1].name, "DT");
     expect(oneData[1].description, "DT DESC");
+    expect(oneData[1].imageUrl, "res/test/img/doubleTest.jpg");
     expect(oneData[1].entryList.length, 2);
 
     {
       DistrictDataEntry oneEntry = oneData[1].entryList[0];
       expect(oneEntry.goesTo, "DSTB");
       expect(oneEntry.generalInformation, "DualSingleTestData");
+      expect(oneEntry.imageUrl, "res/test/img/singleTest.jpg");
+      expect(oneEntry.allowedExamples.length, 1);
+      expect(oneEntry.allowedExamples[0], "DST_EXMPL_ALLOW");
+      expect(oneEntry.disallowedExamples.length, 1);
+      expect(oneEntry.disallowedExamples[0], "DST_EXMPL_DISALLOW");
       expect(oneEntry.dataTitles.length, 1);
       expect(oneEntry.dataTitles[0], "SingleTest");
     }
@@ -92,6 +116,11 @@ void main() {
       DistrictDataEntry oneEntry = oneData[1].entryList[1];
       expect(oneEntry.goesTo, "DDTB");
       expect(oneEntry.generalInformation, "DualDoubleTestData");
+      expect(oneEntry.imageUrl, "res/test/img/doubleTest.jpg");
+      expect(oneEntry.allowedExamples.length, 1);
+      expect(oneEntry.allowedExamples[0], "DST_DOUBLE_ALLOW");
+      expect(oneEntry.disallowedExamples.length, 1);
+      expect(oneEntry.disallowedExamples[0], "DST_DOUBLE_DISALLOW");
       expect(oneEntry.dataTitles.length, 1);
       expect(oneEntry.dataTitles[0], "DoubleTest");
     }

@@ -8,10 +8,14 @@ part 'district_data.g.dart';
 @JsonSerializable(explicitToJson: true)
 class DistrictData {
   DistrictData(
-      {required this.name, required this.description, required this.entryList});
+      {required this.name,
+      required this.description,
+      required this.imageUrl,
+      required this.entryList});
 
   final String name;
   final String description;
+  final String imageUrl;
   final List<DistrictDataEntry> entryList;
 
   /// A necessary factory constructor for creating a new RecyclingData instance

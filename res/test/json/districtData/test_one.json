@@ -2,6 +2,7 @@
   {
     "name": "ST",
     "description": "ST DESC",
+    "imageUrl": "res/test/img/singleTest.jpg",
     "entryList": []
   }
 ]

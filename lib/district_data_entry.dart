@@ -9,10 +9,16 @@ class DistrictDataEntry {
   DistrictDataEntry(
       {required this.goesTo,
       required this.generalInformation,
+      required this.imageUrl,
+      required this.allowedExamples,
+      required this.disallowedExamples,
       required this.dataTitles});
 
   final String goesTo;
   final String generalInformation;
+  final String imageUrl;
+  final List<String> allowedExamples;
+  final List<String> disallowedExamples;
   final List<String> dataTitles;
 
   /// A necessary factory constructor for creating a new RecyclingData instance

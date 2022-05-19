@@ -2,13 +2,19 @@
   {
     "name": "City of Regensburg",
     "description": "City of Regensburg",
+    "imageUrl": "res/img/img.jpg",
     "entryList": [
       {
         "goesTo": "recycling centre",
-        "generalInformation": "Passt:
-        - R
-        - B",
+        "generalInformation": "A place that recyclable goods can go to [...]",
         "imageUrl": "res/img/img.jpg",
+        "allowedExamples": [
+          "metal",
+          "furniture"
+        ],
+        "disallowedExamples": [
+          "cigarettes"
+        ],
         "dataTitles": [
           "electrical or electronic devices",
           "furniture"
@@ -16,8 +22,14 @@
       },
       {
         "goesTo": "residual waste bin",
-        "generalInformation": "Everything that cannot be recycled goes here, e.g. cigarette end [...]",
+        "generalInformation": "Everything that cannot be recycled goes here [...]",
         "imageUrl": "res/img/img.jpg",
+        "allowedExamples": [
+          "cigarettes"
+        ],
+        "disallowedExamples": [
+          "PET"
+        ],
         "dataTitles": [
           "residual waste"
         ]
