@@ -5,7 +5,10 @@
     "entryList": [
       {
         "goesTo": "recycling centre",
-        "generalInformation": "Recycling centers are places where you can recycle your stuff [...]",
+        "generalInformation": "Passt:
+        - A
+        - B",
+        "imageUrl": "res/img/img.jpg",
         "dataTitles": [
           "electrical or electronic devices",
           "furniture"
@@ -14,6 +17,7 @@
       {
         "goesTo": "residual waste bin",
         "generalInformation": "Everything that cannot be recycled goes here, e.g. cigarette end [...]",
+        "imageUrl": "res/img/img.jpg",
         "dataTitles": [
           "residual waste"
         ]
