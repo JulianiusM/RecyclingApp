@@ -23,7 +23,7 @@ class TestAssetBundle extends CachingAssetBundle {
         File file = File(parts[0] + parts[1]);
         try {
           return ByteData.view(file.readAsBytesSync().buffer);
-        } on FileSystemException catch (_) {
+        } on FileSystemException {
           //Second chance using production asset
         }
       }

@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:recycling/data/data_config_values.dart';
+import 'package:recycling/data/district_data_entry.dart';
+import 'package:recycling/data/recycling_data.dart';
 import 'package:recycling/extensions/string_format_extension.dart';
-import 'package:recycling/recycling_data.dart';
+import 'package:recycling/ui/district_data_detail_view.dart';
 
 class DataDetailView extends StatelessWidget {
-  const DataDetailView({Key? key, required this.recData}) : super(key: key);
+  const DataDetailView(
+      {Key? key, required this.recData, required this.districtDataEntry})
+      : super(key: key);
   final RecyclingData recData;
-
-  static const int _responsiveBreakpointWidth = 700;
+  final DistrictDataEntry districtDataEntry;
 
   @override
   Widget build(BuildContext context) {
@@ -22,10 +26,6 @@ class DataDetailView extends StatelessWidget {
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
         title: Text(recData.title),
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
-          onPressed: () => Navigator.pop(context, false),
-        ),
       ),
       body: _buildBody(context),
     );
@@ -37,7 +37,8 @@ class DataDetailView extends StatelessWidget {
     Axis flexDirection = Axis.horizontal;
     MainAxisAlignment descAlignment = MainAxisAlignment.center;
 
-    if (MediaQuery.of(context).size.width < _responsiveBreakpointWidth) {
+    if (MediaQuery.of(context).size.width <
+        ConfigValues.responsiveBreakpointWidth) {
       flexDirection = Axis.vertical;
       descAlignment = MainAxisAlignment.start;
     }
@@ -67,15 +68,34 @@ class DataDetailView extends StatelessWidget {
                       textAlign: TextAlign.center,
                     ),
                     Padding(
-                      padding: const EdgeInsets.fromLTRB(0, 15, 0, 0),
-                      child: Text(
-                        AppLocalizations.of(context)!
-                            .goesToBinDetailPlaceholder
-                            .format([recData.goesTo]),
-                        style: Theme.of(context)
-                            .textTheme
-                            .headline6!
-                            .copyWith(color: Colors.black87),
+                      padding: const EdgeInsets.fromLTRB(0, 15, 20, 0),
+                      child: Row(
+                        children: <Widget>[
+                          Expanded(
+                            child: Text(
+                              AppLocalizations.of(context)!
+                                  .goesToBinDetailPlaceholder
+                                  .format([recData.goesTo]),
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .headline6!
+                                  .copyWith(color: Colors.black87),
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
+                          IconButton(
+                            icon: const Icon(Icons.info_outlined),
+                            onPressed: () => Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (BuildContext context) =>
+                                    DistrictDataDetailView(
+                                  districtDataEntry: districtDataEntry,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                     Padding(

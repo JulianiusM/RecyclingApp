@@ -42,5 +42,13 @@
   "selectDistrict": "Select district",
   "@selectDistrict": {
     "description": "Text for select district"
+  },
+  "allowedExampleHeader": "Allowed",
+  "@allowedExampleHeader": {
+    "description": "Text for allowed column in district entry examples table"
+  },
+  "disallowedExampleHeader": "Disallowed",
+  "@disallowedExampleHeader": {
+    "description": "Text for disallowed column in district entry examples table"
   }
 }

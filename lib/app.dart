@@ -1,13 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:recycling/data/data_config_values.dart';
+import 'package:recycling/extensions/string_format_extension.dart';
+import 'package:recycling/ui/district_overview.dart';
+import 'package:recycling/ui/home_navigation_view.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-import 'data_overview.dart';
-
-class App extends StatelessWidget {
+class App extends StatefulWidget {
   const App({Key? key, this.home}) : super(key: key);
 
   final DefaultAssetBundle? home;
 
+  @override
+  State<StatefulWidget> createState() => _AppState();
+}
+
+class _AppState extends State<App> {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -25,9 +33,7 @@ class App extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.green,
       ),
-      home: home ??
-          DataOverview(
-              title: AppLocalizations.of(context)?.appTitle ?? 'Recycling App'),
+      home: widget.home ?? _buildRoot(context),
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
       localeListResolutionCallback: (deviceLocales, supportedLocales) {
@@ -39,6 +45,38 @@ class App extends StatelessWidget {
           }
         }
         return const Locale("en");
+      },
+    );
+  }
+
+  Widget _buildRoot(BuildContext context) {
+    return FutureBuilder<SharedPreferences>(
+      future: SharedPreferences.getInstance(),
+      builder: (BuildContext context, AsyncSnapshot<SharedPreferences> data) {
+        switch (data.connectionState) {
+          case ConnectionState.none:
+          case ConnectionState.waiting:
+            return const CircularProgressIndicator.adaptive();
+          default:
+            if (data.hasError) {
+              return Text(AppLocalizations.of(context)!
+                  .errorWhileReadingDataPlaceholder
+                  .format([data.error.toString()]));
+            } else {
+              String? prefData = data.data
+                  ?.getString(SharedPreferenceKeys.selectedDistrict.name);
+              if (prefData != null && prefData.isNotEmpty) {
+                return HomeNavigationView(
+                  title:
+                      AppLocalizations.of(context)?.appTitle ?? 'Recycling App',
+                  selectedDistrict: data.data!
+                      .getString(SharedPreferenceKeys.selectedDistrict.name)!,
+                );
+              } else {
+                return const DistrictOverview();
+              }
+            }
+        }
       },
     );
   }

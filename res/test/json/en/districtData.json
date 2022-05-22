@@ -13,7 +13,7 @@
     ],
     "entryList": [
       {
-        "goesTo": "STB-B",
+        "goesTo": "STB",
         "generalInformation": "SingleTestData",
         "imageUrl": "res/test/img/singleTest.jpg",
         "allowedExamples": [
@@ -27,7 +27,7 @@
         ]
       },
       {
-        "goesTo": "DTB-B",
+        "goesTo": "DTB",
         "generalInformation": "DoubleTestData",
         "imageUrl": "res/test/img/doubleTest.jpg",
         "allowedExamples": [
@@ -56,7 +56,7 @@
     ],
     "entryList": [
       {
-        "goesTo": "DSTB-B",
+        "goesTo": "DSTB",
         "generalInformation": "DualSingleTestData",
         "imageUrl": "res/test/img/singleTest.jpg",
         "allowedExamples": [
@@ -70,7 +70,7 @@
         ]
       },
       {
-        "goesTo": "DDTB-B",
+        "goesTo": "DDTB",
         "generalInformation": "DualDoubleTestData",
         "imageUrl": "res/test/img/doubleTest.jpg",
         "allowedExamples": [

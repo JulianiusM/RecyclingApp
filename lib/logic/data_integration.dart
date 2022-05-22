@@ -3,9 +3,10 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:fuzzy/fuzzy.dart';
-import 'package:recycling/recycling_data.dart';
+import 'package:recycling/data/district_data_entry.dart';
 
-import 'district_data.dart';
+import '../data/district_data.dart';
+import '../data/recycling_data.dart';
 
 class DataIntegration {
   static Future<List<RecyclingData>> generateRecyclingData(String path,
@@ -112,5 +113,39 @@ class DataIntegration {
       data.add(recData);
     }
     return data;
+  }
+
+  static List<RecyclingData> mergeRecyclingDistrictData(
+      List<RecyclingData> recData, List<DistrictDataEntry> distData) {
+    List<RecyclingData> data = [];
+    Map<String, DistrictDataEntry> distMap =
+        _mergeRecDistDataGenerateDistrictMap(distData);
+
+    for (RecyclingData rData in recData) {
+      DistrictDataEntry? dde = distMap[rData.title];
+      if (dde != null) {
+        data.add(rData.copyWith(goesTo: dde.goesTo));
+      }
+    }
+
+    return data;
+  }
+
+  static Map<String, DistrictDataEntry> _mergeRecDistDataGenerateDistrictMap(
+      List<DistrictDataEntry> distData) {
+    Map<String, DistrictDataEntry> map = {};
+
+    for (DistrictDataEntry dde in distData) {
+      for (String title in dde.dataTitles) {
+        if (map.containsKey(title)) {
+          throw Exception(
+              "Unique mapping failed: Duplicate entry $title in $dde");
+        }
+
+        map.putIfAbsent(title, () => dde);
+      }
+    }
+
+    return map;
   }
 }
