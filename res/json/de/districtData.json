@@ -3,6 +3,14 @@
     "name": "Stadt Regensburg",
     "description": "Stadt Regensburg",
     "imageUrl": "res/img/stadtrgb.jpg",
+    "hasAdditionalInformation": true,
+    "additionalInformation": [
+      "Verantwortliche Stelle:",
+      "Mrs. Example",
+      "Umweltamt",
+      "Examplestr. 4",
+      "12345 ST"
+    ],
     "entryList": [
       {
         "goesTo": "Wertstoffhof",
@@ -10,12 +18,11 @@
         "imageUrl": "res/img/recyclingcenter.jpg",
         "allowedExamples": [
           "Altmetalle",
-          "Sperrmüll"
+          "Sperrmüll",
           "Elektrogeräte",
           "CD's",
           "Altfett",
-          "Problemmüll, gefährlicher Abfall",
-
+          "Problemmüll, gefährlicher Abfall"
         ],
         "disallowedExamples": [
           "Altreifen",
@@ -67,7 +74,7 @@
           "Straßenkehrricht"
         ],
         "dataTitles": [
-          "Pflanzen und Gartenabfälle",
+          "Pflanzen und Gartenabfälle"
           
         ]
       },
@@ -86,7 +93,7 @@
           "Laub",
           "Strauchschnitt",
           "Plastikbeutel",
-          "Ashe",
+          "Asche",
           "Restmüll und Verpackung"
         ],
         "dataTitles": [

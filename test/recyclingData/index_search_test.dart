@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:recycling/data_integration.dart';
-import 'package:recycling/recycling_data.dart';
+import 'package:recycling/data/recycling_data.dart';
+import 'package:recycling/logic/data_integration.dart';
 
 import '../util/test_asset_bundle.dart';
 import '../util/test_utils.dart';

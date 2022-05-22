@@ -1,5 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:recycling/district_data_entry.dart';
+import 'package:recycling/data/district_data_entry.dart';
 
 part 'district_data.g.dart';
 
@@ -7,15 +7,18 @@ part 'district_data.g.dart';
 /// JSON serialization logic to be generated.
 @JsonSerializable(explicitToJson: true)
 class DistrictData {
-  DistrictData(
-      {required this.name,
-      required this.description,
-      required this.imageUrl,
-      required this.entryList});
+  DistrictData({required this.name,
+    required this.description,
+    required this.imageUrl,
+    required this.hasAdditionalInformation,
+    required this.additionalInformation,
+    required this.entryList});
 
   final String name;
   final String description;
   final String imageUrl;
+  final bool hasAdditionalInformation;
+  final List<String> additionalInformation;
   final List<DistrictDataEntry> entryList;
 
   /// A necessary factory constructor for creating a new RecyclingData instance

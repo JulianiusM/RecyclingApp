@@ -29,4 +29,18 @@ class RecyclingData {
   /// to JSON. The implementation simply calls the private, generated
   /// helper method `_$RecyclingDataToJson`.
   Map<String, dynamic> toJson() => _$RecyclingDataToJson(this);
+
+  RecyclingData copyWith(
+      {String? title,
+      String? goesTo,
+      String? generalInformation,
+      String? imageUrl,
+      List<String>? exampleData}) {
+    return RecyclingData(
+        title: title ?? this.title,
+        goesTo: goesTo ?? this.goesTo,
+        generalInformation: generalInformation ?? this.generalInformation,
+        imageUrl: imageUrl ?? this.imageUrl,
+        exampleData: exampleData ?? this.exampleData);
+  }
 }

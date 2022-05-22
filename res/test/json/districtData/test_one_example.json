@@ -3,9 +3,17 @@
     "name": "ST",
     "description": "ST DESC",
     "imageUrl": "res/test/img/singleTest.jpg",
+    "hasAdditionalInformation": true,
+    "additionalInformation": [
+      "Responsible city deputy:",
+      "Mrs. Example",
+      "Office for environment",
+      "Examplestr. 4",
+      "12345 ST"
+    ],
     "entryList": [
       {
-        "goesTo": "STB",
+        "goesTo": "STB-B",
         "generalInformation": "SingleTestData",
         "imageUrl": "res/test/img/singleTest.jpg",
         "allowedExamples": [

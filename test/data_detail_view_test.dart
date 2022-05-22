@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:recycling/app.dart';
-import 'package:recycling/data_detail_view.dart';
-import 'package:recycling/recycling_data.dart';
+import 'package:recycling/data/district_data_entry.dart';
+import 'package:recycling/data/recycling_data.dart';
+import 'package:recycling/ui/data_detail_view.dart';
 
 import 'util/test_asset_bundle.dart';
 
@@ -20,6 +21,14 @@ void main() {
               generalInformation: "SingleTestData",
               imageUrl: "res/test/img/singleTest.jpg",
               exampleData: ["A", "B"],
+            ),
+            districtDataEntry: DistrictDataEntry(
+              goesTo: "STB",
+              generalInformation: "genInfo",
+              imageUrl: "res/test/img/singleTest.jpg",
+              allowedExamples: ["AllowEx"],
+              disallowedExamples: ["DisallowEx"],
+              dataTitles: ["SingleTest"],
             ),
           ),
         ),

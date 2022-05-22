@@ -9,5 +9,7 @@
   "districtDataPath": "res/json/de/districtData.json",
   "searchNavName": "Suche",
   "districtNavName": "Bezirk",
-  "selectDistrict": "Bezirk wählen"
+  "selectDistrict": "Bezirk wählen",
+  "allowedExampleHeader": "Erlaubt",
+  "disallowedExampleHeader": "Verboten"
 }

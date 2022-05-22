@@ -1,7 +1,7 @@
 [
   {
-    "name": "ST",
-    "description": "ST DESC",
+    "name": "ST-DE",
+    "description": "ST DESC DE",
     "imageUrl": "res/test/img/singleTest.jpg",
     "hasAdditionalInformation": true,
     "additionalInformation": [
@@ -9,42 +9,42 @@
       "Mrs. Example",
       "Office for environment",
       "Examplestr. 4",
-      "12345 ST"
+      "12345 ST-DE"
     ],
     "entryList": [
       {
-        "goesTo": "STB-B",
-        "generalInformation": "SingleTestData",
+        "goesTo": "STB",
+        "generalInformation": "SingleTestDataDE",
         "imageUrl": "res/test/img/singleTest.jpg",
         "allowedExamples": [
-          "ST_EXMPL_ALLOW"
+          "ST_EXMPL_ALLOW_DE"
         ],
         "disallowedExamples": [
-          "ST_EXMPL_DISALLOW"
+          "ST_EXMPL_DISALLOW_DE"
         ],
         "dataTitles": [
-          "SingleTest"
+          "SingleTestDE"
         ]
       },
       {
-        "goesTo": "DTB-B",
-        "generalInformation": "DoubleTestData",
+        "goesTo": "DTB",
+        "generalInformation": "DoubleTestDataDE",
         "imageUrl": "res/test/img/doubleTest.jpg",
         "allowedExamples": [
-          "ST_DOUBLE_ALLOW"
+          "ST_DOUBLE_ALLOW_DE"
         ],
         "disallowedExamples": [
-          "ST_DOUBLE_DISALLOW"
+          "ST_DOUBLE_DISALLOW_DE"
         ],
         "dataTitles": [
-          "DoubleTest"
+          "DoubleTestLANG"
         ]
       }
     ]
   },
   {
-    "name": "DT",
-    "description": "DT DESC",
+    "name": "DT-DE",
+    "description": "DT DESC DE",
     "imageUrl": "res/test/img/doubleTest.jpg",
     "hasAdditionalInformation": true,
     "additionalInformation": [
@@ -52,32 +52,32 @@
       "Mr. Example",
       "Office for environment",
       "Examplestr. 7",
-      "54321 DT"
+      "54321 DT-DE"
     ],
     "entryList": [
       {
-        "goesTo": "DSTB-B",
-        "generalInformation": "DualSingleTestData",
+        "goesTo": "DSTB",
+        "generalInformation": "DualSingleTestDataDE",
         "imageUrl": "res/test/img/singleTest.jpg",
         "allowedExamples": [
-          "DST_EXMPL_ALLOW"
+          "DST_EXMPL_ALLOW_DE"
         ],
         "disallowedExamples": [
-          "DST_EXMPL_DISALLOW"
+          "DST_EXMPL_DISALLOW_DE"
         ],
         "dataTitles": [
           "SingleTest"
         ]
       },
       {
-        "goesTo": "DDTB-B",
-        "generalInformation": "DualDoubleTestData",
+        "goesTo": "DDTB",
+        "generalInformation": "DualDoubleTestDataDE",
         "imageUrl": "res/test/img/doubleTest.jpg",
         "allowedExamples": [
-          "DST_DOUBLE_ALLOW"
+          "DST_DOUBLE_ALLOW_DE"
         ],
         "disallowedExamples": [
-          "DST_DOUBLE_DISALLOW"
+          "DST_DOUBLE_DISALLOW_DE"
         ],
         "dataTitles": [
           "DoubleTest"

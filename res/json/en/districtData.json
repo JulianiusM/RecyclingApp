@@ -3,6 +3,14 @@
     "name": "City of Regensburg",
     "description": "City of Regensburg",
     "imageUrl": "res/img/stadtrgb.jpg",
+    "hasAdditionalInformation": true,
+    "additionalInformation": [
+      "Responsible city deputy:",
+      "Mrs. Example",
+      "Office for environment",
+      "Examplestr. 4",
+      "12345 ST"
+    ],
     "entryList": [
       {
         "goesTo": "Recycling centre",
@@ -64,7 +72,7 @@
           "street sweepings"
         ],
         "dataTitles": [
-          "plants and garden waste",
+          "plants and garden waste"
           
         ]
       },
@@ -113,12 +121,11 @@
         "generalInformation": "Container for paper and cardboard",
         "imageUrl": "res/img/paperbin.jpg",
         "allowedExamples": [
-          "newspapers, magazines"
+          "newspapers, magazines",
           "writing and printer paper",
           "books",
           "brochures, catalogs",
           "cardboard, cartons"
-          
         ],
         "disallowedExamples": [
           "film-coated packaging",
@@ -138,14 +145,13 @@
         "allowedExamples": [
           "plastic film cups",
           "plastic bottles",
-          "tinplate cans"
+          "tinplate cans",
           "aluminum cans",
           "tubes",
           "Tetra Pak",
           "styrofoam/polystyrene",
           "cork",
           "empty aerosol cans (green dot)"
-          
         ],
         "disallowedExamples": [
           "batteries",
@@ -176,8 +182,8 @@
         "disallowedExamples": [
           "porcelain",
           "ceramic or earthenware bottles",
-          "light bulbs"
-          "fluorescent tubes"
+          "light bulbs",
+          "fluorescent tubes",
           "window glass",
           "lead crystal",
           "fireproof glass"

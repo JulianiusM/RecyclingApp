@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:recycling/data_detail_view.dart';
-import 'package:recycling/data_integration.dart';
+import 'package:recycling/data/district_data.dart';
+import 'package:recycling/data/recycling_data.dart';
 import 'package:recycling/extensions/string_format_extension.dart';
-import 'package:recycling/recycling_data.dart';
+import 'package:recycling/logic/data_integration.dart';
+import 'package:recycling/ui/data_detail_view.dart';
 
 class DataOverview extends StatefulWidget {
-  const DataOverview({Key? key, required this.title}) : super(key: key);
+  DataOverview({Key? key, required this.selectedDistrict}) : super(key: key);
 
   // This widget is the home page of your application. It is stateful, meaning
   // that it has a State object (defined below) that contains fields that affect
@@ -16,26 +17,43 @@ class DataOverview extends StatefulWidget {
   // case the title) provided by the parent (in this case the App widget) and
   // used by the build method of the State. Fields in a Widget subclass are
   // always marked "final".
-
-  final String title;
+  final String selectedDistrict;
+  final List<_DataOverviewState?> _currentState = [null];
 
   @override
   State<DataOverview> createState() => _DataOverviewState();
+
+  void searchCallback(String input) {
+    _currentState[0]?.performSearch(input);
+  }
 }
 
 class _DataOverviewState extends State<DataOverview> {
+  DistrictData? districtData;
   List<RecyclingData>? dataList;
   Map<String, List<RecyclingData>>? dataIndex;
 
   List<RecyclingData>? searchData;
   bool isSearching = false;
 
+  @override
+  void initState() {
+    widget._currentState[0] = this;
+    super.initState();
+  }
+
   void setDataState(List<RecyclingData> data) {
     dataList = data;
     dataIndex = DataIntegration.generateRuntimeIndex(data);
   }
 
-  void _performSearch(String input) {
+  void setDistrictDataState(DistrictData data) {
+    dataList = DataIntegration.mergeRecyclingDistrictData(
+        dataList ?? [], data.entryList);
+    districtData = data;
+  }
+
+  void performSearch(String input) {
     setState(() {
       isSearching = input.isNotEmpty;
 
@@ -48,35 +66,7 @@ class _DataOverviewState extends State<DataOverview> {
 
   @override
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _addData method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
-    return Scaffold(
-      appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
-        bottom: AppBar(
-          title: Container(
-            width: double.infinity,
-            height: 40,
-            color: Colors.white,
-            child: Center(
-              child: TextField(
-                decoration: InputDecoration(
-                    hintText: AppLocalizations.of(context)!.searchWasteBarHint,
-                    prefixIcon: const Icon(Icons.search)),
-                onChanged: (input) => _performSearch(input),
-              ),
-            ),
-          ),
-        ),
-      ),
-      body: _buildBody(context),
-    );
+    return _buildBody(context);
   }
 
   Widget _buildBody(BuildContext context) {
@@ -99,15 +89,52 @@ class _DataOverviewState extends State<DataOverview> {
           AppLocalizations.of(context)!.dataPath,
           context: context),
       builder: (BuildContext context, AsyncSnapshot<List<RecyclingData>> data) {
-        if (data.hasError) {
-          return Text(AppLocalizations.of(context)!
-              .errorWhileReadingDataPlaceholder
-              .format([data.error.toString()]));
-        } else if (data.hasData) {
-          setDataState(data.data!);
-          return _buildListBody(context);
+        switch (data.connectionState) {
+          case ConnectionState.none:
+          case ConnectionState.waiting:
+            return const CircularProgressIndicator.adaptive();
+          default:
+            if (data.hasError) {
+              return Text(AppLocalizations.of(context)!
+                  .errorWhileReadingDataPlaceholder
+                  .format([data.error.toString()]));
+            } else if (data.hasData) {
+              setDataState(data.data!);
+              return _buildFutureDistrictBody(context);
+            }
+            return Text(AppLocalizations.of(context)!.noDataInfo);
         }
-        return Text(AppLocalizations.of(context)!.noDataInfo);
+      },
+    );
+  }
+
+  Widget _buildFutureDistrictBody(BuildContext context) {
+    return FutureBuilder(
+      future: DataIntegration.generateDistrictData(
+          AppLocalizations.of(context)!.districtDataPath,
+          context: context),
+      builder: (BuildContext context, AsyncSnapshot<List<DistrictData>> data) {
+        switch (data.connectionState) {
+          case ConnectionState.none:
+          case ConnectionState.waiting:
+            return const CircularProgressIndicator.adaptive();
+          default:
+            if (data.hasError) {
+              return Text(AppLocalizations.of(context)!
+                  .errorWhileReadingDataPlaceholder
+                  .format([data.error.toString()]));
+            } else if (data.hasData) {
+              try {
+                DistrictData currentData = data.data!.firstWhere(
+                    (element) => element.name == widget.selectedDistrict);
+                setDistrictDataState(currentData);
+                return _buildListBody(context);
+              } on StateError {
+                // Trapdoor --> No data text
+              }
+            }
+            return Text(AppLocalizations.of(context)!.noDataInfo);
+        }
       },
     );
   }
@@ -136,7 +163,10 @@ class _DataOverviewState extends State<DataOverview> {
       height = 100;
     }
 
-    return ListView.separated(
+    return Align(
+      alignment: Alignment.topCenter,
+      child: ListView.separated(
+        shrinkWrap: true,
         padding: const EdgeInsets.all(8),
         itemBuilder: (BuildContext context, int index) {
           return SizedBox(
@@ -145,8 +175,12 @@ class _DataOverviewState extends State<DataOverview> {
               onTap: () => Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) =>
-                      DataDetailView(recData: currentData[index]),
+                  builder: (context) => DataDetailView(
+                    recData: currentData[index],
+                    districtDataEntry: districtData!.entryList.firstWhere(
+                        (element) => element.dataTitles
+                            .contains(currentData[index].title)),
+                  ),
                 ),
               ),
               child: Row(
@@ -185,6 +219,8 @@ class _DataOverviewState extends State<DataOverview> {
           );
         },
         separatorBuilder: (BuildContext context, int index) => const Divider(),
-        itemCount: currentData.length);
+        itemCount: currentData.length,
+      ),
+    );
   }
 }
