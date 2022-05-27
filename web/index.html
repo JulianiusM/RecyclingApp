@@ -49,6 +49,13 @@
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
           name="viewport"/>
     <link href="splash/style.css" rel="stylesheet" type="text/css">
+
+    <!-- Cookie Consent -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css"
+          rel="stylesheet"
+          type="text/css">
+    <script async=""
+            src="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js"></script>
 </head>
 <body>
 <picture id="splash">
@@ -125,10 +132,21 @@
       loadMainDartJs();
     }
 
-
-
-
-
+    window.addEventListener("load", function () {
+        window.cookieconsent.initialise({
+            "palette": {
+                "popup": {
+                    "background": "#eaf7f7",
+                    "text": "#5c7291"
+                },
+                "button": {
+                    "background": "#43b17c",
+                    "text": "#ffffff"
+                }
+            },
+            "theme": "edgeless"
+        })
+    });
 </script>
 </body>
 </html>
