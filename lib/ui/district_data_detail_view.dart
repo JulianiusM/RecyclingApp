@@ -57,34 +57,36 @@ class DistrictDataDetailView extends StatelessWidget {
               flex: descFlexWeight,
               child: Padding(
                 padding: const EdgeInsets.all(15),
-                child: Column(
-                  mainAxisAlignment: descAlignment,
-                  children: [
-                    Text(
-                      districtData?.name ?? districtDataEntry!.goesTo,
-                      style: Theme.of(context)
-                          .textTheme
-                          .headline3!
-                          .copyWith(color: Colors.black87),
-                      textAlign: TextAlign.center,
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(0, 15, 0, 0),
-                      child: Text(
-                        districtData?.description ??
-                            districtDataEntry!.generalInformation,
+                child: SingleChildScrollView(
+                  child: Column(
+                    mainAxisAlignment: descAlignment,
+                    children: [
+                      Text(
+                        districtData?.name ?? districtDataEntry!.goesTo,
                         style: Theme.of(context)
                             .textTheme
-                            .headline6!
+                            .headline3!
                             .copyWith(color: Colors.black87),
                         textAlign: TextAlign.center,
                       ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(0, 15, 0, 0),
-                      child: _buildDescriptiveBody(context),
-                    ),
-                  ],
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(0, 15, 0, 0),
+                        child: Text(
+                          districtData?.description ??
+                              districtDataEntry!.generalInformation,
+                          style: Theme.of(context)
+                              .textTheme
+                              .headline6!
+                              .copyWith(color: Colors.black87),
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(0, 15, 0, 0),
+                        child: _buildDescriptiveBody(context),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
