@@ -38,7 +38,8 @@
         ],
         "dataTitles": [
           "electrical or electronic devices",
-          "furniture"
+          "furniture",
+          "portable batteries"
         ]
       },
       {
@@ -203,6 +204,7 @@
           "fireproof glass"
         ],
         "dataTitles": [
+          "glass"
         ]
       }
     ]
