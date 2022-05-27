@@ -16,7 +16,7 @@
     ],
     "entryList": [
       {
-        "goesTo": "Wertstoffhof/Recyclinghof",
+        "goesTo": "Wertstoffhof",
         "generalInformation": "Städtischer, kommunaler Sammelplatz für Wertstoffe",
         "imageUrl": "res/img/recyclingcenter.jpg",
         "allowedExamples": [
@@ -40,7 +40,8 @@
         ],
         "dataTitles": [
           "elektrische oder elektronische Geräte",
-          "Möbel"
+          "Möbel",
+          "Gerätebatterien"
         ]
       },
       {
@@ -207,6 +208,7 @@
           "feuerfestes Glas"
         ],
         "dataTitles": [
+          "Glas"
         ]
       }
     ]
