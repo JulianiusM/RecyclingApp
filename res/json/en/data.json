@@ -117,6 +117,25 @@
       "cotton buds",
       "medical tablet strips",
       "cooled ash"
+  },
+  {
+    "title": "portable batteries",
+    "goesTo": "recycling centre or collection boxes at any point of sale for batteries"
+    "generalInformation": "small storage devices for electrical energy",
+    "imageUrl": "res/img/batteries.jpg",
+    "exampleData": [
+      "batteries for remote control",
+      "button batteries"
+    ]
+  },
+  {
+    "title": "glass",
+    "goesTo": "glass container",
+    "generalInformation": "translucent, usually transparent, solid",
+    "imageUrl": "res/img/glassbottles.jpg",
+    "exampleData": [
+      "glass bottle",
+      "jam jar"
     ]
   }
 ]
