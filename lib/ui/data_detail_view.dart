@@ -56,59 +56,61 @@ class DataDetailView extends StatelessWidget {
               flex: descFlexWeight,
               child: Padding(
                 padding: const EdgeInsets.all(15),
-                child: Column(
-                  mainAxisAlignment: descAlignment,
-                  children: [
-                    Text(
-                      recData.title,
-                      style: Theme.of(context)
-                          .textTheme
-                          .headline3!
-                          .copyWith(color: Colors.black87),
-                      textAlign: TextAlign.center,
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(0, 15, 20, 0),
-                      child: Row(
-                        children: <Widget>[
-                          Expanded(
-                            child: Text(
-                              AppLocalizations.of(context)!
-                                  .goesToBinDetailPlaceholder
-                                  .format([recData.goesTo]),
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .headline6!
-                                  .copyWith(color: Colors.black87),
-                              textAlign: TextAlign.center,
+                child: SingleChildScrollView(
+                  child: Column(
+                    mainAxisAlignment: descAlignment,
+                    children: [
+                      Text(
+                        recData.title,
+                        style: Theme.of(context)
+                            .textTheme
+                            .headline3!
+                            .copyWith(color: Colors.black87),
+                        textAlign: TextAlign.center,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(0, 15, 20, 0),
+                        child: Row(
+                          children: <Widget>[
+                            Expanded(
+                              child: Text(
+                                AppLocalizations.of(context)!
+                                    .goesToBinDetailPlaceholder
+                                    .format([recData.goesTo]),
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .headline6!
+                                    .copyWith(color: Colors.black87),
+                                textAlign: TextAlign.center,
+                              ),
                             ),
-                          ),
-                          IconButton(
-                            icon: const Icon(Icons.info_outlined),
-                            onPressed: () => Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (BuildContext context) =>
-                                    DistrictDataDetailView(
-                                  districtDataEntry: districtDataEntry,
+                            IconButton(
+                              icon: const Icon(Icons.info_outlined),
+                              onPressed: () => Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (BuildContext context) =>
+                                      DistrictDataDetailView(
+                                    districtDataEntry: districtDataEntry,
+                                  ),
                                 ),
                               ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(0, 15, 0, 0),
-                      child: Text(
-                        recData.generalInformation,
-                        style: Theme.of(context)
-                            .textTheme
-                            .bodyLarge!
-                            .copyWith(color: Colors.black87),
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(0, 15, 0, 0),
+                        child: Text(
+                          recData.generalInformation,
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodyLarge!
+                              .copyWith(color: Colors.black87),
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
             ),
