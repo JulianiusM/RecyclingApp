@@ -20,18 +20,21 @@
         "generalInformation": "A place that recyclable goods can go for the purpose of converting items into a usable products",
         "imageUrl": "res/img/recyclingcenter.jpg",
         "allowedExamples": [
-          "metal",
-          "furniture",
-          "CD-Rom",
-          "bulky waste",
           "scrap metals",
-          "used grease"
+          "furniture",
+          "electrical and electronic devices, CD-Rom",
+          "bulky waste",
+          "used grease",
+          "device batteries (not vehicle batteries)"
           
         ],
         "disallowedExamples": [
           "used tires",
           "explosive and radioactive materials",
-          "infectious waste"
+          "infectious waste",
+          "compressed gas cylinders",
+          "waste oil",
+          "artificial mineral fibre waste"
         ],
         "dataTitles": [
           "electrical or electronic devices",
@@ -44,15 +47,19 @@
         "imageUrl": "res/img/residualwastebin.jpg",
         "allowedExamples": [
           "cigarettes",
+          "cooled ash of all kinds",
+          "sanitary paper (handkerchiefs, nappies, pads, tampons)",
           "cotton buds",
-          "medical tablet strips"
+          "medical tablet strips",
+          "raw animal kitchen waste"
           
         ],
         "disallowedExamples": [
           "PET",
           "batteries",
           "problem waste (e.g. paints, varnishes)",
-          "construction waste"
+          "construction waste",
+          "bulky waste"
         ],
         "dataTitles": [
           "residual waste"
@@ -63,10 +70,9 @@
         "generalInformation": "A place where green waste is collected",
         "imageUrl": "res/img/greenpoint.jpg",
         "allowedExamples": [
-           "basil plant",
-           "orchid",
            "foliage",
-           "grass clippings"
+           "grass clippings",
+           "flowers"
           
         ],
         "disallowedExamples": [
@@ -86,7 +92,8 @@
         "allowedExamples": [
            "vegetable kitchen waste (vegetable, fruit and flower waste)",
            "cooked food scraps",
-           "spoiled or inedible food without packaging"
+           "spoiled or inedible food without packaging",
+           "kitchen cloth with fat and sauces"
           
         ],
         "disallowedExamples": [
@@ -162,7 +169,11 @@
           "glass",
           "organic waste",
           "spray cans with contents",
-          "music and video cassettes"  
+          "music and video cassettes",
+          "paper",
+          "problem waste",
+          "ash"
+    
         ],
         "dataTitles": [
           "Tetra Pak",
