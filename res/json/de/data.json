@@ -119,5 +119,26 @@
       "Medikamente",
       "gekühlte Asche"
     ]
+  },
+  {
+    "title": "Gerätebatterien",
+    "goesTo": "Wertstoffhof oder Sammelboxen an jeder Verkaufsstelle für Batterien"
+    "generalInformation": "kleine Speicher für elektrische Energie",
+    "imageUrl": "res/img/batteries.jpg",
+    "exampleData": [
+      "Batterien für Fernbedienung",
+      "Knopfbatterien"
+    ]
+  },
+  {
+    "title": "Glas",
+    "goesTo": "Glascontainer",
+    "generalInformation": "lichtdurchlässiger, meist durchsichtiger, Feststoff",
+    "imageUrl": "res/img/glassbottles.jpg",
+    "exampleData": [
+      "Glasflasche",
+      "Glasbehälter",
+      "Marmeladenglas"
+    ]
   }
 ]
