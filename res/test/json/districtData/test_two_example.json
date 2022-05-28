@@ -3,6 +3,9 @@
     "name": "ST",
     "description": "ST DESC",
     "imageUrl": "res/test/img/singleTest.jpg",
+    "lat": 5.55,
+    "long": 7.77,
+    "zoom": 11.11,
     "hasAdditionalInformation": true,
     "additionalInformation": [
       "Responsible city deputy:",
@@ -40,12 +43,31 @@
           "DoubleTest"
         ]
       }
+    ],
+    "locationList": [
+      {
+        "type": "recyclingCenter",
+        "name": "WST",
+        "description": "WSTD",
+        "lat": 1.1,
+        "long": 10.01
+      },
+      {
+        "type": "greenWaste",
+        "name": "GWC",
+        "description": "GWCD",
+        "lat": 4.4,
+        "long": 10.04
+      }
     ]
   },
   {
     "name": "DT",
     "description": "DT DESC",
     "imageUrl": "res/test/img/doubleTest.jpg",
+    "lat": 9.99,
+    "long": 8.88,
+    "zoom": 2.22,
     "hasAdditionalInformation": true,
     "additionalInformation": [
       "Responsible city deputy:",
@@ -82,6 +104,22 @@
         "dataTitles": [
           "DoubleTest"
         ]
+      }
+    ],
+    "locationList": [
+      {
+        "type": "oldClothesContainer",
+        "name": "WST-B",
+        "description": "WSTD-B",
+        "lat": 1.11,
+        "long": 10.11
+      },
+      {
+        "type": "bioContainer",
+        "name": "GWC-B",
+        "description": "GWCD-B",
+        "lat": 4.14,
+        "long": 10.14
       }
     ]
   }

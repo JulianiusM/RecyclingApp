@@ -3,6 +3,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:recycling/ui/data_overview.dart';
 import 'package:recycling/ui/district_data_overview.dart';
 import 'package:recycling/ui/district_overview.dart';
+import 'package:recycling/ui/location_overview.dart';
 
 class HomeNavigationView extends StatefulWidget {
   const HomeNavigationView(
@@ -34,7 +35,8 @@ class _HomeNavigationViewState extends State<HomeNavigationView> {
     super.initState();
     _screens = [
       DataOverview(selectedDistrict: widget.selectedDistrict),
-      DistrictDataOverview(selectedDistrict: widget.selectedDistrict)
+      DistrictDataOverview(selectedDistrict: widget.selectedDistrict),
+      LocationOverview(selectedDistrict: widget.selectedDistrict)
     ];
   }
 
@@ -102,6 +104,10 @@ class _HomeNavigationViewState extends State<HomeNavigationView> {
           BottomNavigationBarItem(
             label: AppLocalizations.of(context)!.districtNavName,
             icon: const Icon(Icons.location_city),
+          ),
+          BottomNavigationBarItem(
+            label: AppLocalizations.of(context)!.locationNavName,
+            icon: const Icon(Icons.map),
           ),
         ],
       ),

@@ -4,6 +4,9 @@
     "description": "ST DESC DE",
     "imageUrl": "res/test/img/singleTest.jpg",
     "hasAdditionalInformation": true,
+    "lat": 1.0,
+    "long": 2.0,
+    "zoom": 3.0,
     "additionalInformation": [
       "Responsible city deputy:",
       "Mrs. Example",
@@ -40,12 +43,24 @@
           "DoubleTestLANG"
         ]
       }
+    ],
+    "locationList": [
+      {
+        "type": "recyclingCenter",
+        "name": "WST-DE",
+        "description": "WSTD-DE",
+        "lat": 1.1,
+        "long": 10.01
+      }
     ]
   },
   {
     "name": "DT-DE",
     "description": "DT DESC DE",
     "imageUrl": "res/test/img/doubleTest.jpg",
+    "lat": 3.0,
+    "long": 2.0,
+    "zoom": 1.0,
     "hasAdditionalInformation": true,
     "additionalInformation": [
       "Responsible city deputy:",
@@ -82,6 +97,15 @@
         "dataTitles": [
           "DoubleTest"
         ]
+      }
+    ],
+    "locationList": [
+      {
+        "type": "recyclingCenter",
+        "name": "WST-DE-B",
+        "description": "WSTD-DE-B",
+        "lat": 1.1,
+        "long": 10.01
       }
     ]
   }

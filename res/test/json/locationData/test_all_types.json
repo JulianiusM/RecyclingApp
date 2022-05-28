@@ -1,0 +1,37 @@
+[
+  {
+    "type": "recyclingCenter",
+    "name": "WST",
+    "description": "WSTD",
+    "lat": 1.1,
+    "long": 10.01
+  },
+  {
+    "type": "bioContainer",
+    "name": "BWC",
+    "description": "BWCD",
+    "lat": 2.2,
+    "long": 10.02
+  },
+  {
+    "type": "glassContainer",
+    "name": "GLC",
+    "description": "GLCD",
+    "lat": 3.3,
+    "long": 10.03
+  },
+  {
+    "type": "greenWaste",
+    "name": "GWC",
+    "description": "GWCD",
+    "lat": 4.4,
+    "long": 10.04
+  },
+  {
+    "type": "oldClothesContainer",
+    "name": "OCC",
+    "description": "OCCD",
+    "lat": 5.5,
+    "long": 10.05
+  }
+]

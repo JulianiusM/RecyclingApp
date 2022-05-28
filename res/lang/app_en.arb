@@ -50,5 +50,9 @@
   "disallowedExampleHeader": "Disallowed",
   "@disallowedExampleHeader": {
     "description": "Text for disallowed column in district entry examples table"
+  },
+  "locationNavName": "Locations",
+  "@locationNavName": {
+    "description": "Name displayed on tab folder navigation for locations"
   }
 }

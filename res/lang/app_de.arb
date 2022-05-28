@@ -11,5 +11,6 @@
   "districtNavName": "Bezirk",
   "selectDistrict": "Bezirk wählen",
   "allowedExampleHeader": "Erlaubt",
-  "disallowedExampleHeader": "Verboten"
+  "disallowedExampleHeader": "Verboten",
+  "locationNavName": "Standorte"
 }

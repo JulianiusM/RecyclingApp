@@ -3,6 +3,9 @@
     "name": "ST",
     "description": "ST DESC",
     "imageUrl": "res/test/img/singleTest.jpg",
+    "lat": 5.55,
+    "long": 7.77,
+    "zoom": 11.11,
     "hasAdditionalInformation": true,
     "additionalInformation": [
       "Responsible city deputy:",
@@ -26,6 +29,15 @@
           "SingleTest",
           "DoubleTest"
         ]
+      }
+    ],
+    "locationList": [
+      {
+        "type": "recyclingCenter",
+        "name": "WST",
+        "description": "WSTD",
+        "lat": 1.1,
+        "long": 10.01
       }
     ]
   }

@@ -122,7 +122,7 @@
   },
   {
     "title": "Gerätebatterien",
-    "goesTo": "Wertstoffhof oder Sammelboxen an jeder Verkaufsstelle für Batterien"
+    "goesTo": "Wertstoffhof oder Sammelboxen an jeder Verkaufsstelle für Batterien",
     "generalInformation": "kleine Speicher für elektrische Energie",
     "imageUrl": "res/img/batteries.jpg",
     "exampleData": [

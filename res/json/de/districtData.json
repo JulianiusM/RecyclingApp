@@ -3,6 +3,9 @@
     "name": "Stadt Regensburg",
     "description": "Stadt Regensburg",
     "imageUrl": "res/img/stadtrgb.jpg",
+    "lat": 49.0090275,
+    "long": 12.0920358,
+    "zoom": 13,
     "hasAdditionalInformation": true,
     "additionalInformation": [
       "Verantwortliche Stelle:",
@@ -27,7 +30,6 @@
           "Problemmüll, gefährlicher Abfall",
           "Grünabfälle",
           "Gerätebatterien (keine Fahrzeugbatterien)"
-      
         ],
         "disallowedExamples": [
           "Altreifen",
@@ -36,7 +38,6 @@
           "infektiöse Abfälle",
           "künstliche Mineralfaserabfälle",
           "Druckgasflaschen und Altöl"
-          
         ],
         "dataTitles": [
           "elektrische oder elektronische Geräte",
@@ -54,7 +55,6 @@
           "rohe tierische Küchenabfälle",
           "Abgekühlte Asche aller Art",
           "Musik- und Videokassetten"
-          
         ],
         "disallowedExamples": [
           "Verpackungen oder Altpapier",
@@ -76,7 +76,6 @@
            "Laub",
            "Strauchschnitt",
            "Blumen"
-          
         ],
         "disallowedExamples": [
           "Küchen- und Speiseabfälle",
@@ -86,7 +85,6 @@
         ],
         "dataTitles": [
           "Pflanzen und Gartenabfälle"
-          
         ]
       },
       {
@@ -94,11 +92,10 @@
         "generalInformation": "Tonne für organischen Abfall",
         "imageUrl": "res/img/biobin.jpg",
         "allowedExamples": [
-           "pflanzliche Küchenabfälle (Gemüse-, Obst- und Blumenabfall)",
-           "gekochte Essensreste",
-           "verdorbene oder nicht mehr genießbare Lebensmittel ohne Verpackung"
-           "Küchenkrepp mit Fett und Sossen + Essenreste"
-          
+          "pflanzliche Küchenabfälle (Gemüse-, Obst- und Blumenabfall)",
+          "gekochte Essensreste",
+          "verdorbene oder nicht mehr genießbare Lebensmittel ohne Verpackung",
+          "Küchenkrepp mit Fett und Sossen + Essenreste"
         ],
         "disallowedExamples": [
           "rohe tierische Küchenabfälle",
@@ -121,7 +118,6 @@
           "Schuhe",
           "Haushaltswäsche wie Bettbezüge",
           "Geschirr- und Handtücher"
-          
         ],
         "disallowedExamples": [
           "stark verschmutzte Textilien",
@@ -142,7 +138,6 @@
           "Bücher",
           "Broschüren, Kataloge",
           "Pappe, Kartons"
-          
         ],
         "disallowedExamples": [
           "Folienbeschichtete Verpackungen",
@@ -168,7 +163,6 @@
           "Tetra Pak",
           "Styropor",
           "leere Spraydosen (Grüner Punkt)"
-               
         ],
         "disallowedExamples": [
           "Batterien",
@@ -196,7 +190,6 @@
           "Grüne, blaue und rote Flaschen in den Grünglascontainer",
           "Weiße Flaschen in den Weißglascontainer",
           "Braune Flaschen in den Braunglascontainer"
-          
         ],
         "disallowedExamples": [
           "Porzellan",
@@ -210,6 +203,43 @@
         "dataTitles": [
           "Glas"
         ]
+      }
+    ],
+    "locationList": [
+      {
+        "type": "recyclingCenter",
+        "name": "Wertstoffhof",
+        "description": "städt. Wertstoffhof",
+        "lat": 49.0090275,
+        "long": 12.0920358
+      },
+      {
+        "type": "bioContainer",
+        "name": "Bioabfall Container",
+        "description": "öffentl. Bioabfall Container",
+        "lat": 49.0101275,
+        "long": 12.0921358
+      },
+      {
+        "type": "glassContainer",
+        "name": "Glas Container",
+        "description": "öffentl. Glas Container",
+        "lat": 49.0090575,
+        "long": 12.0820558
+      },
+      {
+        "type": "greenWaste",
+        "name": "Grünabfallsammelstelle",
+        "description": "öffentl. Grünabfallsammelstelle",
+        "lat": 49.0110279,
+        "long": 12.0970353
+      },
+      {
+        "type": "oldClothesContainer",
+        "name": "Altkleider Container",
+        "description": "öffentl. Altkleider Container",
+        "lat": 49.0120225,
+        "long": 12.0950378
       }
     ]
   }

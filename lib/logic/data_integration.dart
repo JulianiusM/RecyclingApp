@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:fuzzy/fuzzy.dart';
 import 'package:recycling/data/district_data_entry.dart';
+import 'package:recycling/data/location_data.dart';
 
 import '../data/district_data.dart';
 import '../data/recycling_data.dart';
@@ -147,5 +148,25 @@ class DataIntegration {
     }
 
     return map;
+  }
+
+  static Future<List<LocationData>> generateLocationData(String path,
+      {BuildContext? context, AssetBundle? injectedBundle}) async {
+    AssetBundle bundle;
+    if (injectedBundle != null) {
+      bundle = injectedBundle;
+    } else if (context != null) {
+      bundle = DefaultAssetBundle.of(context);
+    } else {
+      bundle = rootBundle;
+    }
+
+    List<LocationData> data = [];
+    for (LocationData recData
+        in (json.decode(await bundle.loadString(path)) as List)
+            .map((i) => LocationData.fromJson(i))) {
+      data.add(recData);
+    }
+    return data;
   }
 }
