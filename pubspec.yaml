@@ -126,6 +126,11 @@ flutter:
 
   generate: true
 
+  plugin:
+    platforms:
+      ios:
+        pluginClass: AppDelegate
+
 flutter_icons:
   android: true
   ios: true
