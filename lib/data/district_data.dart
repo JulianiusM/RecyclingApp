@@ -1,5 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 import 'package:recycling/data/district_data_entry.dart';
+import 'package:recycling/data/location_data.dart';
 
 part 'district_data.g.dart';
 
@@ -7,19 +8,28 @@ part 'district_data.g.dart';
 /// JSON serialization logic to be generated.
 @JsonSerializable(explicitToJson: true)
 class DistrictData {
-  DistrictData({required this.name,
-    required this.description,
-    required this.imageUrl,
-    required this.hasAdditionalInformation,
-    required this.additionalInformation,
-    required this.entryList});
+  DistrictData(
+      {required this.name,
+      required this.description,
+      required this.imageUrl,
+      required this.lat,
+      required this.long,
+      required this.zoom,
+      required this.hasAdditionalInformation,
+      required this.additionalInformation,
+      required this.entryList,
+      required this.locationList});
 
   final String name;
   final String description;
   final String imageUrl;
+  final double lat;
+  final double long;
+  final double zoom;
   final bool hasAdditionalInformation;
   final List<String> additionalInformation;
   final List<DistrictDataEntry> entryList;
+  final List<LocationData> locationList;
 
   /// A necessary factory constructor for creating a new RecyclingData instance
   /// from a map. Pass the map to the generated `_$RecyclingDataFromJson()` constructor.

@@ -121,7 +121,7 @@
   },
   {
     "title": "portable batteries",
-    "goesTo": "recycling centre or collection boxes at any point of sale for batteries"
+    "goesTo": "recycling centre or collection boxes at any point of sale for batteries",
     "generalInformation": "small storage devices for electrical energy",
     "imageUrl": "res/img/batteries.jpg",
     "exampleData": [

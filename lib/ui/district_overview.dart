@@ -34,7 +34,7 @@ class _DistrictOverviewState extends State<DistrictOverview> {
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
         title: Text(
-            AppLocalizations.of(context)?.selectDistrict ?? 'RecyclingApp'),
+            AppLocalizations.of(context)?.selectDistrict ?? 'Recycling App'),
       ),
       body: _buildBody(context),
     );

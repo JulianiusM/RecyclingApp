@@ -11,5 +11,8 @@
   "districtNavName": "Bezirk",
   "selectDistrict": "Bezirk wählen",
   "allowedExampleHeader": "Erlaubt",
-  "disallowedExampleHeader": "Verboten"
+  "disallowedExampleHeader": "Verboten",
+  "locationNavName": "Standorte",
+  "switchToWasteSearch": "Durchsuche Abfallarten",
+  "switchToDistrictSearch": "Durchsuche Bezirksregeln"
 }

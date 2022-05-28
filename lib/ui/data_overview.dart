@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:recycling/data/district_data.dart';
+import 'package:recycling/data/district_data_entry.dart';
 import 'package:recycling/data/recycling_data.dart';
 import 'package:recycling/extensions/string_format_extension.dart';
 import 'package:recycling/logic/data_integration.dart';
 import 'package:recycling/ui/data_detail_view.dart';
+import 'package:recycling/ui/district_data_detail_view.dart';
+
+import '../data/data_access_interface.dart';
 
 class DataOverview extends StatefulWidget {
   DataOverview({Key? key, required this.selectedDistrict}) : super(key: key);
@@ -32,9 +36,12 @@ class _DataOverviewState extends State<DataOverview> {
   DistrictData? districtData;
   List<RecyclingData>? dataList;
   Map<String, List<RecyclingData>>? dataIndex;
+  Map<String, List<DistrictDataEntry>>? extendedSearchIndex;
 
-  List<RecyclingData>? searchData;
+  List<DataAccessInterface>? searchData;
   bool isSearching = false;
+  bool useExtended = false;
+  String lastSearchInput = "";
 
   @override
   void initState() {
@@ -43,7 +50,10 @@ class _DataOverviewState extends State<DataOverview> {
   }
 
   void setDataState(List<RecyclingData> data) {
-    dataList = data;
+    dataList = districtData == null
+        ? data
+        : DataIntegration.mergeRecyclingDistrictData(
+            data, districtData!.entryList);
     dataIndex = DataIntegration.generateRuntimeIndex(data);
   }
 
@@ -51,17 +61,41 @@ class _DataOverviewState extends State<DataOverview> {
     dataList = DataIntegration.mergeRecyclingDistrictData(
         dataList ?? [], data.entryList);
     districtData = data;
+    dataIndex = DataIntegration.generateRuntimeIndex(dataList!);
+    extendedSearchIndex = DataIntegration.generateRuntimeIndex(data.entryList);
   }
 
   void performSearch(String input) {
     setState(() {
+      lastSearchInput = input;
       isSearching = input.isNotEmpty;
 
-      if (!isSearching || dataList == null || dataList!.isEmpty) return;
+      if (!isSearching) {
+        useExtended = false;
+        return;
+      }
 
-      dataIndex ??= DataIntegration.generateRuntimeIndex(dataList!);
-      searchData = DataIntegration.performSearchOnIndex(dataIndex!, input);
+      Map<String, List<DataAccessInterface>> index;
+      if (useExtended) {
+        if (districtData == null || districtData!.entryList.isEmpty) return;
+
+        extendedSearchIndex ??=
+            DataIntegration.generateRuntimeIndex(districtData!.entryList);
+        index = extendedSearchIndex!;
+      } else {
+        if (dataList == null || dataList!.isEmpty) return;
+
+        dataIndex ??= DataIntegration.generateRuntimeIndex(dataList!);
+        index = dataIndex!;
+      }
+
+      searchData = DataIntegration.performSearchOnIndex(index, input);
     });
+  }
+
+  void switchSearch() {
+    useExtended = !useExtended;
+    performSearch(lastSearchInput);
   }
 
   @override
@@ -140,13 +174,9 @@ class _DataOverviewState extends State<DataOverview> {
   }
 
   Widget _buildListBody(BuildContext context) {
-    List<RecyclingData> currentData;
+    List<DataAccessInterface> currentData;
     if (isSearching) {
-      if (searchData != null && searchData!.isNotEmpty) {
-        currentData = searchData!;
-      } else {
-        return Text(AppLocalizations.of(context)!.noResultsInfo);
-      }
+      currentData = searchData ?? [];
     } else {
       if (dataList == null || dataList!.isEmpty) {
         return Text(AppLocalizations.of(context)!.noDataInfo);
@@ -169,57 +199,103 @@ class _DataOverviewState extends State<DataOverview> {
         shrinkWrap: true,
         padding: const EdgeInsets.all(8),
         itemBuilder: (BuildContext context, int index) {
-          return SizedBox(
-            height: height,
-            child: InkWell(
-              onTap: () => Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => DataDetailView(
-                    recData: currentData[index],
-                    districtDataEntry: districtData!.entryList.firstWhere(
-                        (element) => element.dataTitles
-                            .contains(currentData[index].title)),
-                  ),
-                ),
-              ),
-              child: Row(
-                children: <Widget>[
-                  Expanded(
-                    flex: 1,
-                    child: Image.asset(
-                      currentData[index].imageUrl,
-                    ),
-                  ),
-                  Expanded(
-                    flex: 4,
-                    child: Padding(
-                      padding: const EdgeInsets.only(left: 10),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          Text(
-                            currentData[index].title,
-                            style: const TextStyle(
-                                fontSize: 14, fontWeight: FontWeight.bold),
-                          ),
-                          Text(
-                            currentData[index].goesTo,
-                            style: const TextStyle(fontSize: 12),
-                            overflow: TextOverflow.fade,
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          );
+          if (index == currentData.length) {
+            return _buildListEntry(context: context, height: height);
+          } else {
+            return _buildListEntry(
+                context: context, height: height, data: currentData[index]);
+          }
         },
         separatorBuilder: (BuildContext context, int index) => const Divider(),
-        itemCount: currentData.length,
+        itemCount: currentData.length + (isSearching ? 1 : 0),
+      ),
+    );
+  }
+
+  Widget _buildListEntry(
+      {required BuildContext context,
+      required double height,
+      DataAccessInterface? data}) {
+    bool switchRow = data == null;
+
+    return SizedBox(
+      height: height,
+      child: InkWell(
+        onTap: () {
+          if (switchRow) {
+            switchSearch();
+          } else {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) {
+                  if (data is RecyclingData) {
+                    return DataDetailView(
+                      recData: data,
+                      districtDataEntry: districtData!.entryList.firstWhere(
+                          (element) =>
+                              element.dataTitles.contains(data.getId())),
+                    );
+                  } else if (data is DistrictDataEntry) {
+                    return DistrictDataDetailView(
+                      districtDataEntry: data,
+                    );
+                  }
+                  throw UnsupportedError("Data entry $data is not supported");
+                },
+              ),
+            );
+          }
+        },
+        child: switchRow
+            ? _buildSwitchListEntry(context)
+            : _buildDataListEntry(data),
+      ),
+    );
+  }
+
+  Widget _buildDataListEntry(DataAccessInterface data) {
+    return Row(
+      children: <Widget>[
+        Expanded(
+          flex: 1,
+          child: Image.asset(
+            data.getImagePath(),
+          ),
+        ),
+        Expanded(
+          flex: 4,
+          child: Padding(
+            padding: const EdgeInsets.only(left: 10),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Text(
+                  data.getId(),
+                  style: const TextStyle(
+                      fontSize: 14, fontWeight: FontWeight.bold),
+                ),
+                Text(
+                  data.getDescription(),
+                  style: const TextStyle(fontSize: 12),
+                  overflow: TextOverflow.fade,
+                ),
+              ],
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildSwitchListEntry(BuildContext context) {
+    return Center(
+      child: Text(
+        useExtended
+            ? AppLocalizations.of(context)!.switchToWasteSearch
+            : AppLocalizations.of(context)!.switchToDistrictSearch,
+        style: const TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
       ),
     );
   }

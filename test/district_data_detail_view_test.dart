@@ -49,6 +49,9 @@ void main() {
               name: "STB",
               description: "genInfo",
               imageUrl: "res/test/img/singleTest.jpg",
+              lat: 0.0,
+              long: 0.0,
+              zoom: 0.0,
               hasAdditionalInformation: true,
               additionalInformation: [
                 "Responsible city deputy:",
@@ -58,6 +61,7 @@ void main() {
                 "12345 ST"
               ],
               entryList: [],
+              locationList: [],
             ),
           ),
         ),

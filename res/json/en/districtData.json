@@ -3,6 +3,9 @@
     "name": "City of Regensburg",
     "description": "City of Regensburg",
     "imageUrl": "res/img/stadtrgb.jpg",
+    "lat": 49.0090275,
+    "long": 12.0920358,
+    "zoom": 13,
     "hasAdditionalInformation": true,
     "additionalInformation": [
       "Responsible authority:",
@@ -26,7 +29,6 @@
           "bulky waste",
           "used grease",
           "device batteries (not vehicle batteries)"
-          
         ],
         "disallowedExamples": [
           "used tires",
@@ -53,7 +55,6 @@
           "cotton buds",
           "medical tablet strips",
           "raw animal kitchen waste"
-          
         ],
         "disallowedExamples": [
           "PET",
@@ -74,7 +75,6 @@
            "foliage",
            "grass clippings",
            "flowers"
-          
         ],
         "disallowedExamples": [
           "kitchen and food waste",
@@ -83,7 +83,6 @@
         ],
         "dataTitles": [
           "plants and garden waste"
-          
         ]
       },
       {
@@ -95,7 +94,6 @@
            "cooked food scraps",
            "spoiled or inedible food without packaging",
            "kitchen cloth with fat and sauces"
-          
         ],
         "disallowedExamples": [
           "foliage",
@@ -116,7 +114,6 @@
           "shoes",
           "household linen like bed linen",
           "dishtowels and towels"
-          
         ],
         "disallowedExamples": [
           "heavily soiled textiles",
@@ -174,7 +171,6 @@
           "paper",
           "problem waste",
           "ash"
-    
         ],
         "dataTitles": [
           "Tetra Pak",
@@ -192,7 +188,6 @@
           "green, blue and red bottles into the green glass container",
           "white bottles into the white glass container",
           "brown bottles into the brown glass container"
-          
         ],
         "disallowedExamples": [
           "porcelain",
@@ -206,6 +201,43 @@
         "dataTitles": [
           "glass"
         ]
+      }
+    ],
+    "locationList": [
+      {
+        "type": "recyclingCenter",
+        "name": "Wertstoffhof",
+        "description": "städt. Wertstoffhof",
+        "lat": 49.0090275,
+        "long": 12.0920358
+      },
+      {
+        "type": "bioContainer",
+        "name": "Bioabfall Container",
+        "description": "öffentl. Bioabfall Container",
+        "lat": 49.0101275,
+        "long": 12.0921358
+      },
+      {
+        "type": "glassContainer",
+        "name": "Glas Container",
+        "description": "öffentl. Glas Container",
+        "lat": 49.0090575,
+        "long": 12.0820558
+      },
+      {
+        "type": "greenWaste",
+        "name": "Grünabfallsammelstelle",
+        "description": "öffentl. Grünabfallsammelstelle",
+        "lat": 49.0110279,
+        "long": 12.0970353
+      },
+      {
+        "type": "oldClothesContainer",
+        "name": "Altkleider Container",
+        "description": "öffentl. Altkleider Container",
+        "lat": 49.0120225,
+        "long": 12.0950378
       }
     ]
   }

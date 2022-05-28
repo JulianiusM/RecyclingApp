@@ -50,5 +50,17 @@
   "disallowedExampleHeader": "Disallowed",
   "@disallowedExampleHeader": {
     "description": "Text for disallowed column in district entry examples table"
+  },
+  "locationNavName": "Locations",
+  "@locationNavName": {
+    "description": "Name displayed on tab folder navigation for locations"
+  },
+  "switchToWasteSearch": "Switch to waste types search",
+  "@switchToWasteSearch": {
+    "description": "Text for switch row in district rules search"
+  },
+  "switchToDistrictSearch": "Switch to district rules search",
+  "@switchToDistrictSearch": {
+    "description": "Text for switch row in waste types search"
   }
 }

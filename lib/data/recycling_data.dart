@@ -1,11 +1,12 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:recycling/data/data_access_interface.dart';
 
 part 'recycling_data.g.dart';
 
 /// An annotation for the code generator to know that this class needs the
 /// JSON serialization logic to be generated.
 @JsonSerializable(explicitToJson: true)
-class RecyclingData {
+class RecyclingData implements DataAccessInterface {
   RecyclingData(
       {required this.title,
       required this.goesTo,
@@ -42,5 +43,25 @@ class RecyclingData {
         generalInformation: generalInformation ?? this.generalInformation,
         imageUrl: imageUrl ?? this.imageUrl,
         exampleData: exampleData ?? this.exampleData);
+  }
+
+  @override
+  List<String> getExamples() {
+    return exampleData;
+  }
+
+  @override
+  String getId() {
+    return title;
+  }
+
+  @override
+  String getDescription() {
+    return goesTo;
+  }
+
+  @override
+  String getImagePath() {
+    return imageUrl;
   }
 }

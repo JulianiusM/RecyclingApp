@@ -54,6 +54,10 @@ dependencies:
   # Splash screen
   flutter_native_splash: ^2.1.1
 
+  # Overview Map
+  google_maps_flutter: ^2.1.6
+  google_maps_flutter_web: ^0.3.3
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -121,6 +125,11 @@ flutter:
   # see https://flutter.dev/custom-fonts/#from-packages
 
   generate: true
+
+  plugin:
+    platforms:
+      ios:
+        pluginClass: AppDelegate
 
 flutter_icons:
   android: true

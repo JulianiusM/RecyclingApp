@@ -3,6 +3,9 @@
     "name": "ST",
     "description": "ST DESC",
     "imageUrl": "res/test/img/singleTest.jpg",
+    "lat": 1.1,
+    "long": 2.2,
+    "zoom": 3.3,
     "hasAdditionalInformation": true,
     "additionalInformation": [
       "Responsible city deputy:",
@@ -40,12 +43,24 @@
           "DoubleTest"
         ]
       }
+    ],
+    "locationList": [
+      {
+        "type": "recyclingCenter",
+        "name": "WST",
+        "description": "WSTD",
+        "lat": 1.1,
+        "long": 10.01
+      }
     ]
   },
   {
     "name": "DT",
     "description": "DT DESC",
     "imageUrl": "res/test/img/doubleTest.jpg",
+    "lat": 3.3,
+    "long": 2.2,
+    "zoom": 1.1,
     "hasAdditionalInformation": true,
     "additionalInformation": [
       "Responsible city deputy:",
@@ -82,6 +97,15 @@
         "dataTitles": [
           "DoubleTest"
         ]
+      }
+    ],
+    "locationList": [
+      {
+        "type": "recyclingCenter",
+        "name": "WST-B",
+        "description": "WSTD-B",
+        "lat": 1.1,
+        "long": 10.01
       }
     ]
   }

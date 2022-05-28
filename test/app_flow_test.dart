@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:recycling/data/data_config_values.dart';
@@ -13,6 +14,8 @@ void main() {
     app.main();
     await tester.pumpAndSettle();
 
+    expect(find.byType(CircularProgressIndicator), findsNothing);
+    expect(find.byType(CupertinoActivityIndicator), findsNothing);
     expect(find.text("error occurred"), findsNothing);
     expect(find.text("Ein Fehler"), findsNothing);
     expect(find.text("No Data"), findsNothing);
@@ -40,7 +43,7 @@ void main() {
     }
 
     // Go to linked district data details
-    {
+        {
       Finder infoBtn = find.byIcon(Icons.info_outlined);
       expect(infoBtn, findsOneWidget);
 
@@ -52,7 +55,7 @@ void main() {
     }
 
     // Go back to home screen
-    {
+        {
       await tester.pageBack();
       await tester.pumpAndSettle();
       await tester.pageBack();
@@ -70,7 +73,7 @@ void main() {
       expect(find.byType(TextField), findsNothing);
     }
 
-    // Go to district details
+    // Go to district detail
     {
       Finder distSel = find.byType(InkWell);
       expect(distSel, findsWidgets);
@@ -98,6 +101,17 @@ void main() {
       await tester.pumpAndSettle();
 
       expect(find.text("Recycling App"), findsOneWidget);
+    }
+
+    // Go to locations overview
+    {
+      Finder mapNav = find.byIcon(Icons.map);
+      expect(mapNav, findsOneWidget);
+
+      await tester.tap(mapNav);
+      await tester.pumpAndSettle();
+
+      expect(find.byType(TextField), findsNothing);
     }
   });
 }
