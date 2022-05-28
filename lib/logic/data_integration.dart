@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:fuzzy/fuzzy.dart';
+import 'package:recycling/data/data_access_interface.dart';
 import 'package:recycling/data/district_data_entry.dart';
 import 'package:recycling/data/location_data.dart';
 
@@ -30,21 +31,21 @@ class DataIntegration {
     return data;
   }
 
-  static Map<String, List<RecyclingData>> generateRuntimeIndex(
-      List<RecyclingData> data) {
-    Map<String, List<RecyclingData>> indexMap = {};
-    for (RecyclingData recData in data) {
-      for (String example in recData.exampleData) {
+  static Map<String, List<T>>
+      generateRuntimeIndex<T extends DataAccessInterface>(List<T> data) {
+    Map<String, List<T>> indexMap = {};
+    for (T recData in data) {
+      for (String example in recData.getExamples()) {
         _indexPerformSplit(indexMap, example, recData);
       }
-      _indexPerformSplit(indexMap, recData.title, recData);
+      _indexPerformSplit(indexMap, recData.getId(), recData);
     }
     return indexMap;
   }
 
-  static void _indexAddToMap(Map<String, List<RecyclingData>> indexMap,
-      String key, RecyclingData recData) {
-    List<RecyclingData> indexList;
+  static void _indexAddToMap<T extends DataAccessInterface>(
+      Map<String, List<T>> indexMap, String key, T recData) {
+    List<T> indexList;
     if (indexMap.containsKey(key)) {
       indexList = indexMap[key]!;
     } else {
@@ -58,8 +59,8 @@ class DataIntegration {
     indexMap.putIfAbsent(key, () => indexList);
   }
 
-  static void _indexPerformSplit(Map<String, List<RecyclingData>> indexMap,
-      String key, RecyclingData recData) {
+  static void _indexPerformSplit<T extends DataAccessInterface>(
+      Map<String, List<T>> indexMap, String key, T recData) {
     List<String> keyParts = key.split(" ");
     for (int i = 0; i < keyParts.length; i++) {
       for (int j = 0; j < keyParts.length - i; j++) {
@@ -73,8 +74,8 @@ class DataIntegration {
     }
   }
 
-  static List<RecyclingData> performSearchOnIndex(
-      Map<String, List<RecyclingData>> index, String pattern) {
+  static List<T> performSearchOnIndex<T extends DataAccessInterface>(
+      Map<String, List<T>> index, String pattern) {
     final fuzzy = Fuzzy(
       index.keys.toList(),
       options: FuzzyOptions(
@@ -84,9 +85,9 @@ class DataIntegration {
 
     final results = fuzzy.search(pattern);
 
-    List<RecyclingData> returnList = [];
+    List<T> returnList = [];
     for (String key in results.map((e) => e.item)) {
-      for (RecyclingData recData in index[key]!) {
+      for (T recData in index[key]!) {
         if (!returnList.contains(recData)) {
           returnList.add(recData);
         }

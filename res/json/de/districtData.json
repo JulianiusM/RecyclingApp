@@ -130,7 +130,7 @@
       },
       {
         "goesTo": "Papiertonne",
-        "generalInformation": "Container for paper and cardboard",
+        "generalInformation": "Container für Papier und Karton",
         "imageUrl": "res/img/paperbin.jpg",
         "allowedExamples": [
           "Zeitungen, Zeitschriften",
