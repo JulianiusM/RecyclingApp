@@ -22,20 +22,26 @@
         "allowedExamples": [
           "Altmetalle",
           "Sperrmüll",
-          "Elektrogeräte",
-          "CD's",
+          "Elektrogeräte, CD's",
           "Altfett",
-          "Problemmüll, gefährlicher Abfall"
+          "Problemmüll, gefährlicher Abfall",
+          "Grünabfälle",
+          "Gerätebatterien (keine Fahrzeugbatterien)"
+      
         ],
         "disallowedExamples": [
           "Altreifen",
           "Asbesthaltige Abfälle",
-          "Explosive und radioaktive Stoffe",
-          "infektiöse Abfälle"
+          "explosive und radioaktive Stoffe",
+          "infektiöse Abfälle",
+          "künstliche Mineralfaserabfälle",
+          "Druckgasflaschen und Altöl"
+          
         ],
         "dataTitles": [
           "elektrische oder elektronische Geräte",
-          "Möbel"
+          "Möbel",
+          "Gerätebatterien"
         ]
       },
       {
@@ -43,18 +49,19 @@
         "generalInformation": "Tonne für nicht wiederverwertbaren Abfall",
         "imageUrl": "res/img/residualwastebin.jpg",
         "allowedExamples": [
-          "Hygienepapier (Windeln, Binden, Tampons)",
+          "Hygienepapier (Taschentücher, Windeln, Binden, Tampons)",
           "Staubsauberbeutel",
-          "Straßenkehricht",
           "rohe tierische Küchenabfälle",
-          "Abgekühlte Asche aller Art"
+          "Abgekühlte Asche aller Art",
+          "Musik- und Videokassetten"
           
         ],
         "disallowedExamples": [
           "Verpackungen oder Altpapier",
           "Batterien",
           "Problemabfall (z.B. Farben, Lacke)",
-          "Bauschutt, Steinmaterial"
+          "Bauschutt, Steinmaterial",
+          "Sperrmüll"
         ],
         "dataTitles": [
           "Restmüll"
@@ -74,7 +81,8 @@
         "disallowedExamples": [
           "Küchen- und Speiseabfälle",
           "Kohlenasche",
-          "Straßenkehrricht"
+          "Straßenkehrricht",
+          "Bauschutt"
         ],
         "dataTitles": [
           "Pflanzen und Gartenabfälle"
@@ -89,6 +97,7 @@
            "pflanzliche Küchenabfälle (Gemüse-, Obst- und Blumenabfall)",
            "gekochte Essensreste",
            "verdorbene oder nicht mehr genießbare Lebensmittel ohne Verpackung"
+           "Küchenkrepp mit Fett und Sossen + Essenreste"
           
         ],
         "disallowedExamples": [
@@ -199,6 +208,7 @@
           "feuerfestes Glas"
         ],
         "dataTitles": [
+          "Glas"
         ]
       }
     ]
