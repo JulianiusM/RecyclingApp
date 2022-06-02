@@ -218,7 +218,12 @@
         "name": "Biotonne",
         "description": "öffentl. Biotonne",
         "lat": 49.02168847859105,
-        "long": 12.102119450746507,
+        "long": 12.102119450746507
+      },
+      {
+        "type": "bioContainer",
+        "name": "Biotonne",
+        "description": "öffentl. Biotonne",
         "lat": 49.02280852343507,
         "long": 12.08366685962857  
       },
@@ -227,7 +232,12 @@
         "name": "Altglascontainer",
         "description": "öffentl. Altglascontainer",
         "lat": 49.01697561707097,
-        "long": 12.09025276126158,
+        "long": 12.09025276126158
+      },
+      {
+        "type": "glassContainer",
+        "name": "Altglascontainer",
+        "description": "öffentl. Altglascontainer",
         "lat": 49.01586959059351,
         "long": 12.05709003431694
       },
@@ -236,7 +246,12 @@
         "name": "Grünabfallsammelstelle",
         "description": "öffentl. Grünabfallsammelstelle",
         "lat": 48.99523510757478, 
-        "long": 12.10678853799361,
+        "long": 12.10678853799361
+      },
+      {
+        "type": "greenWaste",
+        "name": "Grünabfallsammelstelle",
+        "description": "öffentl. Grünabfallsammelstelle",
         "lat": 49.03294851922039, 
         "long": 12.102494908643415
       },
@@ -245,7 +260,12 @@
         "name": "Altkleidercontainer",
         "description": "öffentl. Altkleidercontainer",
         "lat": 49.01353104440652, 
-        "long": 12.13468781751725,
+        "long": 12.13468781751725
+      },
+      {
+        "type": "oldClothesContainer",
+        "name": "Altkleidercontainer",
+        "description": "öffentl. Altkleidercontainer",
         "lat": 49.02344847680397, 
         "long": 12.112821122942162
       }
