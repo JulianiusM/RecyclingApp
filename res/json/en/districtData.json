@@ -216,7 +216,12 @@
         "name": "Organic waste bin",
         "description": "public organic waste bin",
         "lat": 49.02168847859105,
-        "long": 12.102119450746507,
+        "long": 12.102119450746507
+      },
+      {
+        "type": "bioContainer",
+        "name": "Organic waste bin",
+        "description": "public organic waste bin",
         "lat": 49.02280852343507,
         "long": 12.08366685962857
       },
@@ -225,7 +230,12 @@
         "name": "Glass Container",
         "description": "public Container for glassware",
         "lat": 49.01697561707097,
-        "long": 12.09025276126158,
+        "long": 12.09025276126158
+      },
+      {
+        "type": "glassContainer",
+        "name": "Glass Container",
+        "description": "public Container for glassware",
         "lat": 49.01586959059351,
         "long": 12.05709003431694
       },
@@ -234,7 +244,12 @@
         "name": "Green waste collection point",
         "description": "public green waste collection point",
         "lat": 48.99523510757478, 
-        "long": 12.10678853799361,
+        "long": 12.10678853799361
+      },
+      {
+        "type": "greenWaste",
+        "name": "Green waste collection point",
+        "description": "public green waste collection point",
         "lat": 49.03294851922039, 
         "long": 12.102494908643415
       },
@@ -243,7 +258,12 @@
         "name": "Old clothes container",
         "description": "public old clothes container",
         "lat": 49.01353104440652, 
-        "long": 12.13468781751725,
+        "long": 12.13468781751725
+      },
+      {
+        "type": "oldClothesContainer",
+        "name": "Old clothes container",
+        "description": "public old clothes container",
         "lat": 49.02344847680397, 
         "long": 12.112821122942162
       }
