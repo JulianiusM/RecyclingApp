@@ -8,6 +8,10 @@ import 'package:recycling/ui/district_data_detail_view.dart';
 import 'util/test_asset_bundle.dart';
 
 void main() {
+  setUpAll(() {
+    TestWidgetsFlutterBinding.ensureInitialized();
+  });
+
   testWidgets("District data entry detail view test",
       (WidgetTester tester) async {
     // Build our app and trigger a frame.
@@ -18,25 +22,25 @@ void main() {
           child: DistrictDataDetailView(
             districtDataEntry: DistrictDataEntry(
               goesTo: "STB",
-              generalInformation: "genInfo",
-              imageUrl: "res/test/img/singleTest.jpg",
-              allowedExamples: ["AllowEx"],
-              disallowedExamples: ["DisallowEx"],
-              dataTitles: ["SingleTest"],
+                  generalInformation: "genInfo",
+                  imageUrl: "res/test/img/singleTest.jpg",
+                  allowedExamples: ["AllowEx"],
+                  disallowedExamples: ["DisallowEx"],
+                  dataTitles: ["SingleTest"],
+                ),
+              ),
             ),
           ),
-        ),
-      ),
-    );
+        );
 
-    // Finish async init
-    await tester.pumpAndSettle();
+        // Finish async init
+        await tester.pumpAndSettle();
 
-    expect(find.text("STB"), findsNWidgets(2));
-    expect(find.text("genInfo"), findsOneWidget);
-    expect(find.text("AllowEx"), findsOneWidget);
-    expect(find.text("DisallowEx"), findsOneWidget);
-  });
+        expect(find.text("STB"), findsNWidgets(2));
+        expect(find.text("genInfo"), findsOneWidget);
+        expect(find.text("AllowEx"), findsOneWidget);
+        expect(find.text("DisallowEx"), findsOneWidget);
+      });
 
   testWidgets("District data detail view test", (WidgetTester tester) async {
     // Build our app and trigger a frame.

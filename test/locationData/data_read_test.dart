@@ -10,6 +10,10 @@ import '../util/test_utils.dart';
 void main() {
   AssetBundle testBundle = TestAssetBundle();
 
+  setUpAll(() {
+    TestWidgetsFlutterBinding.ensureInitialized();
+  });
+
   test("Test empty JSON", () async {
     List<LocationData> emptyData = await DataIntegration.generateLocationData(
         normalisePath("res/test/json/locationData/test_empty.json"),

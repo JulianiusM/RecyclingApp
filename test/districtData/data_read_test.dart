@@ -12,6 +12,10 @@ import '../util/test_utils.dart';
 void main() {
   AssetBundle testBundle = TestAssetBundle();
 
+  setUpAll(() {
+    TestWidgetsFlutterBinding.ensureInitialized();
+  });
+
   test("Test empty JSON", () async {
     List<DistrictData> emptyData = await DataIntegration.generateDistrictData(
         normalisePath("res/test/json/districtData/test_empty.json"),

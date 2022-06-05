@@ -18,6 +18,10 @@ void main() async {
   // Use district ST as default test district
   DistrictData distDataDef = districtDataList[0];
 
+  setUpAll(() {
+    TestWidgetsFlutterBinding.ensureInitialized();
+  });
+
   test("Test referencing empty data", () async {
     List<RecyclingData> recData = await DataIntegration.generateRecyclingData(
         normalisePath("res/test/json/recyclingData/test_empty.json"),

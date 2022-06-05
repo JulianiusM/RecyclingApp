@@ -8,6 +8,10 @@ import 'package:recycling/ui/data_detail_view.dart';
 import 'util/test_asset_bundle.dart';
 
 void main() {
+  setUpAll(() {
+    TestWidgetsFlutterBinding.ensureInitialized();
+  });
+
   testWidgets("Data detail view unit test", (WidgetTester tester) async {
     // Build our app and trigger a frame.
     await tester.pumpWidget(
