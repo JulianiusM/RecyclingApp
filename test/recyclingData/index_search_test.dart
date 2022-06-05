@@ -7,6 +7,10 @@ import '../util/test_asset_bundle.dart';
 import '../util/test_utils.dart';
 
 void main() async {
+  setUpAll(() {
+    TestWidgetsFlutterBinding.ensureInitialized();
+  });
+
   // Setup index
   AssetBundle testBundle = TestAssetBundle();
   List<RecyclingData> oneData = await DataIntegration.generateRecyclingData(
@@ -24,14 +28,14 @@ void main() async {
 
   test("Test searching for simple partial title", () async {
     List<RecyclingData> result =
-        DataIntegration.performSearchOnIndex(dataIndex, "Double Test");
+    DataIntegration.performSearchOnIndex(dataIndex, "Double Test");
     expect(result.length, 1);
     expect(result[0].title, "Double Test Test");
   });
 
   test("Test searching for ambiguous partial title", () async {
     List<RecyclingData> result =
-        DataIntegration.performSearchOnIndex(dataIndex, "Test");
+    DataIntegration.performSearchOnIndex(dataIndex, "Test");
     expect(result.length, 2);
 
     List<String> titleData = result.map((e) => e.title).toList();
@@ -41,21 +45,21 @@ void main() async {
 
   test("Test searching for simple example", () async {
     List<RecyclingData> result =
-        DataIntegration.performSearchOnIndex(dataIndex, "Example2 Wine");
+    DataIntegration.performSearchOnIndex(dataIndex, "Example2 Wine");
     expect(result.length, 1);
     expect(result[0].title, "Single Test");
   });
 
   test("Test searching for simple partial example", () async {
     List<RecyclingData> result =
-        DataIntegration.performSearchOnIndex(dataIndex, "Example2");
+    DataIntegration.performSearchOnIndex(dataIndex, "Example2");
     expect(result.length, 1);
     expect(result[0].title, "Single Test");
   });
 
   test("Test searching for ambiguous partial example", () async {
     List<RecyclingData> result =
-        DataIntegration.performSearchOnIndex(dataIndex, "Wine");
+    DataIntegration.performSearchOnIndex(dataIndex, "Wine");
     expect(result.length, 2);
 
     List<String> titleData = result.map((e) => e.title).toList();

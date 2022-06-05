@@ -20,14 +20,20 @@ class TestAssetBundle extends CachingAssetBundle {
       parts[1] = rewriteToTestPath(parts[1]);
 
       if (parts[1].startsWith("test/")) {
-        File file = File(parts[0] + parts[1]);
         try {
-          return ByteData.view(file.readAsBytesSync().buffer);
+          return loadFromFile(parts[0] + parts[1]);
         } on FileSystemException {
           //Second chance using production asset
         }
       }
     }
+
+    try {
+      return loadFromFile(key);
+    } on FileSystemException {
+      // Third chance using root bundle (e.g. for internal flutter assets)
+    }
+
     return rootBundle.load(key);
   }
 
@@ -38,5 +44,10 @@ class TestAssetBundle extends CachingAssetBundle {
     }
 
     return path;
+  }
+
+  ByteData loadFromFile(String path) {
+    File file = File(path);
+    return ByteData.view(file.readAsBytesSync().buffer);
   }
 }

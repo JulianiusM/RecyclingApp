@@ -9,6 +9,10 @@ import '../util/test_utils.dart';
 void main() {
   AssetBundle testBundle = TestAssetBundle();
 
+  setUpAll(() {
+    TestWidgetsFlutterBinding.ensureInitialized();
+  });
+
   test("Test indexing of empty data", () async {
     List<RecyclingData> oneData = await DataIntegration.generateRecyclingData(
         normalisePath("res/test/json/recyclingData/test_empty.json"),

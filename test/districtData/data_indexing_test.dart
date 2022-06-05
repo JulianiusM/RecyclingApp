@@ -10,6 +10,10 @@ import '../util/test_utils.dart';
 void main() {
   AssetBundle testBundle = TestAssetBundle();
 
+  setUpAll(() {
+    TestWidgetsFlutterBinding.ensureInitialized();
+  });
+
   test("Test indexing of one data point w/o examples", () async {
     List<DistrictData> oneData = await DataIntegration.generateDistrictData(
         normalisePath("res/test/json/districtData/test_one.json"),

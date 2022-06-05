@@ -7,6 +7,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
   testWidgets("App flow test", (WidgetTester tester) async {
+    TestWidgetsFlutterBinding.ensureInitialized();
     SharedPreferences.setMockInitialValues(<String, Object>{
       "flutter.${SharedPreferenceKeys.selectedDistrict.name}": "",
     });
@@ -22,7 +23,7 @@ void main() {
     expect(find.text("Keine Daten"), findsNothing);
 
     // Go to home screen
-    {
+        {
       Finder distSel = find.byType(InkWell);
       expect(distSel, findsWidgets);
 
@@ -34,7 +35,7 @@ void main() {
     }
 
     // Go to data details
-    {
+        {
       Finder recDataSel = find.byType(InkWell);
       expect(recDataSel, findsWidgets);
 
@@ -63,7 +64,7 @@ void main() {
     }
 
     // Go to district overview
-    {
+        {
       Finder distNav = find.byIcon(Icons.location_city);
       expect(distNav, findsOneWidget);
 
@@ -74,7 +75,7 @@ void main() {
     }
 
     // Go to district detail
-    {
+        {
       Finder distSel = find.byType(InkWell);
       expect(distSel, findsWidgets);
 
@@ -96,7 +97,7 @@ void main() {
     }
 
     // Go back to home screen
-    {
+        {
       await tester.pageBack();
       await tester.pumpAndSettle();
 
@@ -104,7 +105,7 @@ void main() {
     }
 
     // Go to locations overview
-    {
+        {
       Finder mapNav = find.byIcon(Icons.map);
       expect(mapNav, findsOneWidget);
 

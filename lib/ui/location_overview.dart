@@ -20,6 +20,7 @@ class LocationOverview extends StatefulWidget {
 class _LocationOverviewState extends State<LocationOverview> {
   DistrictData? districtData;
   Map<String, Marker> markers = {};
+  Map<LocationDataType, BitmapDescriptor> customIcons = {};
 
   void setDataState(DistrictData data) {
     districtData = data;
@@ -35,7 +36,7 @@ class _LocationOverviewState extends State<LocationOverview> {
           markerId: MarkerId(markerId),
           position: LatLng(data.lat, data.long),
           infoWindow: InfoWindow(title: data.name, snippet: data.description),
-          icon: _selectDescriptor(data.type),
+          icon: customIcons[data.type] ?? BitmapDescriptor.defaultMarker,
         );
         markers[markerId] = marker;
       }
@@ -50,7 +51,9 @@ class _LocationOverviewState extends State<LocationOverview> {
   Widget _buildBody(BuildContext context) {
     Widget currentChild;
 
-    if (districtData == null) {
+    if (customIcons.isEmpty) {
+      currentChild = _buildIconFuture(context);
+    } else if (districtData == null) {
       currentChild = _buildFutureBody(context);
     } else {
       currentChild = _buildMapBody(context);
@@ -87,6 +90,26 @@ class _LocationOverviewState extends State<LocationOverview> {
     );
   }
 
+  Widget _buildIconFuture(BuildContext context) {
+    return FutureBuilder(
+      future: _generateCustomIcons(),
+      builder: (BuildContext context, AsyncSnapshot<void> data) {
+        switch (data.connectionState) {
+          case ConnectionState.none:
+          case ConnectionState.waiting:
+            return const CircularProgressIndicator.adaptive();
+          default:
+            if (data.hasError) {
+              return Text(AppLocalizations.of(context)!
+                  .errorWhileReadingDataPlaceholder
+                  .format([data.error.toString()]));
+            }
+            return _buildFutureBody(context);
+        }
+      },
+    );
+  }
+
   Widget _buildMapBody(BuildContext context) {
     List<LocationData> currentData;
     if (districtData == null || districtData!.locationList.isEmpty) {
@@ -106,20 +129,29 @@ class _LocationOverviewState extends State<LocationOverview> {
     );
   }
 
-  BitmapDescriptor _selectDescriptor(LocationDataType type) {
-    switch (type) {
-      case LocationDataType.recyclingCenter:
-        return BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueRed);
-      case LocationDataType.bioContainer:
-        return BitmapDescriptor.defaultMarkerWithHue(
-            BitmapDescriptor.hueViolet);
-      case LocationDataType.glassContainer:
-        return BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan);
-      case LocationDataType.greenWaste:
-        return BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen);
-      case LocationDataType.oldClothesContainer:
-        return BitmapDescriptor.defaultMarkerWithHue(
-            BitmapDescriptor.hueYellow);
+  Future<void> _generateCustomIcons() async {
+    for (LocationDataType type in LocationDataType.values) {
+      String path;
+      switch (type) {
+        case LocationDataType.recyclingCenter:
+          path = "res/icon/recyclingCenter.png";
+          break;
+        case LocationDataType.bioContainer:
+          path = "res/icon/bioWaste.png";
+          break;
+        case LocationDataType.glassContainer:
+          path = "res/icon/glassWaste.png";
+          break;
+        case LocationDataType.greenWaste:
+          path = "res/icon/greenWaste.png";
+          break;
+        case LocationDataType.oldClothesContainer:
+          path = "res/icon/clothes.png";
+          break;
+      }
+      BitmapDescriptor genIcon = await BitmapDescriptor.fromAssetImage(
+          const ImageConfiguration(size: Size(32, 51)), path);
+      customIcons.putIfAbsent(type, () => genIcon);
     }
   }
 }
