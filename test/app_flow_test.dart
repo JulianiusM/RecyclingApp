@@ -10,6 +10,7 @@ void main() {
     TestWidgetsFlutterBinding.ensureInitialized();
     SharedPreferences.setMockInitialValues(<String, Object>{
       "flutter.${SharedPreferenceKeys.selectedDistrict.name}": "",
+      "flutter.${SharedPreferenceKeys.privacyAgree.name}": true,
     });
 
     app.main();
