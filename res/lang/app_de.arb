@@ -14,5 +14,14 @@
   "disallowedExampleHeader": "Verboten",
   "locationNavName": "Standorte",
   "switchToWasteSearch": "Durchsuche Abfallarten",
-  "switchToDistrictSearch": "Durchsuche Bezirksregeln"
+  "switchToDistrictSearch": "Durchsuche Bezirksregeln",
+  "privacyPolicyPopupMessage": "Diese App verwendet eine Google Maps integration, durch deren Nutzung Google weitere Daten erheben könnte. Weitere Informationen hierzu in unserer ausführlichen Datenschutzerklärung. Google Maps ist für bestimmte Funktionen zwingend notwendig. Ein Widerspruch gegen diese Bedingungen führt dazu, dass diese Funktionen nicht verwendet werden können.\n\nDiese App verwendet Google Fonts, welche von Googles Server bereitgestellt werden, sowie weitere von Drittanbietern angebotene Technologie, welche ebenfalls teilweise auf Servern von Drittanbietern bereitgestellt werden. Beim Abruf dieser Ressourcen kann der entsprechende Betreiber weitere Daten erheben. Hinweise hierzu in unserer ausführlichen Datenschutzerklärung.\n\nDIESE APP KANN NICHT GENUTZT WERDEN, FALLS DER VERWENDUNG EXTERNER RESSOURCEN WIEDERSPROCHEN WIRD!\nIn diesem Fall muss die App ohne weitere Nutzung geschlossen und deinstalliert werden!\n\nFalls weitere Informationen benötigt werden, kann die ausführliche Datenschutzerklärung auf underer Website (https://recycling.jundm100-development.de/privacy/privacy-de.html) eingesehen werden.\n\nDie nachfolgende Entscheidung kann jederzeit in den Einstellungen geändert werden.",
+  "privacyPolicyUrl": "https://recycling.jundm100-development.de/privacy/privacy-de.html",
+  "agree": "Annehmen",
+  "disagree": "Ablehnen",
+  "moreInformation": "Weitere Informationen",
+  "privacySettings": "Datenschutzeinstellungen",
+  "privacyPolicy": "Datenschutzerklärung",
+  "imprint": "Impressum",
+  "imprintUrl": "https://www.jundm100-development.de/imprint.php"
 }

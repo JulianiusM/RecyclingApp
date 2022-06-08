@@ -62,5 +62,41 @@
   "switchToDistrictSearch": "Switch to district rules search",
   "@switchToDistrictSearch": {
     "description": "Text for switch row in waste types search"
+  },
+  "privacyPolicyPopupMessage": "This app uses a Google Maps integration, through which Google could collect further data. More information in our extensive privacy policy. Without Google Maps, some functionalities of our app cannot be used. A rejection of these conditions will disable these functions.\n\nThis app uses Google Fonts hosted on Googles servers, as well as other third party technologies, which are in part also hosted on third party servers. When retrieving these resources, the respective provider may collect further data. More information in our extensive privacy policy.\n\nTHIS APP CANNOT BE USED IF THE USE OF EXTERNAL RESOURCES IS OBJECTED TO!\nIn this case, the app must be closed and removed from the respective devices!\n\nMore information on all topics is available in our extensive privacy policy available on our website (https://recycling.jundm100-development.de/privacy/privacy-en.html).\n\nThe following choice can always be changed in our settings.",
+  "@privacyPolicyPopupMessage": {
+    "description": "Message of the privacy policy popup"
+  },
+  "privacyPolicyUrl": "https://recycling.jundm100-development.de/privacy/privacy-en.html",
+  "@privacyPolicyUrl": {
+    "description": "Locale specific url to privacy policy"
+  },
+  "agree": "Agree",
+  "@agree": {
+    "description": "Generic single word string: Agree"
+  },
+  "disagree": "Disagree",
+  "@disagree": {
+    "description": "Generic single word string: Disagree"
+  },
+  "moreInformation": "More Information",
+  "@moreInformation": {
+    "description": "Generic multi word string: More information"
+  },
+  "privacySettings": "Privacy settings",
+  "@privacySettings": {
+    "description": "Generic multi word string: Privacy settings"
+  },
+  "privacyPolicy": "Privacy Policy",
+  "@privacyPolicy": {
+    "description": "Generic multi word string: Privacy policy"
+  },
+  "imprint": "Imprint",
+  "@imprint": {
+    "description": "Generic single word string: Imprint"
+  },
+  "imprintUrl": "https://www.jundm100-development.de/imprint.php",
+  "@imprintUrl": {
+    "description": "Locale specific url to imprint"
   }
 }

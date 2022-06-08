@@ -4,6 +4,7 @@ import 'package:recycling/data/data_config_values.dart';
 import 'package:recycling/extensions/string_format_extension.dart';
 import 'package:recycling/ui/district_overview.dart';
 import 'package:recycling/ui/home_navigation_view.dart';
+import 'package:recycling/ui/privacy_popup.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class App extends StatefulWidget {
@@ -16,6 +17,8 @@ class App extends StatefulWidget {
 }
 
 class _AppState extends State<App> {
+  bool hasShownPrivacyPopup = false;
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -64,6 +67,18 @@ class _AppState extends State<App> {
                   .errorWhileReadingDataPlaceholder
                   .format([data.error.toString()]));
             } else {
+              if (data.data?.getBool(SharedPreferenceKeys.privacyAgree.name) ==
+                      null &&
+                  !hasShownPrivacyPopup) {
+                hasShownPrivacyPopup = true;
+                Future.delayed(
+                  Duration.zero,
+                  () => PrivacyPopup.show(
+                    context: context,
+                  ),
+                );
+              }
+
               String? prefData = data.data
                   ?.getString(SharedPreferenceKeys.selectedDistrict.name);
               if (prefData != null && prefData.isNotEmpty) {

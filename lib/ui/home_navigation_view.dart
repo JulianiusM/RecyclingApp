@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:recycling/data/data_config_values.dart';
 import 'package:recycling/ui/data_overview.dart';
 import 'package:recycling/ui/district_data_overview.dart';
 import 'package:recycling/ui/district_overview.dart';
 import 'package:recycling/ui/location_overview.dart';
+import 'package:recycling/ui/privacy_popup.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class HomeNavigationView extends StatefulWidget {
   const HomeNavigationView(
@@ -28,7 +32,10 @@ class HomeNavigationView extends StatefulWidget {
 
 class _HomeNavigationViewState extends State<HomeNavigationView> {
   int _currentIdx = 0;
+  bool _privacyAgreed = false;
+
   late final List _screens;
+  final List<int> _privacyRequiredScreens = [2];
 
   @override
   void initState() {
@@ -38,11 +45,47 @@ class _HomeNavigationViewState extends State<HomeNavigationView> {
       DistrictDataOverview(selectedDistrict: widget.selectedDistrict),
       LocationOverview(selectedDistrict: widget.selectedDistrict)
     ];
+
+    SharedPreferences.getInstance().then(
+      (SharedPreferences prefs) {
+        if (prefs.containsKey(SharedPreferenceKeys.privacyAgree.name)) {
+          _privacyAgreed =
+              prefs.getBool(SharedPreferenceKeys.privacyAgree.name) ?? false;
+        } else {
+          showDialog(
+            context: context,
+            builder: (BuildContext dialogContext) {
+              return PrivacyPopup(
+                onAgree: () async {
+                  await PrivacyPopup.defaultOnAgree();
+                  _privacyAgreed = true;
+                },
+              );
+            },
+          );
+        }
+      },
+    );
   }
 
-  void _updateIndex(int value) {
+  void _updateIndex(BuildContext context, int value) {
     setState(() {
-      _currentIdx = value;
+      if (!_privacyAgreed && _privacyRequiredScreens.contains(value)) {
+        showDialog(
+          context: context,
+          builder: (BuildContext dialogContext) {
+            return PrivacyPopup(
+              onAgree: () async {
+                await PrivacyPopup.defaultOnAgree();
+                _privacyAgreed = true;
+                _updateIndex(dialogContext, value);
+              },
+            );
+          },
+        );
+      } else {
+        _currentIdx = value;
+      }
     });
   }
 
@@ -71,6 +114,44 @@ class _HomeNavigationViewState extends State<HomeNavigationView> {
                     ],
                   ),
                 ),
+                PopupMenuItem(
+                  value: 1,
+                  child: Row(
+                    children: <Widget>[
+                      const Padding(
+                        padding: EdgeInsets.fromLTRB(0, 0, 5, 0),
+                        child: Icon(Icons.admin_panel_settings_outlined,
+                            color: Colors.black54),
+                      ),
+                      Text(AppLocalizations.of(context)!.privacySettings),
+                    ],
+                  ),
+                ),
+                PopupMenuItem(
+                  value: 2,
+                  child: Row(
+                    children: <Widget>[
+                      const Padding(
+                        padding: EdgeInsets.fromLTRB(0, 0, 5, 0),
+                        child: Icon(Icons.privacy_tip_outlined,
+                            color: Colors.black54),
+                      ),
+                      Text(AppLocalizations.of(context)!.privacyPolicy),
+                    ],
+                  ),
+                ),
+                PopupMenuItem(
+                  value: 3,
+                  child: Row(
+                    children: <Widget>[
+                      const Padding(
+                        padding: EdgeInsets.fromLTRB(0, 0, 5, 0),
+                        child: Icon(Icons.info_outline, color: Colors.black54),
+                      ),
+                      Text(AppLocalizations.of(context)!.imprint),
+                    ],
+                  ),
+                ),
               ];
             },
             onSelected: (selected) {
@@ -84,6 +165,27 @@ class _HomeNavigationViewState extends State<HomeNavigationView> {
                     ),
                   );
                   break;
+                case 1:
+                  PrivacyPopup.show(
+                    context: context,
+                    onAgree: () async {
+                      await PrivacyPopup.defaultOnAgree();
+                      _privacyAgreed = true;
+                    },
+                    onDisagree: () async {
+                      await PrivacyPopup.defaultOnDisagree();
+                      _privacyAgreed = false;
+                    },
+                  );
+                  break;
+                case 2:
+                  launchUrl(Uri.parse(
+                      AppLocalizations.of(context)!.privacyPolicyUrl));
+                  break;
+                case 3:
+                  launchUrl(
+                      Uri.parse(AppLocalizations.of(context)!.imprintUrl));
+                  break;
                 default:
                   break;
               }
@@ -95,7 +197,9 @@ class _HomeNavigationViewState extends State<HomeNavigationView> {
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         currentIndex: _currentIdx,
-        onTap: _updateIndex,
+        onTap: (int value) {
+          _updateIndex(context, value);
+        },
         items: [
           BottomNavigationBarItem(
             label: AppLocalizations.of(context)!.searchNavName,
