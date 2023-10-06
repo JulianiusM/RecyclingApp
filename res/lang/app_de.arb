@@ -10,6 +10,7 @@
   "searchNavName": "Suche",
   "districtNavName": "Bezirk",
   "selectDistrict": "Bezirk wählen",
+  "contactUs": "Kontaktiere uns",
   "allowedExampleHeader": "Erlaubt",
   "disallowedExampleHeader": "Verboten",
   "locationNavName": "Standorte",
@@ -23,5 +24,6 @@
   "privacySettings": "Datenschutzeinstellungen",
   "privacyPolicy": "Datenschutzerklärung",
   "imprint": "Impressum",
-  "imprintUrl": "https://www.jundm100-development.de/imprint.php"
+  "imprintUrl": "https://www.jundm100-development.de/imprint.php",
+  "contactUsUrl": "https://recycling.jundm100-development.de/contact/contact-de.html"
 }
