@@ -152,6 +152,18 @@ class _HomeNavigationViewState extends State<HomeNavigationView> {
                     ],
                   ),
                 ),
+                PopupMenuItem(
+                  value: 4,
+                  child: Row(
+                    children: <Widget>[
+                      const Padding(
+                        padding: EdgeInsets.fromLTRB(0, 0, 5, 0),
+                        child: Icon(Icons.contact_mail_outlined, color: Colors.black54),
+                      ),
+                      Text(AppLocalizations.of(context)!.contactUs),
+                    ],
+                  ),
+                ),
               ];
             },
             onSelected: (selected) {
@@ -185,6 +197,9 @@ class _HomeNavigationViewState extends State<HomeNavigationView> {
                 case 3:
                   launchUrl(
                       Uri.parse(AppLocalizations.of(context)!.imprintUrl));
+                  break;
+                case 4:
+                  launchUrl(Uri.parse(AppLocalizations.of(context)!.contactUsUrl));
                   break;
                 default:
                   break;

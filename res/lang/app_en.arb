@@ -43,6 +43,10 @@
   "@selectDistrict": {
     "description": "Text for select district"
   },
+  "contactUs": "Contact Us",
+  "@contactUs": {
+    "description": "Text for contact us"
+  },
   "allowedExampleHeader": "Allowed",
   "@allowedExampleHeader": {
     "description": "Text for allowed column in district entry examples table"
@@ -98,5 +102,9 @@
   "imprintUrl": "https://www.jundm100-development.de/imprint.php",
   "@imprintUrl": {
     "description": "Locale specific url to imprint"
+  },
+  "contactUsUrl": "https://recycling.jundm100-development.de/contact/contact-en.html",
+  "@contactUsUrl": {
+    "description": "Locale specific url to contact us"
   }
 }
