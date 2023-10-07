@@ -69,7 +69,7 @@ jobs:
           $SONAR_SCANNER_PATH/sonar-scanner -v
           $SONAR_SCANNER_PATH/sonar-scanner \
             -Dsonar.login=${{ secrets.SONAR_TOKEN }} \
-  #            -Dsonar.host.url=${{ secrets.SONAR_HOST_URL }} \
+            -Dsonar.host.url=${{ secrets.SONAR_HOST_URL }} \
   #            -Dsonar.projectKey=${{ secrets.PROJECT_KEY }} \
   #            -Dsonar.sources=.
 
