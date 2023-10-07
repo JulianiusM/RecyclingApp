@@ -11,6 +11,9 @@ on:
       - v*
       - dev*
   pull_request:
+    types:
+      - opened
+  workflow_dispatch:
 
 jobs:
 #  test:
