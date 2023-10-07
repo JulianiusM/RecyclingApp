@@ -34,7 +34,7 @@ jobs:
   #      - name: Run tests
   #        run: flutter test --no-pub --machine --coverage --test-randomize-ordering-seed random test
 
-  sonar_analyze:
+  test:
     name: Test w/ Sonar
     runs-on: ubuntu-latest
     permissions: read-all
