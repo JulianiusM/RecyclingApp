@@ -1,4 +1,4 @@
-![CI](https://github.com/JulianiusM/RecyclingApp/actions/workflows/devops_ci_cd_pipeline_flutter.yml/badge.svg?branch=master)
+[![CI](https://github.com/JulianiusM/RecyclingApp/actions/workflows/devops_ci_cd_pipeline_flutter.yml/badge.svg?branch=master)](https://github.com/JulianiusM/RecyclingApp/actions/workflows/devops_ci_cd_pipeline_flutter.yml)
 [![Quality Gate Status](https://sonar.jundm100-development.de/api/project_badges/measure?project=JulianiusM_RecyclingApp_AYsK0cz8j79BXfh6nj-j&metric=alert_status&token=sqb_65447388dc6365baf7c9ede5c87e33d028f6c4f0)](https://sonar.jundm100-development.de/dashboard?id=JulianiusM_RecyclingApp_AYsK0cz8j79BXfh6nj-j)
 
 # RecyclingApp
