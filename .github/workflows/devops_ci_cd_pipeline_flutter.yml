@@ -59,17 +59,19 @@ jobs:
       - name: Run tests
         run: flutter test --no-pub --machine --coverage --test-randomize-ordering-seed random test > tests.output
 
-      - name: Sonar Analyze
-        uses: sonarsource/sonarqube-scan-action@master
+      - name: Sonar-scanner
         env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-        # If you wish to fail your job when the Quality Gate is red, uncomment the
-        # following lines. This would typically be used to fail a deployment.
-        # - uses: sonarsource/sonarqube-quality-gate-action@master
-        #   timeout-minutes: 5
-        #   env:
-        #     SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_SCANNER_VER: sonar-scanner-cli-4.7.0.2747-linux
+          SONAR_SCANNER_PATH: sonar-scanner-4.7.0.2747-linux/bin
+        run: |
+          wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.7.0.2747-linux.zip
+          unzip sonar-scanner-cli-4.7.0.2747-linux.zip
+          $SONAR_SCANNER_PATH/sonar-scanner -v
+          $SONAR_SCANNER_PATH/sonar-scanner \
+            -Dsonar.login=${{ secrets.SONAR_TOKEN }} \
+  #            -Dsonar.host.url=${{ secrets.SONAR_HOST_URL }} \
+  #            -Dsonar.projectKey=${{ secrets.PROJECT_KEY }} \
+  #            -Dsonar.sources=.
 
   build_android:
     runs-on: ubuntu-latest
