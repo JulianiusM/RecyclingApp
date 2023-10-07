@@ -64,7 +64,7 @@ class DataDetailView extends StatelessWidget {
                         recData.title,
                         style: Theme.of(context)
                             .textTheme
-                            .headline3!
+                            .displaySmall!
                             .copyWith(color: Colors.black87),
                         textAlign: TextAlign.center,
                       ),
@@ -79,7 +79,7 @@ class DataDetailView extends StatelessWidget {
                                     .format([recData.goesTo]),
                                 style: Theme.of(context)
                                     .textTheme
-                                    .headline6!
+                                    .titleLarge!
                                     .copyWith(color: Colors.black87),
                                 textAlign: TextAlign.center,
                               ),
