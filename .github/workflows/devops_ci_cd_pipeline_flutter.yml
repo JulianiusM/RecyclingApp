@@ -59,14 +59,6 @@ jobs:
       - name: Run tests
         run: flutter test --no-pub --machine --coverage --test-randomize-ordering-seed random test > tests.output
 
-      - name: Add flutter to path
-        run: |
-          FLTR=$(which flutter)
-          echo $FLTR
-          echo $PATH
-          echo $GITHUB_PATH
-          echo $FLTR >> $GITHUB_PATH
-
       - name: Sonar Analyze
         uses: sonarsource/sonarqube-scan-action@master
         env:
