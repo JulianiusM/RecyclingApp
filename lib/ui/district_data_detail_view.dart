@@ -65,7 +65,7 @@ class DistrictDataDetailView extends StatelessWidget {
                         districtData?.name ?? districtDataEntry!.goesTo,
                         style: Theme.of(context)
                             .textTheme
-                            .headline3!
+                            .displaySmall!
                             .copyWith(color: Colors.black87),
                         textAlign: TextAlign.center,
                       ),
@@ -76,7 +76,7 @@ class DistrictDataDetailView extends StatelessWidget {
                               districtDataEntry!.generalInformation,
                           style: Theme.of(context)
                               .textTheme
-                              .headline6!
+                              .titleLarge!
                               .copyWith(color: Colors.black87),
                           textAlign: TextAlign.center,
                         ),
