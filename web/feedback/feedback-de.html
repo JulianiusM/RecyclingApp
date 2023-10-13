@@ -1,0 +1,107 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta content="7 days" name="revisit-after">
+    <meta content="global" name="distribution">
+    <meta content="14 years" name="rating">
+    <meta content="de" name="content-language">
+    <meta content="Recycling" name="page-topic">
+    <meta content="all" name="robots">
+    <meta content="JundM100 Development" name="author">
+    <meta content="JundM100 Development" name="copyright">
+
+    <!-- file local changes -->
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+          name="viewport"/>
+    <link href="https://www.jundm100-development.de/src/css/main.css" rel="stylesheet">
+    <link href="favicon.png" rel="icon" type="image/png"/>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&amp;family=Source+Sans+Pro&amp;display=swap"
+          rel="stylesheet">
+    <title>Recycling Feedback Form | JundM100 Development</title>
+    <script src="../script/index.js"></script>
+
+    <script type="text/javascript"
+            src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+   (function(){
+      emailjs.init("rI5Rup9M40uuxFGCc");
+   })();
+</script>
+    </head>
+
+<style>
+
+/* Style the submit button with a specific background color etc */
+.button {
+  background-color: #48b47c;;
+  width: 75%,
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 180px;
+  margin-left: 20px;
+}
+
+
+.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+    </style>
+
+
+<body>
+<div class="containter">
+    <br><h1 style="text-align:center">Gib uns Feedback</h1><br>
+
+<form id="recommendForm" style="width: 470px; margin-left: 20px">
+    <label for="recommendInput">Von einer Skala von 1 bis 5, inwieweit würdest du die RecycleApp weiterempfehlen? </label>
+    <input type="range" id="recommendInput" name="recommendInput" min="1" max="5" style="background-color: green">
+    <span id="recommendNumber">1</span>
+</form>
+
+    <form id="likeForm" style="width: 470px; margin-left: 20px">
+        <label for="likeInput">Von einer Skala von 1 bis 5, wie sehr gefällt dir die ReycleApp?</label>
+        <input type="range" id="likeInput" name="likeInput" min="1" max="5" style="background-color: green">
+        <span id="likeNumber">1</span>
+    </form>
+
+    <form style="margin-left: 20px">
+        <label for="likeEspecially">Was gefällt dir besonders gut?</label><br>
+        <textarea style="width: 75%; margin-top: 6px" id="likeEspecially" name="likeEspecially" rows="4" cols="50"></textarea><br><br>
+    </form>
+
+    <form style="margin-left: 20px">
+        <label for="couldBeImproved">Was sollte noch verbessert werden?</label><br>
+        <textarea style="width: 75%; margin-top: 6px" id="couldBeImproved" name="couldBeImproved" rows="4" cols="50"></textarea><br><br>
+    </form>
+
+    <input class="button" type="submit" value="Abschicken" onclick="sendFeedbackMail()">
+
+
+    <script>
+
+        // Get first range field
+        const recommendInput = document.getElementById("recommendInput");
+        const recommendNumber = document.getElementById("recommendNumber");
+
+        recommendInput.addEventListener("input", function() {
+            recommendNumber.textContent = recommendInput.value;
+        });
+
+
+        // Get second range field
+        const likeInput = document.getElementById("likeInput");
+        const likeNumber = document.getElementById("likeNumber");
+
+        likeInput.addEventListener("input", function() {
+            likeNumber.textContent = likeInput.value;
+        });
+    </script>
+</div>
+</body>
+</html>
