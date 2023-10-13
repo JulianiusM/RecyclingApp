@@ -196,10 +196,14 @@ jobs:
         run: |
           mkdir ~/.ssh
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/github-actions
+          echo "${{ secrets.SSH_PRIVATE_KEY_TOR }}" > ~/.ssh/tortunnel
           chmod 600 ~/.ssh/github-actions
-          rsync -avzr --delete -e "ssh -4 -p ${{ secrets.SSH_PORT }} -i ~/.ssh/github-actions -o StrictHostKeyChecking=no" build/web/web-app/ ${{ secrets.SSH_USER }}@${{ secrets.ssh_host }}:/var/www/html/recycling_dev/
-          ssh -4 -p ${{ secrets.SSH_PORT }} -i ~/.ssh/github-actions -o StrictHostKeyChecking=no ${{ secrets.SSH_USER }}@${{ secrets.ssh_host }} 'chmod -R 755 /var/www/html/recycling_dev/'
+          chmod 600 ~/.ssh/tortunnel
+          ssh -4 -fN -i -p ${{ secrets.SSH_PORT_TOR }} ~/.ssh/tortunnel -o StrictHostKeyChecking=no -L ${{ secrets.SSH_PORT }}:${{ secrets.ssh_host_local }}:${{ secrets.SSH_PORT }} ${{ secrets.SSH_USER_TOR }}@${{ secrets.ssh_host_tor }}
+          rsync -avzr --delete -e "ssh -4 -p ${{ secrets.SSH_PORT }} -i ~/.ssh/github-actions -o StrictHostKeyChecking=no" build/web/web-app/ ${{ secrets.SSH_USER }}@127.0.0.1:/var/www/html/recycling_dev/
+          ssh -4 -p ${{ secrets.SSH_PORT }} -i ~/.ssh/github-actions -o StrictHostKeyChecking=no ${{ secrets.SSH_USER }}@127.0.0.1 'chmod -R 755 /var/www/html/recycling_dev/'
           rm ~/.ssh/github-actions
+          rm ~/.ssh/tortunnel
 
   deploy_web_prod:
     if: startsWith(github.ref, 'refs/tags/v')
