@@ -47,6 +47,10 @@
   "@contactUs": {
     "description": "Text for contact us"
   },
+  "giveFeedback": "Give Feedback",
+  "@giveFeedback": {
+    "description": "Text for giving feedback"
+  },
   "allowedExampleHeader": "Allowed",
   "@allowedExampleHeader": {
     "description": "Text for allowed column in district entry examples table"
@@ -106,5 +110,9 @@
   "contactUsUrl": "https://recycling.jundm100-development.de/contact/contact-en.html",
   "@contactUsUrl": {
     "description": "Locale specific url to contact us"
+  },
+  "feedbackUrl": "https://recycling.jundm100-development.de/feedback/feedback-en.html",
+  "@feedbackUrl": {
+    "description": "Locale specific url to give feedback"
   }
 }

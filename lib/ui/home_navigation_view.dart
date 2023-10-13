@@ -164,6 +164,18 @@ class _HomeNavigationViewState extends State<HomeNavigationView> {
                     ],
                   ),
                 ),
+                PopupMenuItem(
+                  value: 5,
+                  child: Row(
+                    children: <Widget>[
+                      const Padding(
+                        padding: EdgeInsets.fromLTRB(0, 0, 5, 0),
+                        child: Icon(Icons.feedback_outlined, color: Colors.black54),
+                      ),
+                      Text(AppLocalizations.of(context)!.giveFeedback),
+                    ],
+                  ),
+                ),
               ];
             },
             onSelected: (selected) {
@@ -200,6 +212,9 @@ class _HomeNavigationViewState extends State<HomeNavigationView> {
                   break;
                 case 4:
                   launchUrl(Uri.parse(AppLocalizations.of(context)!.contactUsUrl));
+                  break;
+                case 5:
+                  launchUrl(Uri.parse(AppLocalizations.of(context)!.feedbackUrl));
                   break;
                 default:
                   break;
