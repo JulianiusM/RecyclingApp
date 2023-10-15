@@ -13,7 +13,6 @@
     <!-- file local changes -->
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
           name="viewport"/>
-    <link href="https://www.jundm100-development.de/src/css/main.css" rel="stylesheet">
     <link href="favicon.png" rel="icon" type="image/png"/>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&amp;family=Source+Sans+Pro&amp;display=swap"
           rel="stylesheet">
@@ -35,7 +34,6 @@
 /* Style the submit button with a specific background color etc */
 .button {
   background-color: #48b47c;;
-  width: 75%,
   color: white;
   padding: 12px 20px;
   border: none;
@@ -45,30 +43,52 @@
   margin-left: 20px;
 }
 
+input {
+    width: 100%;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+
+
+textarea {
+    width: 100%;
+    height: 150px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    resize: vertical;
+}
+
+body {
+    font-family: "Source Sans Pro", sans-serif;
+}
 
 .container {
-  border-radius: 5px;
-  background-color: #f2f2f2;
-  padding: 20px;
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
 }
+
     </style>
 
 
 <body>
-<div class="containter">
+<div class="container">
     <br><h1 style="text-align:center">Gib uns Feedback</h1><br>
 
 <form id="recommendForm" style="width: 470px; margin-left: 20px">
     <label for="recommendInput">Von einer Skala von 1 bis 5, inwieweit würdest du die RecycleApp weiterempfehlen? </label>
-    <input type="range" id="recommendInput" name="recommendInput" min="1" max="5" style="background-color: green">
+    <input type="range" id="recommendInput" name="recommendInput" min="1" max="5" step="1" value="1">
     <span id="recommendNumber">1</span>
 </form>
+<br><br>
 
     <form id="likeForm" style="width: 470px; margin-left: 20px">
         <label for="likeInput">Von einer Skala von 1 bis 5, wie sehr gefällt dir die ReycleApp?</label>
-        <input type="range" id="likeInput" name="likeInput" min="1" max="5" style="background-color: green">
+        <input type="range" id="likeInput" name="likeInput" min="1" max="5" step="1" value="1">
         <span id="likeNumber">1</span>
     </form>
+
+<br><br>
 
     <form style="margin-left: 20px">
         <label for="likeEspecially">Was gefällt dir besonders gut?</label><br>

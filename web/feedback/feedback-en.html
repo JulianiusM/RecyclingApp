@@ -13,7 +13,6 @@
     <!-- file local changes -->
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
           name="viewport"/>
-    <link href="https://www.jundm100-development.de/src/css/main.css" rel="stylesheet">
     <link href="favicon.png" rel="icon" type="image/png"/>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&amp;family=Source+Sans+Pro&amp;display=swap"
           rel="stylesheet">
@@ -33,7 +32,6 @@
 /* Style the submit button with a specific background color etc */
 .button {
   background-color: #48b47c;;
-  width: 75%,
   color: white;
   padding: 12px 20px;
   border: none;
@@ -43,11 +41,83 @@
   margin-left: 20px;
 }
 
+input {
+    width: 100%;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+
+
+textarea {
+    width: 100%;
+    height: 150px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    resize: vertical;
+}
+
+body {
+    font-family: "Source Sans Pro", sans-serif;
+}
 
 .container {
-  border-radius: 5px;
-  background-color: #f2f2f2;
-  padding: 20px;
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
 }
     </style>
 </head>
+<body>
+<div class="container">
+<br><h1 style="text-align:center">Give us feedback</h1><br>
+
+<form id="recommendForm" style="width: 470px; margin-left: 20px">
+    <label for="recommendInput">From a scale of 1 to 5, to what extent would you recommend the RecycleApp?</label>
+    <input type="range" id="recommendInput" name="recommendInput" min="1" max="5" step="1" value="1">
+    <span id="recommendNumber">1</span>
+</form>
+<br><br>
+
+<form id="likeForm" style="width: 470px; margin-left: 20px">
+    <label for="likeInput">From a scale of 1 to 5, how much do you like the ReycleApp?</label>
+    <input type="range" id="likeInput" name="likeInput" min="1" max="5" step="1" value="1">
+    <span id="likeNumber">1</span>
+</form>
+
+<br><br>
+
+<form style="margin-left: 20px">
+    <label for="likeEspecially">What do you like most about it?</label><br>
+    <textarea style="width: 75%; margin-top: 6px" id="likeEspecially" name="likeEspecially" rows="4" cols="50"></textarea><br><br>
+</form>
+
+<form style="margin-left: 20px">
+    <label for="couldBeImproved">What should still be improved?</label><br>
+    <textarea style="width: 75%; margin-top: 6px" id="couldBeImproved" name="couldBeImproved" rows="4" cols="50"></textarea><br><br>
+</form>
+
+<input class="button" type="submit" value="Submit" onclick="sendFeedbackMail()">
+
+
+<script>
+
+        // Get first range field
+        const recommendInput = document.getElementById("recommendInput");
+        const recommendNumber = document.getElementById("recommendNumber");
+
+        recommendInput.addEventListener("input", function() {
+            recommendNumber.textContent = recommendInput.value;
+        });
+
+
+        // Get second range field
+        const likeInput = document.getElementById("likeInput");
+        const likeNumber = document.getElementById("likeNumber");
+
+        likeInput.addEventListener("input", function() {
+            likeNumber.textContent = likeInput.value;
+        });
+    </script>
+</div>
+</body>
+</html>

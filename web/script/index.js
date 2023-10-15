@@ -41,8 +41,8 @@ function sendContactMail() {
 function sendFeedbackMail() {
     // fetch parameters from input-fields
     const params = {
-        recommendNumber: document.getElementById("recommendNumber").value,
-        likeNumber: document.getElementById("likeNumber").value,
+        recommendNumber: document.getElementById("recommendNumber").innerText,
+        likeNumber: document.getElementById("likeNumber").innerText,
         likeEspecially: document.getElementById("likeEspecially").value,
         couldBeImproved: document.getElementById("couldBeImproved").value,
     };
@@ -52,12 +52,16 @@ function sendFeedbackMail() {
     const serviceID = "service_recycle";
     const templateID = "template_vzhahvr";
 
+    alert(params.likeNumber)
+    alert(params.recommendNumber)
+
+
     // send mail
     emailjs.send(serviceID, templateID, params)
         .then(res => {
             // Reset fields in html
-            document.getElementById("recommendNumber").value = 1;
-            document.getElementById("likeNumber").value = 1;
+            document.getElementById("recommendNumber").innerText = 1;
+            document.getElementById("likeNumber").innerText = 1;
             document.getElementById("likeEspecially").value = "";
             document.getElementById("couldBeImproved").value = "";
             console.log(res);
