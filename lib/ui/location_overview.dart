@@ -35,7 +35,7 @@ class _LocationOverviewState extends State<LocationOverview> {
         Marker marker = Marker(
           markerId: MarkerId(markerId),
           position: LatLng(data.lat, data.long),
-          infoWindow: InfoWindow(title: data.name, snippet: data.description),
+          infoWindow: InfoWindow(title: data.name, snippet: data.description + "\n" + data.opens + "\n" + data.closes),
           icon: customIcons[data.type] ?? BitmapDescriptor.defaultMarker,
         );
         markers[markerId] = marker;

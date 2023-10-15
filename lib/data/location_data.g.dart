@@ -12,6 +12,8 @@ LocationData _$LocationDataFromJson(Map<String, dynamic> json) => LocationData(
       description: json['description'] as String,
       lat: (json['lat'] as num).toDouble(),
       long: (json['long'] as num).toDouble(),
+      opens: json['opens'] as String,
+      closes: json['closes'] as String
     );
 
 Map<String, dynamic> _$LocationDataToJson(LocationData instance) =>
@@ -21,6 +23,8 @@ Map<String, dynamic> _$LocationDataToJson(LocationData instance) =>
       'description': instance.description,
       'lat': instance.lat,
       'long': instance.long,
+      'opens': instance.opens,
+      'closes': instance.closes
     };
 
 const _$LocationDataTypeEnumMap = {

@@ -14,6 +14,8 @@ class DistrictData {
       required this.imageUrl,
       required this.lat,
       required this.long,
+      // required this.opens,
+      // required this.closes,
       required this.zoom,
       required this.hasAdditionalInformation,
       required this.additionalInformation,
@@ -26,6 +28,8 @@ class DistrictData {
   final double lat;
   final double long;
   final double zoom;
+  // final String opens;
+  // final String closes;
   final bool hasAdditionalInformation;
   final List<String> additionalInformation;
   final List<DistrictDataEntry> entryList;

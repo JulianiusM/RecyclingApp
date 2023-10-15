@@ -144,6 +144,16 @@ class _DistrictOverviewState extends State<DistrictOverview> {
                             style: const TextStyle(fontSize: 12),
                             overflow: TextOverflow.fade,
                           ),
+                          // Text(
+                          //   currentData[index].opens,
+                          //   style: const TextStyle(fontSize: 12),
+                          //   overflow: TextOverflow.fade,
+                          // ),
+                          // Text(
+                          //   currentData[index].closes,
+                          //   style: const TextStyle(fontSize: 12),
+                          //   overflow: TextOverflow.fade,
+                          // ),
                         ],
                       ),
                     ),

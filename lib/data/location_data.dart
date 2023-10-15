@@ -12,13 +12,17 @@ class LocationData {
       required this.name,
       required this.description,
       required this.lat,
-      required this.long});
+      required this.long,
+      required this.opens,
+      required this.closes});
 
   final LocationDataType type;
   final String name;
   final String description;
   final double lat;
   final double long;
+  final String opens;
+  final String closes;
 
   /// A necessary factory constructor for creating a new RecyclingData instance
   /// from a map. Pass the map to the generated `_$RecyclingDataFromJson()` constructor.
