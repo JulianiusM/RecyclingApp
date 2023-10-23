@@ -291,10 +291,10 @@ packages:
     dependency: "direct main"
     description:
       name: fuzzy
-      sha256: baf5e5b1e651dc2eaab92399050f6ad6ebf7a56042b2bd141e697b0554940fa2
+      sha256: af5fbd36f2f8de0663a5b562ef5ca209aea957e81a2f0e97f97475cfbed044ec
       url: "https://pub.dev"
     source: hosted
-    version: "0.4.0-nullsafety.0"
+    version: "0.5.1"
   glob:
     dependency: transitive
     description:
@@ -452,14 +452,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "6.7.1"
-  latinize:
-    dependency: transitive
-    description:
-      name: latinize
-      sha256: "559eaa76d4641d977680b64080806174efabddebac365fc26d1c333aabb4070e"
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.1.0-nullsafety.0"
   lints:
     dependency: transitive
     description:
@@ -761,6 +753,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.2.0"
+  stringr:
+    dependency: transitive
+    description:
+      name: stringr
+      sha256: "2846b6811c3cbb34c8937a35e623986e3fbf7203b3bb33ffe7f80e496ea3eff2"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.0"
   sync_http:
     dependency: transitive
     description:
