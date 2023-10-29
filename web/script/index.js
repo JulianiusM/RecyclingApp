@@ -26,7 +26,6 @@ function sendContactMail() {
             document.getElementById("name").value = "";
             document.getElementById("email").value = "";
             document.getElementById("message").value = "";
-            console.log(res);
             alert("Email was sent successfully, Thank you!")
 
         })
@@ -52,19 +51,16 @@ function sendFeedbackMail() {
     const serviceID = "service_recycle";
     const templateID = "template_vzhahvr";
 
-    alert(params.likeNumber)
-    alert(params.recommendNumber)
-
-
     // send mail
     emailjs.send(serviceID, templateID, params)
         .then(res => {
             // Reset fields in html
-            document.getElementById("recommendNumber").innerText = 1;
-            document.getElementById("likeNumber").innerText = 1;
+            document.getElementById("recommendInput").value = 1;
+            document.getElementById("likeInput").value = 1;
+            document.getElementById("recommendNumber").innerText = "1";
+            document.getElementById("likeNumber").innerText = "1";
             document.getElementById("likeEspecially").value = "";
             document.getElementById("couldBeImproved").value = "";
-            console.log(res);
             alert("Feedback was sent successfully, Thank you!")
 
         })
