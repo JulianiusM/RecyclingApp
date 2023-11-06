@@ -46,7 +46,7 @@ dependencies:
   intl: ^0.18.1
 
   # Placeholder extension
-  sprintf: ^6.0.0
+  sprintf: ^7.0.0
 
   # Persistent storage
   shared_preferences: ^2.0.15
